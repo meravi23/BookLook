@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     direction: rtl;
     text-align: right;
@@ -6,4 +10,12 @@ body {
 
 .preview {
     margin-left: 10px;
+}
+
+.search-btn {
+    width: 100%;
+}
+
+.card-link {
+    color: #aaa;
 }
