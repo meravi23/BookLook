@@ -12,11 +12,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-
     <link rel="stylesheet" href="style.css">
-
-    <!-- ng image with preview -->
-    <script src="js/ng-image-input-with-preview.js"></script>
 
     <!-- adding all my scripts after 3rd party scripts -->
     <script src="app/app.js"></script>
@@ -24,30 +20,60 @@
 </head>
 
 <body>
+
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="#">Book Look</a>
-        <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
         <div class="collapse navbar-collapse" id="collapsibleNavId">
-            <form class="form-inline my-2 my-lg-0">
-                <button class="btn btn-outline-info my-2 my-sm-0" type="submit">חיפוש</button>
-                <input class="form-control mr-sm-2" type="text" placeholder="חפשו ספר">
-            </form>
+
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link" href="!#/postings">לוח מחפשים ספרים</a>
+                <li class="nav-item active">
+                    <a class="nav-link" href="!#/signup">הרשמה<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="!#/login">כניסה</a>
                 </li>
-                <li class="nav-item active">
-                    <a class="nav-link" href="!#/signup">הרשמה<span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="!#/postings">לוח מחפשים ספרים</a>
                 </li>
             </ul>
 
+            <a class="navbar-brand" href="#">Book Look</a>
+
         </div>
     </nav>
+
+    <div class="container">
+        <div class="input-group mb-3">
+            <!-- add search icon -->
+            <input type="text" class="form-control" placeholder="חיפוש ספר">
+        </div>
+        <div class="container">
+            <form action="/action_page.php">
+                <div class="form-group">
+                    <label for="sel1">חיפוש לפי:</label>
+                    <select class="form-control" id="sel1" name="sellist1">
+                      <option>שם כותר</option>
+                      <option>שם מחבר</option>
+                    </select>
+                </div>
+                <form>
+                    <div class="custom-control custom-checkbox mb-3">
+                        <p>חנויות לחיפוש:</p>
+                        <input type="checkbox" id="shop1" name="shops">
+                        <label for="defaultCheck">קפה ספר</label>
+                        <input type="checkbox" id="shop2" name="shops">
+                        <label for="defaultCheck">קרוון הספרים</label>
+                        <input type="checkbox" id="shop3" name="shops">
+                        <label for="defaultCheck">דני ספרים</label>
+                        <input type="checkbox" id="shop4" name="shops">
+                        <label for="defaultCheck">רובינזון</label>
+                    </div>
+                </form>
+                <button type="button" class="btn btn-danger">ניקוי</button>
+
+                <button type="submit" class="btn btn-info">חיפוש</button>
+            </form>
+        </div>
+    </div>
 
     <ng-view></ng-view>
 

@@ -1,4 +1,4 @@
-var app = angular.module("usedBookApp", ["ngRoute", "ngImageInputWithPreview"]);
+var app = angular.module("usedBookApp", ["ngRoute"]);
 
 app.config(function($routeProvider) {
     $routeProvider
