@@ -1,0 +1,100 @@
+<!-- Modal -->
+<div class="modal fade" id="modelId" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">הוספת ספר / עדכון</h3>
+                <button type="button" class="close mr-auto" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="title" class="col-form-label">שם הכותר:</label>
+                                <div>
+                                    <input type="text" class="form-control" id="id-title" ng-model="title" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="author" class="col-form-label">שם המחבר:</label>
+                                <div>
+                                    <input type="text" class="form-control" id="id-author" ng-model="author" required>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="img" class="col-form-label">תמונות:</label>
+                                <div>
+                                    <input type="image" class="form-control" id="img" ng-model="img">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="isbn" class="col-form-label">ISBN:</label>
+                                <div>
+                                    <input type="text" class="form-control" id="id-isbn" ng-model="isbn">
+                                </div>
+                            </div>
+                            <div>
+                                <label for="book-state">מצב הספר:</label>
+                                <select class="form-control" id="id-book-state" name="states-list">
+                                    <option>כמו חדש</option>
+                                    <option>טוב מאוד</option>
+                                    <option>סביר</option>
+                                    <option>קריא</option>
+                                </select>
+                            </div>
+                            <div class="form-group">
+                                <label for="publisher" class="col-form-label">הוצאה לאור:</label>
+                                <div>
+                                    <input type="text" class="form-control" id="id-publisher" ng-model="publisher">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="comment">פרטים נוספים:</label>
+                                <textarea class="form-control" rows="5" id="comment"></textarea>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div>
+                                <button type="button" class="btn btn-danger" ng-click="deleteBook()"
+                                    data-dismiss="modal">מחיקת הספר</button>
+                            </div>
+                            <div>
+                                <img class="img-placeholder"
+                                    src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                            </div>
+                            <div>
+                                <img class="img-placeholder"
+                                    src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                            </div>
+                            <div class="form-group">
+                                <label for="edition" class="col-form-label">מהדורה:</label>
+                                <input type="text" class="form-control edition" id="id-edition" ng-model="edition">
+                            </div>
+                            <div>
+                                <label for="book-state">קטגוריה:</label>
+                                <select class="form-control" id="id-book-state" name="states-list">
+                                    <option>עיון ומחקר</option>
+                                    <option>פרוזה</option>
+                                    <option>ספרי לימוד</option>
+                                    <option>ספרי הדרכה</option>
+                                    <option>ספרי ילדים</option>
+                                </select>
+                            </div>
+                            <div>
+                                <button type="button" class="btn btn-info my-3" ng-click="addBook()">פרסום הספר
+                                    למכירה</button>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+        <div class="modal-footer">
+            <button type="button" class="btn btn-danger" data-dismiss="modal">ניקוי</button>
+        </div>
+    </div>
+</div>
+</div>

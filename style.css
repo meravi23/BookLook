@@ -19,3 +19,21 @@ body {
 .card-link {
     color: #aaa;
 }
+
+.row-of-cards {
+    /* margin: auto; */
+    justify-content: space-between;
+}
+
+a:hover {
+    text-decoration: none;
+}
+
+.modal-footer {
+    justify-content: space-evenly;
+}
+
+.img-placeholder {
+    width: 90%;
+}
+
