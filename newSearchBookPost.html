@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title">הוספת ספר / עדכון</h3>
-                <button type="button" class="close mr-auto" data-dismiss="modal" aria-label="Close">
+                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
             </div>
@@ -12,6 +12,15 @@
                 <form>
                     <div class="row">
                         <div class="col-md-8">
+                            <div class="form-group">
+                                <label for="id-book" class="col-form-label">מספר מזהה:</label>
+                                <div class="id-number">
+                                    <input type="text" class="form-control book-id" id="id-seller"
+                                        ng-model="seller-number" disabled>
+                                    <input type="text" class="form-control book-id" id="id-book" ng-model="book-number"
+                                        disabled>
+                                </div>
+                            </div>
                             <div class="form-group">
                                 <label for="title" class="col-form-label">שם הכותר:</label>
                                 <div>
@@ -84,17 +93,14 @@
                                 </select>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-info my-3" ng-click="addBook()">פרסום הספר
-                                    למכירה</button>
+                                <button type="button" class="btn btn-info my-3" ng-click="addBook()">פרסום מודעת
+                                    חיפוש</button>
+                                <button type="button" class="btn btn-danger" data-dismiss="modal">ניקוי</button>
                             </div>
                         </div>
                     </div>
+                </form>
             </div>
-            </form>
-        </div>
-        <div class="modal-footer">
-            <button type="button" class="btn btn-danger" data-dismiss="modal">ניקוי</button>
         </div>
     </div>
-</div>
 </div>

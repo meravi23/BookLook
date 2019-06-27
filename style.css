@@ -37,3 +37,13 @@ a:hover {
     width: 90%;
 }
 
+.book-id {
+    width: 30%;
+    display: inline-block;
+ }
+
+ .id-number {
+    display: inline-block; 
+    margin: auto;
+ }
+
