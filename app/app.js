@@ -4,5 +4,7 @@ app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "app/home/homeUsedSearch.html"
+        }).when("/board", {
+            templateUrl: "app/searchBoard/searchBoard.html"
         })
 })
