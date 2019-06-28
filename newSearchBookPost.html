@@ -16,8 +16,8 @@
                                 <label for="id-book" class="col-form-label">מספר מזהה:</label>
                                 <div class="id-number">
                                     <input type="text" class="form-control book-id" id="id-seller"
-                                        ng-model="seller-number" disabled>
-                                    <input type="text" class="form-control book-id" id="id-book" ng-model="book-number"
+                                        ng-model="sellerNum" disabled>
+                                    <input type="text" class="form-control book-id" id="id-book" ng-model="bookNum"
                                         disabled>
                                 </div>
                             </div>
@@ -47,7 +47,7 @@
                             </div>
                             <div>
                                 <label for="book-state">מצב הספר:</label>
-                                <select class="form-control" id="id-book-state" name="states-list">
+                                <select class="form-control" id="id-book-state" name="book-state">
                                     <option>כמו חדש</option>
                                     <option>טוב מאוד</option>
                                     <option>סביר</option>
@@ -83,8 +83,8 @@
                                 <input type="text" class="form-control edition" id="id-edition" ng-model="edition">
                             </div>
                             <div>
-                                <label for="book-state">קטגוריה:</label>
-                                <select class="form-control" id="id-book-state" name="states-list">
+                                <label for="states-list">קטגוריה:</label>
+                                <select class="form-control" id="id-category" name="states-list">
                                     <option>עיון ומחקר</option>
                                     <option>פרוזה</option>
                                     <option>ספרי לימוד</option>

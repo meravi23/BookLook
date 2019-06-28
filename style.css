@@ -47,3 +47,15 @@ a:hover {
     margin: auto;
  }
 
+ .mandatory {
+     color: red;
+     font-size: 0.75em;
+ }
+
+ .logo-placeholder {
+     width: 100%;
+ }
+
+.street-shop {
+    display: block;
+}

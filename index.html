@@ -23,7 +23,6 @@
 </head>
 
 <body>
-
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
@@ -41,7 +40,7 @@
             <a class="navbar-brand" href="#">Book Look</a>
         </div>
     </nav>
-
+<!-- start accordion categories -->
     <div class="container my-3">
         <div class="row">
             <div class="col-md-2">
@@ -56,9 +55,7 @@
                             </div>
                             <div id="collapseOne" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                 </div>
                             </div>
                         </div>
@@ -70,9 +67,7 @@
                             </div>
                             <div id="collapseTwo" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                 </div>
                             </div>
                         </div>
@@ -84,9 +79,7 @@
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                 </div>
                             </div>
                         </div>
@@ -98,9 +91,7 @@
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                 </div>
                             </div>
                         </div>
@@ -154,16 +145,16 @@
                             <form>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <h6>חנויות לחיפוש:</h6>
-                                    <input type="checkbox" id="shop1" name="shops" checked>
-                                    <label for="defaultCheck">כל החנויות</label>
+                                    <input type="checkbox" id="shop0" name="shops" checked>
+                                    <label for="shop0">כל החנויות</label>
                                     <input type="checkbox" id="shop1" name="shops">
-                                    <label for="defaultCheck">קפה ספר</label>
+                                    <label for="shop1">קפה ספר</label>
                                     <input type="checkbox" id="shop2" name="shops">
-                                    <label for="defaultCheck">קרוון הספרים</label>
+                                    <label for="shop2">קרוון הספרים</label>
                                     <input type="checkbox" id="shop3" name="shops">
-                                    <label for="defaultCheck">דני ספרים</label>
+                                    <label for="shop3">דני ספרים</label>
                                     <input type="checkbox" id="shop4" name="shops">
-                                    <label for="defaultCheck">רובינזון</label>
+                                    <label for="shop4">רובינזון</label>
                                 </div>
                             </form>
                         </div>
@@ -175,7 +166,7 @@
         </div>
     </div>
 
-
+<!-- start recently added -->
     <div>
         <div>
             <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
@@ -312,18 +303,27 @@
             </div>
         </div>
 
+        <!-- connecting modal window -->
         <div class="col-md-3 my-3">
             <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelId">הוספת מודעת
                 חיפוש</button>
         </div>
 
-        <!-- connecting modal window -->
         <div ng-include="'newSearchBookPost.html'"></div>
+         <!-- end search board -->
 
+         <!-- connecting modal window -->
+         <div class="col-md-3 my-3">
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת חשבון - מוכרים</button>
+            </div>
+
+        <div ng-include="'sellerAccountForm.html'"></div>
+
+         </div>
+        </div>
+  
     </div>
-    <!-- end search board -->
-
-
+   
     <ng-view></ng-view>
 
     <!-- Optional JavaScript -->
