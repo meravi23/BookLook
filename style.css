@@ -8,8 +8,22 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+.fa-user {
+    padding: 11px;
+}
+
+.home-search {
+    position: relative;
+}
+
+.fa-search {
+    position: absolute;
+    top: 0;
+}
+
 .preview {
     margin-left: 10px;
+    margin-bottom: 10px;
 }
 
 .search-btn {

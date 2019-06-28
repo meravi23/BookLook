@@ -33,6 +33,9 @@
                     <a class="nav-link" href="#!/login">כניסה</a>
                 </li>
                 <li class="nav-item">
+                    <i class="fas fa-user"></i><span>שם משתמש </span>
+                </li>
+                <li class="nav-item">
                     <a class="nav-link" href="app/searchBoard/searchBoard.html">לוח חיפוש ספרים</a>
                 </li>
                 <li class="nav-item">
@@ -115,17 +118,18 @@
             </div>
             <div class="col-md-10">
                 <div class="input-group md-form form-sm form-2 pl-0">
-                    <input class="form-control my-0 py-1 amber-border" type="text" placeholder="חיפוש ספר"
+                    <input class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר"
                         aria-label="Search">
+                    <i class="fas fa-search"></i>
                 </div>
                 <form>
                     <div class="form-group">
                         <div class="row my-3">
                             <div class="col-md-2">
-                                <label for="sel1">חיפוש לפי:</label>
+                                <label for="search1">חיפוש לפי:</label>
                             </div>
                             <div class="col-md-10">
-                                <select class="form-control" id="sel1" name="sellist1">
+                                <select class="form-control" id="search1" name="search-options">
                                     <option>שם כותר</option>
                                     <option>שם מחבר</option>
                                     <option>ISBN</option>
@@ -242,97 +246,98 @@
     <!-- start search board -->
 
     <div>
-        <h3 class="my-3">הספרים הבאים מבוקשים על ידי מפרסמי המודעה. אם הספר ברשותכם, צרו עימם קשר ישירות</h3>
+        <h3 class="my-3">הספרים הבאים מבוקשים על ידי מפרסמי המודעה - צרו עימם קשר ישירות</h3>
 
         <div class="row row-of-cards">
             <div class="card preview" style="width: 16rem;">
                 <div class="card-body">
-                    <h5 class="card-title">שם הוורד</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                    <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                    <h5 class="card-title">שלוש כוסות תה</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
+                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
                 </div>
             </div>
             <div class="card preview" style="width: 16rem;">
                 <div class="card-body">
-                    <h5 class="card-title">The Art of War</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Sun Dze</h6>
-                    <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                    <h5 class="card-title">החיים כמשל</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>פנחס שדה</h6>
+                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
                 </div>
             </div>
             <div class="card preview" style="width: 16rem;">
                 <div class="card-body">
-                    <h5 class="card-title">מוצא המינים</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>צ'רלס דרווין</h6>
-                    <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">שם הוורד</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                    <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                    <h5 class="card-title">Java for Dummies</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Barry A. Burd</h6>
+                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
                 </div>
             </div>
             <div class="card preview" style="width: 16rem;">
                 <div class="card-body">
                     <h5 class="card-title">שם הוורד</h5>
                     <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                    <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">The Art of War</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Sun Dze</h6>
-                    <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">מוצא המינים</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>צ'רלס דרווין</h6>
-                    <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">שם הוורד</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                    <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
                 </div>
             </div>
         </div>
-        <div class="row">
-            <!-- connecting modal window -->
-            <div class="col-md-3 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelId">הוספת
-                    מודעת
-                    חיפוש</button>
+        <div class="row row-of-cards">
+            <div class="card preview" style="width: 16rem;">
+                <div class="card-body">
+                    <h5 class="card-title">שלוש כוסות תה</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
+                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                </div>
             </div>
-
-            <div ng-include="'newSearchBookPost.html'"></div>
-            <!-- end search board -->
-
-            <!-- connecting modal window -->
-            <div class="col-md-3 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
-                    data-target="#modelSellers">יצירת
-                    חשבון מוכר</button>
+            <div class="card preview" style="width: 16rem;">
+                <div class="card-body">
+                    <h5 class="card-title">החיים כמשל</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>פנחס שדה</h6>
+                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                </div>
             </div>
-
-            <div ng-include="'sellerAccountForm.html'"></div>
-
-            <!-- connecting modal window -->
-            <div class="col-md-3 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
-                    data-target="#modelStore">דשבורד
-                    מוכרים</button>
+            <div class="card preview" style="width: 16rem;">
+                <div class="card-body">
+                    <h5 class="card-title">Java for Dummies</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Barry A. Burd</h6>
+                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                </div>
             </div>
-            <div ng-include="'manageStore.html'"></div>
-
+            <div class="card preview" style="width: 16rem;">
+                <div class="card-body">
+                    <h5 class="card-title">שם הוורד</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
+                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                </div>
+            </div>
         </div>
     </div>
-   
+    <div class="row">
+        <!-- connecting modal window -->
+        <div class="col-md-3 my-3">
+            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelId">הוספת
+                מודעת
+                חיפוש</button>
+        </div>
+
+        <div ng-include="'newSearchBookPost.html'"></div>
+        <!-- end search board -->
+
+        <!-- connecting modal window -->
+        <div class="col-md-3 my-3">
+            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת
+                חשבון מוכר</button>
+        </div>
+
+        <div ng-include="'sellerAccountForm.html'"></div>
+
+        <!-- connecting modal window -->
+        <div class="col-md-3 my-3">
+            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelStore">דשבורד
+                מוכרים</button>
+        </div>
+        <div ng-include="'manageStore.html'"></div>
+
+    </div>
+    </div>
+
 
     <ng-view></ng-view>
 
