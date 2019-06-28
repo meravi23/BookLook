@@ -19,6 +19,7 @@
 
     <!-- adding all my scripts after 3rd party scripts -->
     <script src="app/app.js"></script>
+    <script src="app/model/userSrv.js"></script>
 
 </head>
 
@@ -30,7 +31,7 @@
                     <a class="nav-link" href="#!/signup">הרשמה<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="#!/login">כניסה</a>
+                    <a class="nav-link" href="login.html">כניסה</a>
                 </li>
                 <li class="nav-item">
                     <i class="fas fa-user"></i><span>שם משתמש </span>
@@ -313,8 +314,7 @@
         <!-- connecting modal window -->
         <div class="col-md-3 my-3">
             <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelId">הוספת
-                מודעת
-                חיפוש</button>
+                מודעת חיפוש</button>
         </div>
 
         <div ng-include="'newSearchBookPost.html'"></div>
