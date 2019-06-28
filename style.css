@@ -21,7 +21,6 @@ body {
 }
 
 .row-of-cards {
-    /* margin: auto; */
     justify-content: space-between;
 }
 
@@ -66,4 +65,46 @@ a:hover {
 
 .modal-title {
     margin: auto
+}
+
+.dashboard h3 {
+    margin-top: 15px;
+}
+
+.statistics {
+    position: relative;
+    width: 50%;
+    background-color: rgb(92, 4, 4);
+    border-radius: 50%;
+}
+
+.statistics:after {
+    content: "";
+    display: block;
+    padding-bottom: 100%;
+}
+
+.statistics span {
+    position: absolute;
+    top: 40%;
+    right: 30%;
+    font-size: 150%;
+    color: whitesmoke;
+}
+
+.message-board {
+    border: 2px solid rgb(92, 4, 4);
+    padding: 5px;
+}
+
+.message-board > div {
+    margin-top: 10px;
+}
+
+.customer, .book-inquired {
+    font-weight: bold;
+}
+
+.book-inquired {
+    color: rgb(92, 4, 4);
 }

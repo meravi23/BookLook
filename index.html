@@ -27,20 +27,23 @@
         <div class="collapse navbar-collapse" id="collapsibleNavId">
             <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
                 <li class="nav-item active">
-                    <a class="nav-link" href="!#/signup">הרשמה<span class="sr-only">(current)</span></a>
+                    <a class="nav-link" href="#!/signup">הרשמה<span class="sr-only">(current)</span></a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="!#/login">כניסה</a>
+                    <a class="nav-link" href="#!/login">כניסה</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="app/searchBoard/searchBoard.html">לוח חיפוש ספרים</a>
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="manageStore.html">ניהול חנות</a>
+                </li>
             </ul>
 
-            <a class="navbar-brand" href="#">Book Look</a>
+            <a class="navbar-brand" href="#!">Book Look</a>
         </div>
     </nav>
-<!-- start accordion categories -->
+    <!-- start accordion categories -->
     <div class="container my-3">
         <div class="row">
             <div class="col-md-2">
@@ -67,7 +70,7 @@
                             </div>
                             <div id="collapseTwo" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                 </div>
                             </div>
                         </div>
@@ -79,7 +82,7 @@
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                 </div>
                             </div>
                         </div>
@@ -91,7 +94,7 @@
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                        Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                 </div>
                             </div>
                         </div>
@@ -103,9 +106,7 @@
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor
-                                    incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-                                    exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
                                 </div>
                             </div>
                         </div>
@@ -116,7 +117,6 @@
                 <div class="input-group md-form form-sm form-2 pl-0">
                     <input class="form-control my-0 py-1 amber-border" type="text" placeholder="חיפוש ספר"
                         aria-label="Search">
-
                 </div>
                 <form>
                     <div class="form-group">
@@ -166,7 +166,7 @@
         </div>
     </div>
 
-<!-- start recently added -->
+    <!-- start recently added -->
     <div>
         <div>
             <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
@@ -302,29 +302,38 @@
                 </div>
             </div>
         </div>
-
-        <!-- connecting modal window -->
-        <div class="col-md-3 my-3">
-            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelId">הוספת מודעת
-                חיפוש</button>
-        </div>
-
-        <div ng-include="'newSearchBookPost.html'"></div>
-         <!-- end search board -->
-
-         <!-- connecting modal window -->
-         <div class="col-md-3 my-3">
-                <button type="submit" class="btn btn-info search-btn"
-                data-toggle="modal" data-target="#modelSellers">יצירת חשבון מוכר</button>
+        <div class="row">
+            <!-- connecting modal window -->
+            <div class="col-md-3 my-3">
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelId">הוספת
+                    מודעת
+                    חיפוש</button>
             </div>
 
-        <div ng-include="'sellerAccountForm.html'"></div>
+            <div ng-include="'newSearchBookPost.html'"></div>
+            <!-- end search board -->
 
-         </div>
+            <!-- connecting modal window -->
+            <div class="col-md-3 my-3">
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
+                    data-target="#modelSellers">יצירת
+                    חשבון מוכר</button>
+            </div>
+
+            <div ng-include="'sellerAccountForm.html'"></div>
+
+            <!-- connecting modal window -->
+            <div class="col-md-3 my-3">
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
+                    data-target="#modelStore">דשבורד
+                    מוכרים</button>
+            </div>
+            <div ng-include="'manageStore.html'"></div>
+
         </div>
-  
     </div>
    
+
     <ng-view></ng-view>
 
     <!-- Optional JavaScript -->

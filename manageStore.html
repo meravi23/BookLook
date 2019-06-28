@@ -1,0 +1,141 @@
+<!-- Modal -->
+<div class="modal fade" id="modelStore" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+    <div class="modal-dialog modal-xl" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">ניהול חנות</h3>
+                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div class="input-group md-form form-sm form-2 pl-0">
+                                <input class="form-control my-0 py-1 amber-border" type="text"
+                                    placeholder="חיפוש ספר במלאי" aria-label="Search">
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="store-search"
+                                                name="dbToSearch">חיפוש במלאי החנות
+                                        </label>
+                                    </div>
+                                </div>
+                                <div class="col-md-6">
+                                    <div class="form-check-inline">
+                                        <label class="form-check-label">
+                                            <input type="radio" class="form-check-input" value="site-search"
+                                                name="dbToSearch">חיפוש במלאי האתר
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row my-3 dashboard">
+                        <div class="col-md-9">
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <h3>מספר ספרים למכירה</h3>
+                                    <div class="statistics">
+                                        <span>574</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h3>ממוצע ימים עד מכירה</h3>
+                                    <div class="statistics">
+                                        <span>21</span>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <h3>מחיר ממוצע לספר</h3>
+                                    <div class="statistics">
+                                        <span>37 ש"ח</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-lg btn-block btn-info my-3"
+                                        ng-click="addBook()">הוספת
+                                        ספר למכירה</button>
+                                </div>
+                                <div class="col-md-6">
+                                    <button type="button" class="btn btn-lg btn-block btn-info my-3"
+                                        ng-click="updateBook()">עדכון
+                                        פרטי ספר קיים</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="col-md-3">
+                            <div class="message-board">
+                                <h3>הודעות מלקוחות</h3>
+                                <div>
+                                    <p><span>3 </span>הודעות שלא נקראו:</p>
+                                </div>
+                                <div>
+                                    <span class="customer">דני כהן </span>מתעניין בספר <span class="book-inquired">גידול
+                                        נחשים</span>
+                                </div>
+                                <div>
+                                    <span class="customer">מרים לבנה </span>מתעניינת בספר <span
+                                        class="book-inquired">בדיונות</span>
+                                </div>
+                                <div>
+                                    <span class="customer">Joseph Cohen </span>מתעניין בספר <span
+                                        class="book-inquired">The
+                                        Art of Love</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-md-12">
+                            <div>
+                                <h3 class="my-3">נוספו לאחרונה למלאי החנות:</h3>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-4">
+                                    <div class="card preview">
+                                        <div class="card-body">
+                                            <h5 class="card-title">שם הוורד</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
+                                            <p>מספר מזהה: <span>003-</span><span>572</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card preview">
+                                        <div class="card-body">
+                                            <h5 class="card-title">The Art of War</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Sun Dze</h6>
+                                            <p>מספר מזהה: <span>003-</span><span>573</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="card preview">
+                                        <div class="card-body">
+                                            <h5 class="card-title">מוצא המינים</h5>
+                                            <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>צ'רלס דרווין
+                                            </h6>
+                                            <p>מספר מזהה: <span>003-</span><span>574</span></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</div>
+</div>
