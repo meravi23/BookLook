@@ -40,22 +40,30 @@ a:hover {
 .book-id {
     width: 30%;
     display: inline-block;
- }
+}
 
- .id-number {
-    display: inline-block; 
+.id-number {
+    display: inline-block;
     margin: auto;
- }
+}
 
- .mandatory {
-     color: red;
-     font-size: 0.75em;
- }
+.mandatory {
+    color: red;
+    font-size: 0.75em;
+}
 
- .logo-placeholder {
-     width: 100%;
- }
+.logo-placeholder {
+    width: 100%;
+}
 
-.street-shop {
-    display: block;
+.form-check-inline .form-check-input {
+    margin-left: 5px;
+}
+
+.dropdown-menu {
+    min-width: auto;
+}
+
+.modal-title {
+    margin: auto
 }

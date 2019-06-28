@@ -3,7 +3,7 @@
     <div class="modal-dialog modal-xl" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">יצירת חשבון - מוכרים</h3>
+                <h3 class="modal-title">יצירת חשבון מוכר</h3>
                 <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -18,7 +18,8 @@
                                     חשבון</button>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-danger my-3" data-dismiss="modal">ניקוי שדות</button>
+                                <button type="button" class="btn btn-danger my-3" data-dismiss="modal">ניקוי
+                                    שדות</button>
                             </div>
                         </div>
                         <div class="col-md-8">
@@ -53,9 +54,10 @@
                                 </div>
                                 <div class="col-md-2">
                                     <div class="form-group">
-                                        <label for="logo-img" class="col-form-label">לוגו:</label>
-                                        <div>
-                                            <input type="image" class="form-control" id="logo-img" ng-model="logoImg">
+                                        <div class="custom-file">
+                                            <label class="custom-control-label" for="logo-img">הוספת לוגו חנות:</label>
+                                            <input type="file" class="custom-file-input" id="logo-img"
+                                                ng-model="logoImg">
                                         </div>
                                     </div>
                                 </div>
@@ -270,7 +272,7 @@
                                 </div>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-info my-3" ng-click="addSeller()">יצירת
+                                <button type="button" class="btn btn-lg btn-info my-3" ng-click="addSeller()">יצירת
                                     חשבון</button>
                             </div>
                         </div>
