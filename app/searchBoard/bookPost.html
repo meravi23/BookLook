@@ -1,0 +1,98 @@
+<!-- Modal -->
+<div class="modal fade" id="modelPostFulfilled" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title">ספר מבוקש:</h3>
+                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div>
+                            <span class="field-name">מספר מערכת</span>
+                            <span class="field-value">{{sellerNum}}003-{{bookNum}}747</span>
+                        </div>
+
+                        <div>
+                            <span class="field-name">שם הכותר</span>
+                            <span class="field-value">{{title}}הרים מעבר להרים</span>
+                        </div>
+                        <div>
+                            <span class="field-name">שם המחבר</span>
+                            <span class="field-value">{{author}}טרייסי קידר</span>
+                        </div>
+                        <div>
+                            <span class="field-name">ISBN</span>
+                            <span class="field-value">{{isbn}}347-526-879</span>
+                        </div>
+                        <div>
+                            <span class="field-name">מצב הספר</span>
+                            <span class="field-value">{{bookState}}טוב מאוד</span>
+                        </div>
+                        <div>
+                            <span class="field-name">הוצאה לאור</span>
+                            <span class="field-value">{{publisher}}אג'נדה</span>
+                        </div>
+                        <div>
+                            <span class="field-name">מהדורה</span>
+                            <span class="field-value">{{edition}}ראשונה</span>
+                        </div>
+                        <div>
+                            <span class="field-name">קטגוריה</span>
+                            <span class="field-value">{{bookCategory}}פרוזה</span>
+                        </div>
+                        <div>
+                            <span class="field-name">פרטים נוספים</span>
+                            <span class="field-value">{{bookDetails}}מחפשת את הספר בנרות. מוכנה לשלם עד 100 ש"ח
+                                (כולל משלוח).</span>
+                        </div>
+                        <div>
+                            <span class="field-name">שם המחפשת</span>
+                            <span class="field-value">{{postedBy}}אמירה לוי</span>
+                        </div>
+                        <div>
+                            <span class="field-name">צרו עימי קשר באמצעות</span>
+                            <span class="field-value">
+                                <span><i class="fas fa-envelope"></i> דוא"ל</span>
+                                <span><i class="fab fa-whatsapp"></i> ווטסאפ</span>
+                            </span>
+                            <span class="field-value">
+                                <span><i class="fas fa-mobile-alt"></i> טלפון</span>
+                                <span><i class="fab fa-facebook-messenger"></i> פייסבוק</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <button type="button" class="btn btn-block btn-danger" ng-click="deleteBook()"
+                                data-dismiss="modal">הסרת מודעה</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-block btn-info my-3" ng-click="deleteBook()"
+                                data-dismiss="modal">עדכון מודעה</button>
+                        </div>
+
+
+                        <div>
+                            <span class="field-value">{{bookImg}}</span>
+                            <div>
+                                <img class="img-placeholder"
+                                    src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="contact()">יצירת קשר
+                        עם המפרסמת</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -246,16 +246,31 @@
     </div>
 
 
+    <div class="row">
 
-    <!-- connecting modal window -->
-    <div class="col-md-3 my-3">
-        <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת
-            חשבון מוכר</button>
+        <!-- connecting modal window -->
+        <div class="col-md-4 my-3">
+            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת
+                חשבון מוכר</button>
+        </div>
+
+        <div ng-include="'sellerAccountForm.html'"></div>
+
+        <!-- connecting modal window -->
+        <div class="col-md-4 my-3">
+            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelBookPost">הוספת
+                מודעת חיפוש</button>
+        </div>
+        <div ng-include="'newSearchBookPost.html'"></div>
+
+        <!-- connecting modal window -->
+        <div class="col-md-4 my-3">
+            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelPostFulfilled">מודעת חיפוש</button>
+        </div>
+        <div ng-include="'app/searchBoard/bookPost.html'"></div>
     </div>
 
-    <div ng-include="'sellerAccountForm.html'"></div>
 
-    
     <ng-view></ng-view>
 
     <!-- Optional JavaScript -->

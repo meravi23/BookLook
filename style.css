@@ -21,6 +21,11 @@ body {
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
 }
 
+/* not overriding! */
+.navbar-brand {
+    color: #b71c1c;
+}
+
 .fa-user {
     padding: 11px;
 }
@@ -139,4 +144,15 @@ a:hover {
 
 .book-inquired {
     color: #b71c1c;
+}
+
+.field-value {
+    float: left;
+    width: 70%;
+    font-weight: bold;
+}
+
+.field-name {
+    float: right;
+    width: 30%;
 }
