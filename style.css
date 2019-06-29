@@ -33,8 +33,7 @@ body {
 
 .btn:hover {
     background-color: #c53d13;
-    border-color: #7f0000;
-    color: #000000;
+    border-color: #c53d13;
 }
 
 .fa-user {
@@ -145,11 +144,12 @@ a:hover {
     padding: 5px;
 }
 
-.message-board > div {
+.message-board>div {
     margin-top: 10px;
 }
 
-.customer, .book-inquired {
+.customer,
+.book-inquired {
     font-weight: bold;
 }
 
@@ -166,4 +166,8 @@ a:hover {
 .field-name {
     float: right;
     width: 30%;
+}
+
+.book-img {
+    width: 10%;
 }
