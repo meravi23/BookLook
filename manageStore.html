@@ -1,141 +1,180 @@
-<!-- Modal -->
-<div class="modal fade" id="modelStore" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
-    <div class="modal-dialog modal-xl" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h3 class="modal-title">ניהול חנות</h3>
-                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <form>
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div class="input-group md-form form-sm form-2 pl-0">
-                                <input class="form-control my-0 py-1 amber-border" type="text"
-                                    placeholder="חיפוש ספר במלאי" aria-label="Search">
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" value="store-search"
-                                                name="dbToSearch">חיפוש במלאי החנות
-                                        </label>
-                                    </div>
-                                </div>
-                                <div class="col-md-6">
-                                    <div class="form-check-inline">
-                                        <label class="form-check-label">
-                                            <input type="radio" class="form-check-input" value="site-search"
-                                                name="dbToSearch">חיפוש במלאי האתר
-                                        </label>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+<!doctype html>
+<html lang="en">
 
-                    <div class="row my-3 dashboard">
-                        <div class="col-md-9">
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <h3>מספר ספרים למכירה</h3>
-                                    <div class="statistics">
-                                        <span>574</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <h3>ממוצע ימים עד מכירה</h3>
-                                    <div class="statistics">
-                                        <span>21</span>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <h3>מחיר ממוצע לספר</h3>
-                                    <div class="statistics">
-                                        <span>37 ש"ח</span>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <button type="button" class="btn btn-lg btn-block btn-info my-3"
-                                        ng-click="addBook()">הוספת
-                                        ספר למכירה</button>
-                                </div>
-                                <div class="col-md-6">
-                                    <button type="button" class="btn btn-lg btn-block btn-info my-3"
-                                        ng-click="updateBook()">עדכון
-                                        פרטי ספר קיים</button>
-                                </div>
-                            </div>
-                        </div>
+<head>
+    <title>Manage Store</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-                        <div class="col-md-3">
-                            <div class="message-board">
-                                <h3>הודעות מלקוחות</h3>
-                                <div>
-                                    <p><span>3 </span>הודעות שלא נקראו:</p>
-                                </div>
-                                <div>
-                                    <span class="customer">דני כהן </span>מתעניין בספר <span class="book-inquired">גידול
-                                        נחשים</span>
-                                </div>
-                                <div>
-                                    <span class="customer">מרים לבנה </span>מתעניינת בספר <span
-                                        class="book-inquired">בדיונות</span>
-                                </div>
-                                <div>
-                                    <span class="customer">Joseph Cohen </span>מתעניין בספר <span
-                                        class="book-inquired">The
-                                        Art of Love</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
 
-                    <div class="row">
-                        <div class="col-md-12">
-                            <div>
-                                <h3 class="my-3">נוספו לאחרונה למלאי החנות:</h3>
-                            </div>
-                            <div class="row">
-                                <div class="col-md-4">
-                                    <div class="card preview">
-                                        <div class="card-body">
-                                            <h5 class="card-title">שם הוורד</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                                            <p>מספר מזהה: <span>003-</span><span>572</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card preview">
-                                        <div class="card-body">
-                                            <h5 class="card-title">The Art of War</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Sun Dze</h6>
-                                            <p>מספר מזהה: <span>003-</span><span>573</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                                <div class="col-md-4">
-                                    <div class="card preview">
-                                        <div class="card-body">
-                                            <h5 class="card-title">מוצא המינים</h5>
-                                            <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>צ'רלס דרווין
-                                            </h6>
-                                            <p>מספר מזהה: <span>003-</span><span>574</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-            </div>
-            </form>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+
+    <!-- adding all my scripts after 3rd party scripts -->
+    <script src="app/app.js"></script>
+    <script src="app/model/userSrv.js"></script>
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-sm navbar-light bg-light">
+        <div class="collapse navbar-collapse" id="collapsibleNavId">
+            <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+                <li class="nav-item active">
+                    <a class="nav-link" href="#!/signup">הרשמה<span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="login.html">כניסה</a>
+                </li>
+                <li class="nav-item">
+                    <i class="fas fa-user"></i><span>שם משתמש </span>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="app/searchBoard/searchBoard.html">לוח חיפוש ספרים</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="manageStore.html">ניהול חנות</a>
+                </li>
+            </ul>
+
+            <a class="navbar-brand" href="index.html">Book Look</a>
         </div>
+    </nav>
+
+    <div class="container">
+        <form>
+            <div class="row">
+                <div class="col-md-12">
+                    <div class="input-group md-form form-sm form-2 pl-0">
+                        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="חיפוש ספר במלאי"
+                            aria-label="Search">
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" value="store-search"
+                                        name="dbToSearch">חיפוש במלאי החנות
+                                </label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-check-inline">
+                                <label class="form-check-label">
+                                    <input type="radio" class="form-check-input" value="site-search"
+                                        name="dbToSearch">חיפוש במלאי האתר
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row my-3 dashboard">
+                <div class="col-md-9">
+                    <div class="row">
+                        <div class="col-md-4 circle">
+                            <h3>מספר ספרים למכירה</h3>
+                            <div class="statistics">
+                                <span>574</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 circle">
+                            <h3>ממוצע ימים עד מכירה</h3>
+                            <div class="statistics">
+                                <span>21</span>
+                            </div>
+                        </div>
+                        <div class="col-md-4 circle">
+                            <h3>מחיר ממוצע לספר</h3>
+                            <div class="statistics">
+                                <span>37 ש"ח</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="addBook()"
+                                data-toggle="modal" data-target="#modelId">הוספת
+                                ספר למכירה</button>
+                        </div>
+
+                        <div ng-include="'newSearchBookPost.html'"></div>
+
+                        <div class="col-md-6">
+                            <button type="button" class="btn btn-lg btn-block btn-info my-3"
+                                ng-click="updateBook()">עדכון
+                                פרטי ספר קיים</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="message-board">
+                        <h3>הודעות מלקוחות</h3>
+                        <div>
+                            <p><span>3 </span>הודעות שלא נקראו:</p>
+                        </div>
+                        <div>
+                            <span class="customer">דני כהן </span>מתעניין בספר <span class="book-inquired">גידול
+                                נחשים</span>
+                        </div>
+                        <div>
+                            <span class="customer">מרים לבנה </span>מתעניינת בספר <span
+                                class="book-inquired">בדיונות</span>
+                        </div>
+                        <div>
+                            <span class="customer">Joseph Cohen </span>מתעניין בספר <span class="book-inquired">The
+                                Art of Love</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-12">
+                    <div>
+                        <h3 class="my-3">נוספו לאחרונה למלאי החנות:</h3>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card preview">
+                                <div class="card-body">
+                                    <h5 class="card-title">שם הוורד</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
+                                    <p>מספר מזהה: <span>003-</span><span>572</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card preview">
+                                <div class="card-body">
+                                    <h5 class="card-title">The Art of War</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Sun Dze</h6>
+                                    <p>מספר מזהה: <span>003-</span><span>573</span></p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card preview">
+                                <div class="card-body">
+                                    <h5 class="card-title">מוצא המינים</h5>
+                                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>צ'רלס דרווין
+                                    </h6>
+                                    <p>מספר מזהה: <span>003-</span><span>574</span></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </form>
     </div>
-</div>
-</div>
+</body>

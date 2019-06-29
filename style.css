@@ -2,6 +2,19 @@
     box-sizing: border-box;
 }
 
+/* color palette:
+primary: #b71c1c
+light: #f05545
+dark: #7f0000
+text: #ffffff
+
+oranges:
+primary: #ff6e40
+light: #ffa06d
+dark: #c53d13
+text on dark: #000000
+*/
+
 body {
     direction: rtl;
     text-align: right;
@@ -61,7 +74,7 @@ a:hover {
 }
 
 .mandatory {
-    color: red;
+    color: #b71c1c;
     font-size: 0.75em;
 }
 
@@ -85,11 +98,16 @@ a:hover {
     margin-top: 15px;
 }
 
+.circle {
+    text-align: center;
+}
+
 .statistics {
     position: relative;
     width: 50%;
-    background-color: rgb(92, 4, 4);
+    background-color: #b71c1c;
     border-radius: 50%;
+    margin: auto;
 }
 
 .statistics:after {
@@ -101,13 +119,13 @@ a:hover {
 .statistics span {
     position: absolute;
     top: 40%;
-    right: 30%;
+    right: 35%;
     font-size: 150%;
     color: whitesmoke;
 }
 
 .message-board {
-    border: 2px solid rgb(92, 4, 4);
+    border: 2px solid #b71c1c;
     padding: 5px;
 }
 
@@ -120,5 +138,5 @@ a:hover {
 }
 
 .book-inquired {
-    color: rgb(92, 4, 4);
+    color: #b71c1c;
 }

@@ -44,9 +44,10 @@
                 </li>
             </ul>
 
-            <a class="navbar-brand" href="#!">Book Look</a>
+            <a class="navbar-brand" href="index.html">Book Look</a>
         </div>
     </nav>
+
     <!-- start accordion categories -->
     <div class="container my-3">
         <div class="row">
@@ -244,101 +245,17 @@
         </div>
     </div>
 
-    <!-- start search board -->
 
-    <div>
-        <h3 class="my-3">הספרים הבאים מבוקשים על ידי מפרסמי המודעה - צרו עימם קשר ישירות</h3>
 
-        <div class="row row-of-cards">
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">שלוש כוסות תה</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
-                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">החיים כמשל</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>פנחס שדה</h6>
-                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Java for Dummies</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Barry A. Burd</h6>
-                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">שם הוורד</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                </div>
-            </div>
-        </div>
-        <div class="row row-of-cards">
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">שלוש כוסות תה</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
-                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">החיים כמשל</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>פנחס שדה</h6>
-                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">Java for Dummies</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Barry A. Burd</h6>
-                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                </div>
-            </div>
-            <div class="card preview" style="width: 16rem;">
-                <div class="card-body">
-                    <h5 class="card-title">שם הוורד</h5>
-                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                    <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="row">
-        <!-- connecting modal window -->
-        <div class="col-md-3 my-3">
-            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelId">הוספת
-                מודעת חיפוש</button>
-        </div>
-
-        <div ng-include="'newSearchBookPost.html'"></div>
-        <!-- end search board -->
-
-        <!-- connecting modal window -->
-        <div class="col-md-3 my-3">
-            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת
-                חשבון מוכר</button>
-        </div>
-
-        <div ng-include="'sellerAccountForm.html'"></div>
-
-        <!-- connecting modal window -->
-        <div class="col-md-3 my-3">
-            <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelStore">דשבורד
-                מוכרים</button>
-        </div>
-        <div ng-include="'manageStore.html'"></div>
-
-    </div>
+    <!-- connecting modal window -->
+    <div class="col-md-3 my-3">
+        <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת
+            חשבון מוכר</button>
     </div>
 
+    <div ng-include="'sellerAccountForm.html'"></div>
 
+    
     <ng-view></ng-view>
 
     <!-- Optional JavaScript -->
