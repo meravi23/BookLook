@@ -42,11 +42,17 @@ app.factory("bookSrv", function($q, $http) {
             }
 
             async.resolve(books);
+
         }, function(err) {
             $log.error(err);
             async.reject(err);
         });
 
         return async.promise;
+    }
+
+    return {
+        getBooks: getBooks,
+        Book: Book
     }
 });

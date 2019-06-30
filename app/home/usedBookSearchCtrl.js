@@ -1,11 +1,11 @@
-app.controller("usedBooksSearchCtrl", function($scope) {
+app.controller("usedBookSearchCtrl", function($scope, bookSrv) {
 
     $scope.addedBooks = [];
 
-    $scope.addBook = function() {
-        var book = new Book("Subaru", "B4", 234000, 2015);
-        $scope.addedBooks.push(book);
-    }
-
+    bookSrv.getBooks().then(function(books) {
+        $scope.addedBooks = books;
+    }, function(err) {
+        $log.error(err);
+    })
 
 });

@@ -4,7 +4,7 @@ app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "app/home/homeUsedSearch.html",
-            controller: "usedBooksSearchCtrl.js"
+            controller: "usedBookSearchCtrl"
         }).when("/board", {
             templateUrl: "app/searchBoard/searchBoard.html"
         }).when("/manage", {
