@@ -55,6 +55,11 @@ body {
     margin-bottom: 10px;
 }
 
+
+/* .preview:last-child {
+    margin-left: 0;
+} */
+
 .search-btn {
     width: 100%;
 }
@@ -171,4 +176,8 @@ a:hover {
 
 .book-img {
     width: 10%;
+}
+
+h2 {
+    color: #CA7733;
 }

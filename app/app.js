@@ -10,5 +10,8 @@ app.config(function($routeProvider) {
             controller: "searchPostCtrl"
         }).when("/manage", {
             templateUrl: "manageStore.html"
+        }).when("/login", {
+            templateUrl: "app/login/login.html",
+            controller: "loginCtrl"
         })
 })

@@ -70,8 +70,13 @@
             </div>
             <div class="col-md-10">
                 <div class="input-group md-form form-sm form-2 pl-0">
-                    <input class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר" aria-label="Search">
+                    <input ng-model="userSearchInput" ng-change="updateSearchResults()" class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר" aria-label="Search">
                     <i class="fas fa-search"></i>
+                    <div class="search-results" ng-show="searchResults.length > 0">
+                        <ul class="list-group">
+                            <a href="#" ng-repeat="result in searchResults" class="list-group-item list-group-item-action" ng-click="openBook(result)">{{result.title}}</a>
+                        </ul>
+                    </div>
                 </div>
                 <form>
                     <div class="form-group">
@@ -126,7 +131,7 @@
                 <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview col-md-3" ng-repeat="book in addedBooks">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="book in addedBooks">
                     <div class="card-body">
                         <h5 class="card-title">{{book.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
@@ -138,10 +143,10 @@
 
         <div>
             <div>
-                <h3 class="my-3"><a href="app/searchBoard/searchBoard.html">ספרים שקוראים מחפשים</a></h3>
+                <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview col-md-3" ng-repeat="post in posts">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="post in posts">
                     <div class="card-body">
                         <h5 class="card-title">שלוש כוסות תה</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
@@ -161,11 +166,7 @@
 
             <div ng-include="'sellerAccountForm.html'"></div>
 
-            <div class="col-md-4 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelBookPost">הוספת
-                        מודעת חיפוש</button>
-            </div>
-            <div ng-include="'newSearchBookPost.html'"></div>
+
 
             <div class="col-md-4 my-3">
                 <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelPostFulfilled">מודעת חיפוש</button>
