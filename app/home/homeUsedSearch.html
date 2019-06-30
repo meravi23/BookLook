@@ -70,13 +70,8 @@
             </div>
             <div class="col-md-10">
                 <div class="input-group md-form form-sm form-2 pl-0">
-                    <input ng-model="userSearchInput" ng-change="updateSearchResults()" class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר" aria-label="Search">
+                    <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר" aria-label="Search">
                     <i class="fas fa-search"></i>
-                    <div class="search-results" ng-show="searchResults.length > 0">
-                        <ul class="list-group">
-                            <a href="#" ng-repeat="result in searchResults" class="list-group-item list-group-item-action" ng-click="openBook(result)">{{result.title}}</a>
-                        </ul>
-                    </div>
                 </div>
                 <form>
                     <div class="form-group">
@@ -85,23 +80,24 @@
                                 <label for="search1">חיפוש לפי:</label>
                             </div>
                             <div class="col-md-10">
-                                <select class="form-control" id="search1" name="search-options">
-                                            <option>שם כותר</option>
-                                            <option>שם מחבר</option>
-                                            <option>ISBN</option>
-                                            <option>הוצאה לאור</option>
-                                        </select>
+                                <select ng-init="" class="form-control" id="search1" name="search-options" ng-model="fieldToSearch">
+                                    <option value="title">שם כותר</option>
+                                    <option value="author">שם מחבר</option>
+                                    <option value="ISBN">ISBN</option>
+                                    <option value="publisher">הוצאה לאור</option>
+                                </select>
                             </div>
                         </div>
                     </div>
+
                     <div class="row">
                         <div class="col-md-3">
                             <div>
                                 <button type="button" class="btn btn-danger search-btn">ניקוי</button>
                             </div>
                         </div>
-                        <div class="col-md-6">
 
+                        <div class="col-md-6">
                             <form>
                                 <div class="custom-control custom-checkbox mb-3">
                                     <h6>חנויות לחיפוש:</h6>
@@ -119,7 +115,7 @@
                             </form>
                         </div>
                         <div class="col-md-3">
-                            <button type="submit" class="btn btn-info search-btn">חיפוש</button>
+                            <button type="submit" class="btn btn-info search-btn" ng-click="searchBook()">חיפוש</button>
                         </div>
                 </form>
                 </div>

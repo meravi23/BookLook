@@ -11,12 +11,15 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $http) {
         $log.error(err);
     })
 
-    $scope.updateSearchResults = function() {
+    $scope.searchBook = function() {
+        var results = [];
         if ($scope.userSearchInput) {
-
-            $http.get("app/model/data/booksForSale.json").then(function(res) {
-                console.log(JSON.stringify(res.data));
-                $scope.searchResults = res.data.results;
+            $http.get("app/model/data/booksForSale.json").then(function(response) {
+                results = response.data;
+                let field = $scope.fieldToSearch;
+                let str = "for (item in results." + field + ") {if ($scope.userSearchInput === item) {$scope.searchResults.push(item);}}"
+                eval(str);
+                console.log(JSON.stringify($scope.searchResults));
             }, function(err) {
                 console.error(err);
             })
