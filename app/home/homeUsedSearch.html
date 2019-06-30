@@ -1,3 +1,218 @@
 <div>
+    <div class="container my-3">
+        <div class="row">
+            <div class="col-md-2">
+                <div>
+                    <h6>חיפוש לפי קטגוריות</h6>
+                    <div id="accordion">
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                            עיון ומחקר
+                                        </a>
+                            </div>
+                            <div id="collapseOne" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
+                                            פרוזה
+                                        </a>
+                            </div>
+                            <div id="collapseTwo" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                            ספרי לימוד
+                                        </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                            ספרי הדרכה
+                                        </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card">
+                            <div class="card-header">
+                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
+                                            ספרי ילדים
+                                        </a>
+                            </div>
+                            <div id="collapseThree" class="collapse" data-parent="#accordion">
+                                <div class="card-body">
+                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-10">
+                <div class="input-group md-form form-sm form-2 pl-0">
+                    <input class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר" aria-label="Search">
+                    <i class="fas fa-search"></i>
+                </div>
+                <form>
+                    <div class="form-group">
+                        <div class="row my-3">
+                            <div class="col-md-2">
+                                <label for="search1">חיפוש לפי:</label>
+                            </div>
+                            <div class="col-md-10">
+                                <select class="form-control" id="search1" name="search-options">
+                                            <option>שם כותר</option>
+                                            <option>שם מחבר</option>
+                                            <option>ISBN</option>
+                                            <option>הוצאה לאור</option>
+                                        </select>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3">
+                            <div>
+                                <button type="button" class="btn btn-danger search-btn">ניקוי</button>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
 
-</div>
+                            <form>
+                                <div class="custom-control custom-checkbox mb-3">
+                                    <h6>חנויות לחיפוש:</h6>
+                                    <input type="checkbox" id="shop0" name="shops" checked>
+                                    <label for="shop0">כל החנויות</label>
+                                    <input type="checkbox" id="shop1" name="shops">
+                                    <label for="shop1">קפה ספר</label>
+                                    <input type="checkbox" id="shop2" name="shops">
+                                    <label for="shop2">קרוון הספרים</label>
+                                    <input type="checkbox" id="shop3" name="shops">
+                                    <label for="shop3">דני ספרים</label>
+                                    <input type="checkbox" id="shop4" name="shops">
+                                    <label for="shop4">רובינזון</label>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="col-md-3">
+                            <button type="submit" class="btn btn-info search-btn">חיפוש</button>
+                        </div>
+                </form>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
+            </div>
+            <div class="row row-of-cards">
+                <div class="card preview" style="width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">שם הוורד</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
+                        <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                    </div>
+                </div>
+                <div class="card preview" style="width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">The Art of War</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Sun Dze</h6>
+                        <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                    </div>
+                </div>
+                <div class="card preview" style="width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">מוצא המינים</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>צ'רלס דרווין</h6>
+                        <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                    </div>
+                </div>
+                <div class="card preview" style="width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">שם הוורד</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
+                        <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div>
+            <div>
+                <h3 class="my-3"><a href="app/searchBoard/searchBoard.html">ספרים שקוראים מחפשים</a></h3>
+            </div>
+            <div class="row row-of-cards">
+                <div class="card preview" style="width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">שלוש כוסות תה</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
+                        <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                    </div>
+                </div>
+                <div class="card preview" style="width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">החיים כמשל</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>פנחס שדה</h6>
+                        <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                    </div>
+                </div>
+                <div class="card preview" style="width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">Java for Dummies</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Barry A. Burd</h6>
+                        <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                    </div>
+                </div>
+                <div class="card preview" style="width: 16rem;">
+                    <div class="card-body">
+                        <h5 class="card-title">שם הוורד</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
+                        <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="row">
+
+            <div class="col-md-4 my-3">
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת
+                        חשבון מוכר</button>
+            </div>
+
+            <div ng-include="'sellerAccountForm.html'"></div>
+
+            <div class="col-md-4 my-3">
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelBookPost">הוספת
+                        מודעת חיפוש</button>
+            </div>
+            <div ng-include="'newSearchBookPost.html'"></div>
+
+            <div class="col-md-4 my-3">
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelPostFulfilled">מודעת חיפוש</button>
+            </div>
+            <div ng-include="'app/searchBoard/bookPost.html'"></div>
+        </div>
+
+    </div>
