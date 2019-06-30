@@ -3,65 +3,15 @@
     <h3 class="my-3">הספרים הבאים מבוקשים על ידי מפרסמי המודעה - צרו עימם קשר ישירות</h3>
 
     <div class="row">
-        <div class="card preview">
+        <div class="card preview" ng-repeat="post in searchedBooks">
             <div class="card-body">
-                <h5 class="card-title">שלוש כוסות תה</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
-                <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-            </div>
-        </div>
-        <div class="card preview">
-            <div class="card-body">
-                <h5 class="card-title">החיים כמשל</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>פנחס שדה</h6>
-                <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-            </div>
-        </div>
-        <div class="card preview">
-            <div class="card-body">
-                <h5 class="card-title">Java for Dummies</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Barry A. Burd</h6>
-                <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-            </div>
-        </div>
-        <div class="card preview">
-            <div class="card-body">
-                <h5 class="card-title">שם הוורד</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
+                <h5 class="card-title">{{post.title}}</h5>
+                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{post.author}}</h6>
                 <a href="#" class="card-link">יצירת קשר עם המחפש</a>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="card preview">
-            <div class="card-body">
-                <h5 class="card-title">שלוש כוסות תה</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
-                <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-            </div>
-        </div>
-        <div class="card preview">
-            <div class="card-body">
-                <h5 class="card-title">החיים כמשל</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>פנחס שדה</h6>
-                <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-            </div>
-        </div>
-        <div class="card preview">
-            <div class="card-body">
-                <h5 class="card-title">Java for Dummies</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Barry A. Burd</h6>
-                <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-            </div>
-        </div>
-        <div class="card preview">
-            <div class="card-body">
-                <h5 class="card-title">שם הוורד</h5>
-                <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-            </div>
-        </div>
-    </div>
+
     <div class="row">
         <!-- connecting modal window -->
         <div class="col-md-3 my-3">

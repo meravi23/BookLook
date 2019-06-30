@@ -126,32 +126,11 @@
                 <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview" style="width: 16rem;">
+                <div class="card preview col-md-3" ng-repeat="book in addedBooks">
                     <div class="card-body">
-                        <h5 class="card-title">שם הוורד</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                        <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
-                    </div>
-                </div>
-                <div class="card preview" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">The Art of War</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Sun Dze</h6>
-                        <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
-                    </div>
-                </div>
-                <div class="card preview" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">מוצא המינים</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>צ'רלס דרווין</h6>
-                        <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
-                    </div>
-                </div>
-                <div class="card preview" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">שם הוורד</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
-                        <a href="#" class="card-link"><span>חנות: </span>רובינזון</a>
+                        <h5 class="card-title">{{book.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
+                        <a href="#" class="card-link"><span>חנות: </span>{{book.seller}}</a>
                     </div>
                 </div>
             </div>
@@ -162,31 +141,10 @@
                 <h3 class="my-3"><a href="app/searchBoard/searchBoard.html">ספרים שקוראים מחפשים</a></h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview" style="width: 16rem;">
+                <div class="card preview col-md-3" ng-repeat="post in posts">
                     <div class="card-body">
                         <h5 class="card-title">שלוש כוסות תה</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
-                        <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                    </div>
-                </div>
-                <div class="card preview" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">החיים כמשל</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>פנחס שדה</h6>
-                        <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                    </div>
-                </div>
-                <div class="card preview" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">Java for Dummies</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>Barry A. Burd</h6>
-                        <a href="#" class="card-link">יצירת קשר עם המחפש</a>
-                    </div>
-                </div>
-                <div class="card preview" style="width: 16rem;">
-                    <div class="card-body">
-                        <h5 class="card-title">שם הוורד</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>אומברטו אקו</h6>
                         <a href="#" class="card-link">יצירת קשר עם המחפש</a>
                     </div>
                 </div>
