@@ -1,30 +1,36 @@
-app.controller("usedBookSearchCtrl", function($scope, bookSrv, $http) {
+app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
 
-    $scope.addedBooks = [];
+    $scope.books = [];
     $scope.searchResults = [];
     $scope.userSearchInput = "";
+    $scope.filterObj = {};
+
 
     bookSrv.getBooks4Sale().then(function(books) {
-        $scope.addedBooks = books;
-        console.log($scope.addedBooks);
+        $scope.books = books;
+        console.log($scope.books);
     }, function(err) {
         $log.error(err);
     })
 
+
     $scope.searchBook = function() {
-        var results = [];
-        if ($scope.userSearchInput) {
-            $http.get("app/model/data/booksForSale.json").then(function(response) {
-                results = response.data;
-                let field = $scope.fieldToSearch;
-                let str = "for (item in results." + field + ") {if ($scope.userSearchInput === item) {$scope.searchResults.push(item);}}"
-                eval(str);
-                console.log(JSON.stringify($scope.searchResults));
-            }, function(err) {
-                console.error(err);
-            })
-        } else {
-            $scope.searchResults = [];
+
+        $scope.searchResults = [];
+
+        // console.log("books in array: " + JSON.stringify($scope.books));
+        for (var i = 0; i < $scope.books.length; i++) {
+            if ($scope.fieldToSearch === "title" && $scope.books[i].title.includes($scope.userSearchInput) ||
+                ($scope.fieldToSearch === "author" && $scope.books[i].author.includes($scope.userSearchInput)) ||
+                ($scope.fieldToSearch === "isbn" && $scope.books[i].isbn.includes($scope.userSearchInput)) ||
+                ($scope.fieldToSearch === "publisher" && $scope.books[i].publisher.includes($scope.userSearchInput))) {
+                $scope.searchResults.push($scope.books[i]);
+            } else {
+                // $scope.searchResults = [];
+                // $log.info("no results");
+                console.log("found " + $scope.searchResults.length + " book(s)");
+            }
         }
     }
+
 });

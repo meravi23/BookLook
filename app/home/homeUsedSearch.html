@@ -69,65 +69,68 @@
                 </div>
             </div>
             <div class="col-md-10">
-                <div class="input-group md-form form-sm form-2 pl-0">
-                    <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר" aria-label="Search">
-                    <i class="fas fa-search"></i>
+                <div class="row  my-3">
+                    <div class="col-md-4">
+                        <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="search1">חיפוש לפי:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <select class="form-control" id="search1" name="search-options" ng-model="fieldToSearch">
+                                            <option value="title">שם כותר</option>
+                                            <option value="author">שם מחבר</option>
+                                            <option value="ISBN">ISBN</option>
+                                            <option value="publisher">הוצאה לאור</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-8">
+                        <div class="input-group md-form form-sm form-2 pl-0">
+                            <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר" aria-label="Search">
+                            <i class="fas fa-search"></i>
+                        </div>
+                    </div>
                 </div>
-                <form>
-                    <div class="form-group">
-                        <div class="row my-3">
-                            <div class="col-md-2">
-                                <label for="search1">חיפוש לפי:</label>
-                            </div>
-                            <div class="col-md-10">
-                                <select ng-init="" class="form-control" id="search1" name="search-options" ng-model="fieldToSearch">
-                                    <option value="title">שם כותר</option>
-                                    <option value="author">שם מחבר</option>
-                                    <option value="ISBN">ISBN</option>
-                                    <option value="publisher">הוצאה לאור</option>
-                                </select>
-                            </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div>
+                            <button type="button" class="btn btn-danger search-btn">ניקוי</button>
                         </div>
                     </div>
 
-                    <div class="row">
-                        <div class="col-md-3">
-                            <div>
-                                <button type="button" class="btn btn-danger search-btn">ניקוי</button>
+                    <div class="col-md-6">
+                        <form>
+                            <div class="custom-control custom-checkbox mb-3">
+                                <h6>חנויות לחיפוש:</h6>
+                                <input type="checkbox" id="shop0" name="shops" checked>
+                                <label for="shop0">כל החנויות</label>
+                                <input type="checkbox" id="shop1" name="shops">
+                                <label for="shop1">קפה ספר</label>
+                                <input type="checkbox" id="shop2" name="shops">
+                                <label for="shop2">קרוון הספרים</label>
+                                <input type="checkbox" id="shop3" name="shops">
+                                <label for="shop3">דני ספרים</label>
+                                <input type="checkbox" id="shop4" name="shops">
+                                <label for="shop4">רובינזון</label>
                             </div>
-                        </div>
-
-                        <div class="col-md-6">
-                            <form>
-                                <div class="custom-control custom-checkbox mb-3">
-                                    <h6>חנויות לחיפוש:</h6>
-                                    <input type="checkbox" id="shop0" name="shops" checked>
-                                    <label for="shop0">כל החנויות</label>
-                                    <input type="checkbox" id="shop1" name="shops">
-                                    <label for="shop1">קפה ספר</label>
-                                    <input type="checkbox" id="shop2" name="shops">
-                                    <label for="shop2">קרוון הספרים</label>
-                                    <input type="checkbox" id="shop3" name="shops">
-                                    <label for="shop3">דני ספרים</label>
-                                    <input type="checkbox" id="shop4" name="shops">
-                                    <label for="shop4">רובינזון</label>
-                                </div>
-                            </form>
-                        </div>
-                        <div class="col-md-3">
-                            <button type="submit" class="btn btn-info search-btn" ng-click="searchBook()">חיפוש</button>
-                        </div>
-                </form>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-info search-btn" ng-click="searchBook()">חיפוש</button>
+                    </div>
                 </div>
             </div>
         </div>
 
-        <div>
-            <div>
-                <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
-            </div>
+        <div ng-show="searchResults.length > 0">
+            <h3>תוצאות חיפוש</h3>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="book in addedBooks">
+                <div class="card preview col-md-4 ml-1" ng-repeat="book in searchResults">
                     <div class="card-body">
                         <h5 class="card-title">{{book.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
@@ -137,7 +140,32 @@
             </div>
         </div>
 
-        <div>
+        <div ng-hide="searchResults.length > 0">
+            <h3>לא נמצאו תוצאות. באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
+            <div class="col-md-4 my-3">
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelBookPost">הוספת
+                            מודעת חיפוש</button>
+            </div>
+            <div ng-include="'newSearchBookPost.html'"></div>
+        </div>
+
+
+        <div ng-show="searchResults.length === 0">
+            <div>
+                <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
+            </div>
+            <div class="row row-of-cards">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="book in books">
+                    <div class="card-body">
+                        <h5 class="card-title">{{book.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
+                        <a href="#" class="card-link"><span>חנות: </span>{{book.seller}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="searchResults.length === 0">
             <div>
                 <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
             </div>
@@ -159,15 +187,13 @@
                 <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת
                         חשבון מוכר</button>
             </div>
-
             <div ng-include="'sellerAccountForm.html'"></div>
-
-
 
             <div class="col-md-4 my-3">
                 <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelPostFulfilled">מודעת חיפוש</button>
             </div>
             <div ng-include="'app/searchBoard/bookPost.html'"></div>
+
         </div>
 
     </div>
