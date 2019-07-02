@@ -6,16 +6,14 @@
         "translator": "",
         "publisher": "רשות השידור",
         "year": "1974",
-        "minimalDesiredState": "טוב מאוד",
+        "state": "טוב מאוד",
         "edition": "",
         "isbn": "",
         "category": "מחקר ועיון",
         "sub-category": "בלשנות",
         "image": "",
-        "createdAt": "2019-06-25",
-        "comments": "מחפשת את הספר כבר מלא זמן!",
-        "seenByCounter": "0",
-        "userId": "12"
+        "comment": "מחפשת את הספר כבר מלא זמן!",
+        "postingPerson": "12"
     },
     {
         "title": "שלוש כוסות תה",
@@ -24,16 +22,14 @@
         "translator": "מרב מילר",
         "publisher": "אג'נדה",
         "year": "2008",
-        "minimalDesiredState": "",
+        "state": "",
         "edition": "1",
         "isbn": "347523652",
         "category": "פרוזה",
         "sub-category": "נון פיקשן",
         "image": "",
-        "createdAt": "2019-06-25",
-        "comments": "מהדורה ראשונה בלבד",
-        "seenByCounter": "0",
-        "userId": "12"
+        "comment": "מהדורה ראשונה בלבד",
+        "postingPerson": "12"
     },
     {
         "title": "הרים מעבר להרים",
@@ -42,16 +38,14 @@
         "translator": "מרב מילר",
         "publisher": "אג'נדה",
         "year": "2009",
-        "minimalDesiredState": "כמו חדש",
+        "state": "כמו חדש",
         "edition": "ראשונה",
         "isbn": "347523002",
         "category": "פרוזה",
         "sub-category": "נון פיקשן",
         "image": "http://www.text.org.il/09_covers/0906022.jpg",
-        "createdAt": "2019-07-01",
-        "comments": "",
-        "seenByCounter": "0",
-        "userId": "15"
+        "comment": "",
+        "postingPerson": "15"
     },
     {
         "title": "אמת",
@@ -60,15 +54,13 @@
         "translator": "מרב מילר",
         "publisher": "אג'נדה",
         "year": "2010",
-        "minimalDesiredState": "סביר",
+        "state": "סביר",
         "edition": "",
         "isbn": "",
         "category": "פרוזה",
         "sub-category": "נון פיקשן",
         "image": "",
-        "createdAt": "2019-07-02",
-        "comments": "",
-        "seenByCounter": "0",
-        "userId": "11"
+        "comment": "",
+        "postingPerson": "11"
     }
 ]

@@ -51,11 +51,11 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
         $log.error(err);
     })
 
-    function clearFields() {
-        $log.info("clearFields() entered");
-        $scope.fieldToSearch = "";
-        $scope.userSearchInput = "";
-    }
+    // function clearFields() {
+    //     $log.info("clearFields() entered");
+    //     $scope.fieldToSearch = "";
+    //     $scope.userSearchInput = "";
+    // }
 
 
 });

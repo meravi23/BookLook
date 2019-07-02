@@ -1,66 +1,75 @@
-app.factory("bookSrv", function($q, $http, $log) {
+app.factory("bookSrv", function ($q, $http, $log) {
 
-    function Book(titleOrObject, author, author2, translator, publisher, year, state, edition, isbn, category, subCategory, image) {
-        if (arguments.length > 1) {
-            this.title = titleOrObject;
-            this.author = author;
-            this.author2 = author2;
-            this.translator = translator;
-            this.publisher = publisher;
-            this.year = year;
-            this.state = state;
-            this.edition = edition;
-            this.isbn = isbn;
-            this.category = category;
-            this.subCategory = subCategory;
-            this.image = image;
-        } else {
-            this.title = titleOrObject.title;
-            this.author = titleOrObject.author;
-            this.author2 = titleOrObject.author2;
-            this.translator = titleOrObject.translator;
-            this.publisher = titleOrObject.publisher;
-            this.year = titleOrObject.year;
-            this.state = titleOrObject.state;
-            this.edition = titleOrObject.edition;
-            this.isbn = titleOrObject.isbn;
-            this.category = titleOrObject.category;
-            this.subCategory = titleOrObject.subCategory;
-            this.image = titleOrObject.image;
+    class Book {
+        idCounter = 0;
+        constructor(titleOrObject, author, author2, translator, publisher, year, state,
+            edition, isbn, category, subCategory, image, comment) {
+            // if (arguments.length > 1) {
+            //     this.title = titleOrObject;
+            //     this.author = author;
+            //     this.author2 = author2;
+            //     this.translator = translator;
+            //     this.publisher = publisher;
+            //     this.year = year;
+            //     this.state = state;
+            //     this.edition = edition;
+            //     this.isbn = isbn;
+            //     this.category = category;
+            //     this.subCategory = subCategory;
+            //     this.image = image;
+            //     this.comment = comment;
+            // } else {
+                this.title = titleOrObject.title;
+                this.author = titleOrObject.author;
+                this.author2 = titleOrObject.author2;
+                this.translator = titleOrObject.translator;
+                this.publisher = titleOrObject.publisher;
+                this.year = titleOrObject.year;
+                this.state = titleOrObject.state;
+                this.edition = titleOrObject.edition;
+                this.isbn = titleOrObject.isbn;
+                this.category = titleOrObject.category;
+                this.subCategory = titleOrObject.subCategory;
+                this.image = titleOrObject.image;
+                this.comment = titleOrObject.comment
+            // }
+        }
+        setUniqueId() {
+            return idCounter++;
+            console.log("assigned unique ID: " + idCounter);
         }
     }
 
-    function Book4Sale(titleOrObject, author, author2, translator, publisher, year, price, state, edition, isbn, category, subCategory, image, seller) {
-        if (arguments.length > 1) {
-            this.title = titleOrObject;
-            this.author = author;
-            this.author2 = author2;
-            this.translator = translator;
-            this.publisher = publisher;
-            this.year = year;
-            this.price = price;
-            this.state = state;
-            this.edition = edition;
-            this.isbn = isbn;
-            this.category = category;
-            this.subCategory = subCategory;
-            this.image = image;
-            this.seller = seller;
-        } else {
-            this.title = titleOrObject.title;
-            this.author = titleOrObject.author;
-            this.author2 = titleOrObject.author2;
-            this.translator = titleOrObject.translator;
-            this.publisher = titleOrObject.publisher;
-            this.year = titleOrObject.year;
-            this.price = titleOrObject.price;
-            this.state = titleOrObject.state;
-            this.edition = titleOrObject.edition;
-            this.isbn = titleOrObject.isbn;
-            this.category = titleOrObject.category;
-            this.subCategory = titleOrObject.subCategory;
-            this.image = titleOrObject.image;
-            this.seller = titleOrObject.seller;
+
+    class Book4Sale extends Book {
+
+        constructor(titleOrObject, author, author2, translator, publisher, year, state,
+            edition, isbn, category, subCategory, image, comment, price, seller) {
+            super(titleOrObject, author, author2, translator, publisher, year, state,
+                edition, isbn, category, subCategory, image, comment);
+
+            if (arguments.length > 1) {
+                this.price = price;
+                this.seller = seller;
+            } else {
+                this.price = titleOrObject.price;
+                this.seller = titleOrObject.seller;
+            }
+        }
+    }
+
+    class bookLooked4 extends Book {
+
+        constructor(titleOrObject, author, author2, translator, publisher, year, state,
+            edition, isbn, category, subCategory, image, comment, postingPerson) {
+            super(titleOrObject, author, author2, translator, publisher, year, state,
+                edition, isbn, category, subCategory, image, comment);
+
+            if (arguments.length > 1) {
+                this.postingPerson = postingPerson;
+            } else {
+                this.price = titleOrObject.price;
+            }
         }
     }
 
@@ -69,15 +78,15 @@ app.factory("bookSrv", function($q, $http, $log) {
 
         var books = [];
 
-        $http.get("app/model/data/bookPosts.json").then(function(response) {
+        $http.get("app/model/data/bookPosts.json").then(function (response) {
             for (var i = 0; i < response.data.length; i++) {
-                var book = new Book(response.data[i]);
+                var book = new bookLooked4(response.data[i]);
                 books.push(book);
             }
 
             async.resolve(books);
 
-        }, function(err) {
+        }, function (err) {
             $log.error(err);
             async.reject(err);
         });
@@ -90,7 +99,7 @@ app.factory("bookSrv", function($q, $http, $log) {
 
         var books = [];
 
-        $http.get("app/model/data/booksForSale.json").then(function(response) {
+        $http.get("app/model/data/booksForSale.json").then(function (response) {
             for (var i = 0; i < response.data.length; i++) {
                 var book = new Book4Sale(response.data[i]);
                 books.push(book);
@@ -98,7 +107,7 @@ app.factory("bookSrv", function($q, $http, $log) {
 
             async.resolve(books);
 
-        }, function(err) {
+        }, function (err) {
             $log.error(err);
             async.reject(err);
         });
