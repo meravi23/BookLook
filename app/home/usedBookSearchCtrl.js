@@ -3,6 +3,8 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
     $scope.books = [];
     $scope.searchResults = [];
     $scope.userSearchInput = "";
+    $scope.noResults = false;
+
 
 
     bookSrv.getBooks4Sale().then(function (books) {
@@ -23,8 +25,10 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
                 ($scope.fieldToSearch === "isbn" && $scope.books[i].isbn.includes($scope.userSearchInput)) ||
                 ($scope.fieldToSearch === "publisher" && $scope.books[i].publisher.includes($scope.userSearchInput))) {
                 $scope.searchResults.push($scope.books[i]);
-            } else {
-                $scope.noResults = 'לא נמצאו תוצאות. באפשרותך להוסיף מודעת חיפוש לספר המבוקש';
+                console.log("found " + $scope.searchResults.length + " book(s)");
+
+            } else if ($scope.searchResults.length === 0) {
+                $scope.noResults = true;
             }
         }
         // $scope.fieldToSearch = "";

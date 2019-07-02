@@ -175,7 +175,7 @@ a:hover {
     width: 10%;
 }
 
-h2, h3, h3>a {
+h2, h3>a, .title-color {
     color: #CA7733;
 }
 
@@ -187,3 +187,6 @@ h2, h3, h3>a {
     text-align: center;
 }
 
+.div-block {
+    display: block;
+}

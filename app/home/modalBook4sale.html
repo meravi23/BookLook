@@ -1,0 +1,110 @@
+<!-- Modal -->
+<div class="modal fade" id="book4sale" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+    aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3 class="modal-title title-color">למכירה:</h3>
+                <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div class="row">
+                    <div class="col-md-8">
+                        <div class="div-block">
+                            <span class="field-name">מספר מערכת</span>
+                            <span class="field-value">{{sellerNum}}003-{{book.bookNum}}</span>
+                        </div>
+
+                        <div>
+                            <span class="field-name">שם הכותר</span>
+                            <span class="field-value title-color">{{book.title}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">שם המחבר</span>
+                            <span class="field-value">{{book.author}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">ISBN</span>
+                            <span class="field-value">{{book.isbn}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">מצב הספר</span>
+                            <span class="field-value">{{book.bookState}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">הוצאה לאור</span>
+                            <span class="field-value">{{book.publisher}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">מהדורה</span>
+                            <span class="field-value">{{book.edition}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">קטגוריה</span>
+                            <span class="field-value">{{book.bookCategory}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">פרטים נוספים</span>
+                            <span class="field-value">{{book.bookDetails}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">שם החנות</span>
+                            <span class="field-value">{{book.shopName}}</span>
+                        </div>
+                        <div>
+                            <span class="field-name">מקבלים תשלום ב</span>
+                            <span class="field-value">
+                                <span>מזומן</span>
+                                <span>כרטיסי אשראי</span>
+                            </span>
+                            <span class="field-value">
+                                <span>המחאות</span>
+                                <span>אפליקציות:</span>
+                            </span>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4">
+                        <div>
+                            <button type="button" class="btn btn-block btn-danger" ng-click="deleteBook()"
+                                data-dismiss="modal">הסרת מודעה</button>
+                        </div>
+                        <div>
+                            <button type="button" class="btn btn-block btn-info my-3" ng-click="deleteBook()"
+                                data-dismiss="modal">עדכון מודעה</button>
+                        </div>
+                        <div>
+                            <span>שיתוף המודעה</span>
+                        </div>
+                        <div>
+                            <span><i class="fab fa-facebook-messenger"></i></span>
+                        </div>
+                        <div>
+                            <span><i class="fab fa-whatsapp"></i></span>
+                        </div>
+                        <div>
+                            <span><i class="fab fa-twitter-square"></i></span>
+                        </div>
+                        <div>
+                            <span><i class="fas fa-envelope"></i></span>
+                        </div>
+
+                        <div>
+                            <span class="field-value">{{book.bookImg}}</span>
+                            <div>
+                                <img class="img-placeholder"
+                                    src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div>
+                    <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="contact()">אימייל לחנות</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

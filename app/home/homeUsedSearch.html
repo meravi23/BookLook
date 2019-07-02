@@ -147,8 +147,9 @@
         <div ng-show="searchResults.length > 0" class="my-3">
             <h3>תוצאות חיפוש</h3>
             <div class="row row-of-cards">
-                <div class="card preview col-md-4 ml-1" ng-repeat="book in searchResults">
-                    <div class="card-body">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="book in searchResults">
+                    <div ng-include="'app/home/modalBook4sale.html'"></div>
+                    <div class="card-body" data-toggle="modal" data-target="#book4sale">
                         <h5 class="card-title">{{book.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
                         <a href="#" class="card-link"><span>חנות: </span>{{book.seller}}</a>
@@ -156,48 +157,53 @@
                 </div>
             </div>
         </div>
+    
 
-        <div class="my-3 search-results">
-            <h3 ng-bind="noResults"></h3>
+    <div class="my-3 search-results" ng-show="searchResults.length===0 && noResults">
+        <h3>לא נמצאו תוצאות. באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
+    </div>
+    <div class="my-3" ng-show="noResults">
+        <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
+            מודעת חיפוש</button>
+    </div>
+    <div ng-include="'newSearchBookPost.html'"></div>
+
+
+    <div ng-show="searchResults.length === 0" class="my-3">
+        <div>
+            <h3 class="my-3 title-color">ספרים שנוספו לאחרונה</h3>
         </div>
-        <div class="my-3" ng-show="noResults">
-            <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
-                מודעת חיפוש</button>
-        </div>
-        <div ng-include="'newSearchBookPost.html'"></div>
-
-
-        <div ng-show="searchResults.length === 0" class="my-3">
-            <div>
-                <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
-            </div>
-            <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="book in books | limitTo:4">
-                    <div class="card-body">
-                        <h5 class="card-title">{{book.title}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
-                        <a href="#" class="card-link"><span>חנות: </span>{{book.seller}}</a>
-                    </div>
+        <div class="row row-of-cards">
+            <div class="card preview flex-md-fill ml-1" ng-repeat="book in books | limitTo:4" data-toggle="modal"
+                data-target="#book4sale">
+                <div ng-include="'app/home/modalBook4sale.html'"></div>
+                <div class="card-body">
+                    <h5 class="card-title">{{book.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
+                    <a href="#" class="card-link"><span>חנות: </span>{{book.seller}}</a>
                 </div>
             </div>
         </div>
+    </div>
 
-        <div ng-show="searchResults.length === 0" class="my-3">
-            <div>
-                <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
-            </div>
-            <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts">
-                    <div class="card-body">
-                        <h5 class="card-title">{{post.title}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{post.author}}</h6>
-                        <a href="#" class="card-link"><span>יצירת קשר עם המחפש</span>{{post.seller}}</a>
-                    </div>
+    <div ng-show="searchResults.length === 0" class="my-3">
+        <div>
+            <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
+        </div>
+        <div class="row row-of-cards">
+            <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts" data-toggle="modal"
+                data-target="#modelPostFulfilled">
+                <div ng-include="'app/searchBoard/bookPost.html'"></div>
+                <div class="card-body">
+                    <h5 class="card-title">{{post.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{post.author}}</h6>
+                    <a href="#" class="card-link"><span>יצירת קשר עם המחפש</span>{{post.seller}}</a>
                 </div>
             </div>
         </div>
+    </div>
 
-
+    <!-- 
         <div class="row">
 
             <div class="col-md-4 my-3">
@@ -208,11 +214,11 @@
             <div ng-include="'sellerAccountForm.html'"></div>
 
             <div class="col-md-4 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
+                <button type="button" class="btn btn-info search-btn" data-toggle="modal"
                     data-target="#modelPostFulfilled">מודעת חיפוש</button>
             </div>
             <div ng-include="'app/searchBoard/bookPost.html'"></div>
 
-        </div>
+        </div> -->
 
-    </div>
+</div>

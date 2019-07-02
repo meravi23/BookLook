@@ -36,7 +36,7 @@
                             <div class="form-group">
                                 <label for="book-img" class="col-form-label">תמונות:</label>
                                 <div>
-                                    <input type="file" class="form-control" id="book-img" ng-model="bookImg">
+                                    <input type="file" accept="image/*" class="form-control" id="book-img" ng-model="bookImg">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -67,7 +67,7 @@
                         </div>
                         <div class="col-md-4">
                             <div>
-                                <button type="button" class="btn btn-danger" ng-click="deleteBook()"
+                                <button type="button" class="btn btn-danger btn-block" ng-click="deleteBook()"
                                     data-dismiss="modal">מחיקת הספר</button>
                             </div>
                             <div>
@@ -93,9 +93,9 @@
                                 </select>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-lg btn-info my-3" ng-click="addBook()">פרסום מודעת
+                                <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="addBook()">פרסום מודעת
                                     חיפוש</button>
-                                <button type="button" class="btn btn-danger" data-dismiss="modal">ניקוי</button>
+                                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">ניקוי</button>
                             </div>
                         </div>
                     </div>
