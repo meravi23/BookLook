@@ -115,7 +115,8 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div>
-                            <button type="button" class="btn btn-danger search-btn">ניקוי</button>
+                            <button type="button" class="btn btn-danger search-btn"
+                                ng-click="clearFields()">ניקוי</button>
                         </div>
                     </div>
 
@@ -143,7 +144,7 @@
             </div>
         </div>
 
-        <div ng-show="searchResults.length > 0">
+        <div ng-show="searchResults.length > 0" class="my-3">
             <h3>תוצאות חיפוש</h3>
             <div class="row row-of-cards">
                 <div class="card preview col-md-4 ml-1" ng-repeat="book in searchResults">
@@ -156,23 +157,22 @@
             </div>
         </div>
 
-        <div ng-hide="searchResults.length > 0">
-            <h3>לא נמצאו תוצאות. באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
-            <div class="col-md-4 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
-                    data-target="#modelBookPost">הוספת
-                    מודעת חיפוש</button>
-            </div>
-            <div ng-include="'newSearchBookPost.html'"></div>
+        <div class="my-3 search-results">
+            <h3 ng-bind="noResults"></h3>
         </div>
+        <div class="my-3" ng-show="noResults">
+            <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
+                מודעת חיפוש</button>
+        </div>
+        <div ng-include="'newSearchBookPost.html'"></div>
 
 
-        <div ng-show="searchResults.length === 0">
+        <div ng-show="searchResults.length === 0" class="my-3">
             <div>
                 <h3 class="my-3">ספרים שנוספו לאחרונה</h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="book in books">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="book in books | limitTo:4">
                     <div class="card-body">
                         <h5 class="card-title">{{book.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
@@ -182,16 +182,16 @@
             </div>
         </div>
 
-        <div ng-show="searchResults.length === 0">
+        <div ng-show="searchResults.length === 0" class="my-3">
             <div>
                 <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="post in posts">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts">
                     <div class="card-body">
-                        <h5 class="card-title">שלוש כוסות תה</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>גרג מורטינסון</h6>
-                        <a href="#" class="card-link">יצירת קשר עם המחפש</a>
+                        <h5 class="card-title">{{post.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{post.author}}</h6>
+                        <a href="#" class="card-link"><span>יצירת קשר עם המחפש</span>{{post.seller}}</a>
                     </div>
                 </div>
             </div>

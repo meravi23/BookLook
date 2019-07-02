@@ -156,7 +156,7 @@ a:hover {
     font-weight: bold;
 }
 
-.book-inquired {
+.book-inquired, h3>a:hover {
     color: #b71c1c;
 }
 
@@ -175,15 +175,15 @@ a:hover {
     width: 10%;
 }
 
-h2 {
+h2, h3, h3>a {
     color: #CA7733;
-}
-
-.form-control:focus {
-    border-color: none;
-    outline: none;
 }
 
 .card-link {
     display: block;
 }
+
+.search-results {
+    text-align: center;
+}
+

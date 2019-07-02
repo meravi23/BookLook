@@ -1,19 +1,19 @@
-app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
+app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
 
     $scope.books = [];
     $scope.searchResults = [];
     $scope.userSearchInput = "";
 
 
-    bookSrv.getBooks4Sale().then(function(books) {
+    bookSrv.getBooks4Sale().then(function (books) {
         $scope.books = books;
         console.log($scope.books);
-    }, function(err) {
+    }, function (err) {
         $log.error(err);
     })
 
 
-    $scope.searchBook = function() {
+    $scope.searchBook = function () {
 
         $scope.searchResults = [];
 
@@ -24,17 +24,34 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
                 ($scope.fieldToSearch === "publisher" && $scope.books[i].publisher.includes($scope.userSearchInput))) {
                 $scope.searchResults.push($scope.books[i]);
             } else {
-                // $scope.searchResults = [];
-                // $log.info("no results");
-                console.log("found " + $scope.searchResults.length + " book(s)");
+                $scope.noResults = 'לא נמצאו תוצאות. באפשרותך להוסיף מודעת חיפוש לספר המבוקש';
             }
+        }
+        // $scope.fieldToSearch = "";
+        // $scope.userSearchInput = "";
+    }
+
+    $scope.searchByCategory = function () {
+        $scope.searchResults = [];
+        for (var i = 0; i < $scope.books.length; i++) {
+
         }
     }
 
-    $scope.searchByCategory = function() {
-        $scope.searchResults = [];
-        for (var i = 0; i < $scope.books.length; i++) {
-            
-      }
+    $scope.bookPosts = [];
+
+    bookSrv.getBookPosts().then(function (books) {
+        $scope.bookPosts = books;
+        console.log($scope.bookPosts);
+    }, function (err) {
+        $log.error(err);
+    })
+
+    function clearFields() {
+        $log.info("clearFields() entered");
+        $scope.fieldToSearch = "";
+        $scope.userSearchInput = "";
+    }
+
 
 });

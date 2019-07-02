@@ -1,4 +1,4 @@
-app.factory("bookSrv", function($q, $http) {
+app.factory("bookSrv", function($q, $http, $log) {
 
     function Book(titleOrObject, author, author2, translator, publisher, year, state, edition, isbn, category, subCategory, image) {
         if (arguments.length > 1) {
@@ -64,12 +64,12 @@ app.factory("bookSrv", function($q, $http) {
         }
     }
 
-    function getBooks() {
+    function getBookPosts() {
         var async = $q.defer();
 
         var books = [];
 
-        $http.get("app/model/data/books.json").then(function(response) {
+        $http.get("app/model/data/bookPosts.json").then(function(response) {
             for (var i = 0; i < response.data.length; i++) {
                 var book = new Book(response.data[i]);
                 books.push(book);
@@ -107,7 +107,7 @@ app.factory("bookSrv", function($q, $http) {
     }
 
     return {
-        getBooks: getBooks,
+        getBookPosts: getBookPosts,
         getBooks4Sale: getBooks4Sale,
         Book: Book,
         Book4Sale: Book4Sale

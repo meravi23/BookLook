@@ -1,11 +1,12 @@
-app.controller("searchPostCtrl", function($scope, bookSrv) {
+app.controller("searchPostCtrl", function($scope, bookSrv, $log) {
 
-    $scope.searchedBooks = [];
+    $scope.bookPosts = [];
 
-    bookSrv.getBooks().then(function(books) {
-        $scope.searchedBooks = books;
-        console.log($scope.searchedBooks);
+    bookSrv.getBookPosts().then(function(books) {
+        $scope.bookPosts = books;
+        console.log($scope.bookPosts);
     }, function(err) {
         $log.error(err);
     })
+
 });
