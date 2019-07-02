@@ -8,61 +8,72 @@
                         <div class="card">
                             <div class="card-header">
                                 <a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                            עיון ומחקר
-                                        </a>
+                                    עיון ומחקר
+                                </a>
                             </div>
                             <div id="collapseOne" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        אנתרופולוגיה </a>
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        ארכאולוגיה </a>
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        פילוסופיה </a>
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        סוציולוגיה </a>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                                            פרוזה
-                                        </a>
+                                    פרוזה
+                                </a>
                             </div>
                             <div id="collapseTwo" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        סיפורת </a>
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        נון-פיקשן </a>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                                            ספרי לימוד
-                                        </a>
+                                    ספרי לימוד
+                                </a>
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        לשון עברית </a>
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        מתמטיקה </a>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                                            ספרי הדרכה
-                                        </a>
+                                    ספרי הדרכה
+                                </a>
                             </div>
                             <div id="collapseThree" class="collapse" data-parent="#accordion">
                                 <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        בישול </a>
+                                    <a class="card-link" data-toggle="collapse" href="#collapseOne">
+                                        הורות </a>
                                 </div>
                             </div>
                         </div>
                         <div class="card">
                             <div class="card-header">
                                 <a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                                            ספרי ילדים
-                                        </a>
-                            </div>
-                            <div id="collapseThree" class="collapse" data-parent="#accordion">
-                                <div class="card-body">
-                                    Lorem ipsum dolor sit amet, consectetur adipisicing elit
-                                </div>
+                                    ספרי ילדים
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -78,10 +89,11 @@
                                         <label for="search1">חיפוש לפי:</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select class="form-control" id="search1" name="search-options" ng-model="fieldToSearch">
+                                        <select class="form-control" id="search1" name="search-options"
+                                            ng-model="fieldToSearch">
                                             <option value="title">שם כותר</option>
                                             <option value="author">שם מחבר</option>
-                                            <option value="ISBN">ISBN</option>
+                                            <option value="isbn">ISBN</option>
                                             <option value="publisher">הוצאה לאור</option>
                                         </select>
                                     </div>
@@ -90,10 +102,14 @@
                         </form>
                     </div>
                     <div class="col-md-8">
-                        <div class="input-group md-form form-sm form-2 pl-0">
-                            <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר" aria-label="Search">
-                            <i class="fas fa-search"></i>
-                        </div>
+                        <form ng-submit="searchBook()">
+                            <div class="input-group md-form form-sm form-2 pl-0">
+                                <input ng-model="userSearchInput"
+                                    class="form-control my-0 py-1 amber-border home-search" type="text"
+                                    placeholder="חיפוש ספר" aria-label="Search">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </form>
                     </div>
                 </div>
                 <div class="row">
@@ -143,8 +159,9 @@
         <div ng-hide="searchResults.length > 0">
             <h3>לא נמצאו תוצאות. באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
             <div class="col-md-4 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelBookPost">הוספת
-                            מודעת חיפוש</button>
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
+                    data-target="#modelBookPost">הוספת
+                    מודעת חיפוש</button>
             </div>
             <div ng-include="'newSearchBookPost.html'"></div>
         </div>
@@ -184,13 +201,15 @@
         <div class="row">
 
             <div class="col-md-4 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelSellers">יצירת
-                        חשבון מוכר</button>
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
+                    data-target="#modelSellers">יצירת
+                    חשבון מוכר</button>
             </div>
             <div ng-include="'sellerAccountForm.html'"></div>
 
             <div class="col-md-4 my-3">
-                <button type="submit" class="btn btn-info search-btn" data-toggle="modal" data-target="#modelPostFulfilled">מודעת חיפוש</button>
+                <button type="submit" class="btn btn-info search-btn" data-toggle="modal"
+                    data-target="#modelPostFulfilled">מודעת חיפוש</button>
             </div>
             <div ng-include="'app/searchBoard/bookPost.html'"></div>
 

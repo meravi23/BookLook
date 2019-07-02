@@ -2,7 +2,6 @@
     box-sizing: border-box;
 }
 
-
 /* color palette:
 primary: #b71c1c
 light: #f05545
@@ -54,7 +53,6 @@ body {
     /* margin-left: 5px; */
     margin-bottom: 10px;
 }
-
 
 /* .preview:last-child {
     margin-left: 0;
@@ -154,8 +152,7 @@ a:hover {
     margin-top: 10px;
 }
 
-.customer,
-.book-inquired {
+.customer, .book-inquired {
     font-weight: bold;
 }
 
@@ -180,4 +177,13 @@ a:hover {
 
 h2 {
     color: #CA7733;
+}
+
+.form-control:focus {
+    border-color: none;
+    outline: none;
+}
+
+.card-link {
+    display: block;
 }
