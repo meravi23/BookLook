@@ -31,4 +31,10 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
         }
     }
 
+    $scope.searchByCategory = function() {
+        $scope.searchResults = [];
+        for (var i = 0; i < $scope.books.length; i++) {
+            
+      }
+
 });
