@@ -1,7 +1,8 @@
 app.factory("bookSrv", function ($q, $http, $log) {
+    var counter = 0;
 
     class Book {
-        idCounter = 0;
+
         constructor(titleOrObject, author, author2, translator, publisher, year, state,
             edition, isbn, category, subCategory, image, comment) {
             // if (arguments.length > 1) {
@@ -19,24 +20,20 @@ app.factory("bookSrv", function ($q, $http, $log) {
             //     this.image = image;
             //     this.comment = comment;
             // } else {
-                this.title = titleOrObject.title;
-                this.author = titleOrObject.author;
-                this.author2 = titleOrObject.author2;
-                this.translator = titleOrObject.translator;
-                this.publisher = titleOrObject.publisher;
-                this.year = titleOrObject.year;
-                this.state = titleOrObject.state;
-                this.edition = titleOrObject.edition;
-                this.isbn = titleOrObject.isbn;
-                this.category = titleOrObject.category;
-                this.subCategory = titleOrObject.subCategory;
-                this.image = titleOrObject.image;
-                this.comment = titleOrObject.comment
+            this.title = titleOrObject.title;
+            this.author = titleOrObject.author;
+            this.author2 = titleOrObject.author2;
+            this.translator = titleOrObject.translator;
+            this.publisher = titleOrObject.publisher;
+            this.year = titleOrObject.year;
+            this.state = titleOrObject.state;
+            this.edition = titleOrObject.edition;
+            this.isbn = titleOrObject.isbn;
+            this.category = titleOrObject.category;
+            this.subCategory = titleOrObject.subCategory;
+            this.image = titleOrObject.image;
+            this.comment = titleOrObject.comment
             // }
-        }
-        setUniqueId() {
-            return idCounter++;
-            console.log("assigned unique ID: " + idCounter);
         }
     }
 
@@ -47,6 +44,8 @@ app.factory("bookSrv", function ($q, $http, $log) {
             edition, isbn, category, subCategory, image, comment, price, seller) {
             super(titleOrObject, author, author2, translator, publisher, year, state,
                 edition, isbn, category, subCategory, image, comment);
+                
+                this.id = ++counter;
 
             if (arguments.length > 1) {
                 this.price = price;
@@ -64,6 +63,8 @@ app.factory("bookSrv", function ($q, $http, $log) {
             edition, isbn, category, subCategory, image, comment, postingPerson) {
             super(titleOrObject, author, author2, translator, publisher, year, state,
                 edition, isbn, category, subCategory, image, comment);
+                
+                this.id = ++counter;
 
             if (arguments.length > 1) {
                 this.postingPerson = postingPerson;
