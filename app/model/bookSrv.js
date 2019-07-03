@@ -116,9 +116,53 @@ app.factory("bookSrv", function($q, $http, $log) {
         return async.promise;
     }
 
+    function getBookCategories() {
+        var async = $q.defer();
+
+        var categories = [];
+        // var subCategories = [];
+
+        $http.get("app/model/data/bookCategories.json").then(function(res) {
+            for (var i = 0; i < res.data.length; i++) {
+                categories.push(res.data[i].catName);
+            }
+
+            async.resolve(categories);
+        }, function(err) {
+            $log.error(err);
+            async.reject(err);
+        });
+
+        return async.promise;
+    }
+
+
+    function getSellers() {
+        var async = $q.defer();
+
+        var sellers = [];
+
+        $http.get("app/model/data/sellers.json").then(function(res) {
+
+            for (var i = 0; i < res.data.length; i++) {
+                sellers.push(res.data[i]);
+            }
+
+            async.resolve(sellers);
+        }, function(err) {
+            $log.error(err);
+            async.reject(err);
+        });
+
+        return async.promise;
+    }
+
+
     return {
         getBookPosts: getBookPosts,
         getBooks4Sale: getBooks4Sale,
+        getBookCategories: getBookCategories,
+        getSellers: getSellers,
         Book: Book,
         Book4Sale: Book4Sale
     }

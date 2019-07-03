@@ -14,7 +14,7 @@
                                 <div id="collapseOne" class="collapse" data-parent="#accordion">
                                     <ul class="card-body sub-cat">
                                         <li><a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                        {{category.subCategory}} </a></li>
+                                        {{}} </a></li>
                                         </li>
                                     </ul>
                                 </div>
@@ -87,12 +87,12 @@
         <div ng-show="searchResults.length > 0" class="my-3">
             <h3>תוצאות חיפוש</h3>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="book in searchResults">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="item in searchResults">
                     <div ng-include="'app/home/modalBook4sale.html'"></div>
                     <div class="card-body" data-toggle="modal" data-target="#book4sale">
-                        <h5 class="card-title">{{book.title}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
-                        <a href="#" class="card-link"><span>חנות: </span>{{book.seller}}</a>
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{item.author}}</h6>
+                        <a href="#" class="card-link"><span>חנות: </span>{{item.seller}}</a>
                     </div>
                 </div>
             </div>
@@ -114,7 +114,7 @@
                 <h3 class="my-3 title-color">ספרים שנוספו לאחרונה</h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'" ng-repeat="book in books | limitTo:4" ng-click="bookModal(book)" data-toggle="modal" data-target="#book4sale">
+                <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'" ng-repeat="book in books | limitTo:5" ng-click="book4SaleModal(book)" data-toggle="modal" data-target="#book4sale">
                     <div ng-include="'app/home/modalBook4sale.html'"></div>
                     <div class="card-body">
                         <h5 class="card-title">{{book.title}}</h5>
@@ -130,7 +130,7 @@
                 <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts" data-toggle="modal" data-target="#modelPostFulfilled">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts" ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled">
                     <div ng-include="'app/searchBoard/bookPost.html'"></div>
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>

@@ -126,7 +126,7 @@ a:hover {
 .statistics {
     position: relative;
     width: 50%;
-    background-color: #b71c1c;
+    background-color: #CA7733;
     border-radius: 50%;
     margin: auto;
 }
@@ -146,7 +146,7 @@ a:hover {
 }
 
 .message-board {
-    border: 2px solid #b71c1c;
+    border: 2px solid #CA7733;
     padding: 5px;
 }
 
@@ -159,7 +159,10 @@ a:hover {
     font-weight: bold;
 }
 
-.book-inquired,
+.book-inquired {
+    color: #CA7733;
+}
+
 h3>a:hover {
     color: #b71c1c;
 }

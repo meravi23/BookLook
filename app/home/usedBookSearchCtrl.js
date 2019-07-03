@@ -4,7 +4,6 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     $scope.searchResults = [];
     $scope.userSearchInput = "";
     $scope.noResults = false;
-    $scope.categories = [];
 
 
     bookSrv.getBooks4Sale().then(function(books) {
@@ -46,13 +45,34 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
         $log.error(err);
     })
 
+
+    $scope.categories = [];
+
+    bookSrv.getBookCategories().then(function(categories) {
+        $scope.categories = categories;
+        console.log("categories loaded: " + categories);
+    }, function(err) {
+        $log.error(err);
+    })
+
+    $scope.sellers = [];
+    bookSrv.getSellers().then(function(sellers) {
+        $scope.sellers = sellers;
+        console.log($scope.sellers);
+        for (seller in sellers) {
+            console.log("seller: " + sellers.name);
+        }
+    }, function(err) {
+        $log.error(err);
+    })
+
     // function clearFields() {
     //     $log.info("clearFields() entered");
     //     $scope.fieldToSearch = "";
     //     $scope.userSearchInput = "";
     // }
 
-    $scope.bookModal = function(book) {
+    $scope.book4SaleModal = function(book) {
         $scope.title = book.title;
         $scope.author = book.author;
         $scope.author2 = book.author2;
@@ -70,5 +90,21 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
         $scope.seller = book.seller;
     }
 
+    $scope.bookPostingModal = function(book) {
+        $scope.title = book.title;
+        $scope.author = book.author;
+        $scope.author2 = book.author2;
+        $scope.translator = book.translator;
+        $scope.publisher = book.publisher;
+        $scope.year = book.year;
+        $scope.bookState = book.state;
+        $scope.edition = book.edition;
+        $scope.isbn = book.isbn;
+        $scope.bookCategory = book.category;
+        $scope.subCategory = book.subCategory;
+        $scope.image = book.image;
+        $scope.bookDetails = book.comment;
+        $scope.postingPerson = book.postingPerson;
+    }
 
 });
