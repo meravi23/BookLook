@@ -1,4 +1,4 @@
-app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
+app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
 
     $scope.books = [];
     $scope.searchResults = [];
@@ -7,15 +7,15 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
 
 
 
-    bookSrv.getBooks4Sale().then(function (books) {
+    bookSrv.getBooks4Sale().then(function(books) {
         $scope.books = books;
         console.log($scope.books);
-    }, function (err) {
+    }, function(err) {
         $log.error(err);
     })
 
 
-    $scope.searchBook = function () {
+    $scope.searchBook = function() {
 
         $scope.searchResults = [];
 
@@ -35,7 +35,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
         // $scope.userSearchInput = "";
     }
 
-    $scope.searchByCategory = function () {
+    $scope.searchByCategory = function() {
         $scope.searchResults = [];
         for (var i = 0; i < $scope.books.length; i++) {
 
@@ -44,10 +44,10 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
 
     $scope.bookPosts = [];
 
-    bookSrv.getBookPosts().then(function (books) {
+    bookSrv.getBookPosts().then(function(books) {
         $scope.bookPosts = books;
         console.log($scope.bookPosts);
-    }, function (err) {
+    }, function(err) {
         $log.error(err);
     })
 
