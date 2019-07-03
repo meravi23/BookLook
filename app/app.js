@@ -9,7 +9,8 @@ app.config(function($routeProvider) {
             templateUrl: "app/searchBoard/searchBoard.html",
             controller: "searchPostCtrl"
         }).when("/manage", {
-            templateUrl: "manageStore.html"
+            templateUrl: "app/store/manageStore.html",
+            controller: "storeCtrl"
         }).when("/login", {
             templateUrl: "app/login/login.html",
             controller: "loginCtrl"

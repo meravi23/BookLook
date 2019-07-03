@@ -1,0 +1,15 @@
+[{
+        "id": 1,
+        "fname": "John",
+        "lname": "Doe",
+        "email": "john@gmail.com",
+        "pwd": "123"
+    },
+    {
+        "id": 2,
+        "fname": "Merav",
+        "lname": "Miller",
+        "email": "m@m.com",
+        "pwd": "123"
+    }
+]

@@ -203,3 +203,16 @@ h3>a,
 .bcgr-yellow {
     background-color: #CA7733;
 }
+
+.center {
+    text-align: center;
+}
+
+ul,
+li {
+    list-style-type: none;
+}
+
+ul {
+    background-color: white;
+}
