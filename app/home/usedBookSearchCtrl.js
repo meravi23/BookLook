@@ -36,6 +36,15 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     }
 
 
+    $scope.searchByCategory = function(category) {
+        for (var i = 0; i < $scope.books.length; i++) {
+            if ($scope.books[i].category === category) {
+                $scope.searchResults.push($scope.books[i]);
+            }
+        }
+    }
+
+
     $scope.bookPosts = [];
 
     bookSrv.getBookPosts().then(function(books) {
@@ -50,7 +59,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
 
     bookSrv.getBookCategories().then(function(categories) {
         $scope.categories = categories;
-        console.log("categories loaded: " + categories);
+        // console.log("categories loaded: " + categories);
     }, function(err) {
         $log.error(err);
     })
@@ -59,8 +68,8 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     bookSrv.getSellers().then(function(sellers) {
         $scope.sellers = sellers;
         console.log($scope.sellers);
-        for (seller in sellers) {
-            console.log("seller: " + sellers.name);
+        for (var i = 0; i < sellers.length; i++) {
+            console.log("seller: " + sellers[i].name);
         }
     }, function(err) {
         $log.error(err);
