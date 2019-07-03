@@ -1,4 +1,4 @@
-app.factory("bookSrv", function ($q, $http, $log) {
+app.factory("bookSrv", function($q, $http, $log) {
     var counter = 0;
 
     class Book {
@@ -33,7 +33,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
             this.subCategory = titleOrObject.subCategory;
             this.image = titleOrObject.image;
             this.comment = titleOrObject.comment
-            // }
+                // }
         }
     }
 
@@ -44,8 +44,8 @@ app.factory("bookSrv", function ($q, $http, $log) {
             edition, isbn, category, subCategory, image, comment, price, seller) {
             super(titleOrObject, author, author2, translator, publisher, year, state,
                 edition, isbn, category, subCategory, image, comment);
-                
-                this.id = ++counter;
+
+            this.id = ++counter;
 
             if (arguments.length > 1) {
                 this.price = price;
@@ -63,13 +63,13 @@ app.factory("bookSrv", function ($q, $http, $log) {
             edition, isbn, category, subCategory, image, comment, postingPerson) {
             super(titleOrObject, author, author2, translator, publisher, year, state,
                 edition, isbn, category, subCategory, image, comment);
-                
-                this.id = ++counter;
+
+            this.id = ++counter;
 
             if (arguments.length > 1) {
                 this.postingPerson = postingPerson;
             } else {
-                this.price = titleOrObject.price;
+                this.postingPerson = titleOrObject.postingPerson;
             }
         }
     }
@@ -79,7 +79,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
         var books = [];
 
-        $http.get("app/model/data/bookPosts.json").then(function (response) {
+        $http.get("app/model/data/bookPosts.json").then(function(response) {
             for (var i = 0; i < response.data.length; i++) {
                 var book = new bookLooked4(response.data[i]);
                 books.push(book);
@@ -87,7 +87,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
             async.resolve(books);
 
-        }, function (err) {
+        }, function(err) {
             $log.error(err);
             async.reject(err);
         });
@@ -100,7 +100,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
         var books = [];
 
-        $http.get("app/model/data/booksForSale.json").then(function (response) {
+        $http.get("app/model/data/booksForSale.json").then(function(response) {
             for (var i = 0; i < response.data.length; i++) {
                 var book = new Book4Sale(response.data[i]);
                 books.push(book);
@@ -108,7 +108,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
             async.resolve(books);
 
-        }, function (err) {
+        }, function(err) {
             $log.error(err);
             async.reject(err);
         });

@@ -7,77 +7,18 @@
                     <h6>חיפוש לפי קטגוריות</h6>
                     <div id="accordion">
                         <div class="card">
-                            <ul class="card-header">
-                                <li><a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                    עיון ומחקר
+                            <ul class="card-header category">
+                                <li><a class="card-link" data-toggle="collapse" href="#collapseOne" ng-repeat="category in categories" ng-click="categorySelection()">
+                                    {{category}}
                                 </a></li>
                                 <div id="collapseOne" class="collapse" data-parent="#accordion">
-                                    <ul class="card-body">
+                                    <ul class="card-body sub-cat">
                                         <li><a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                        אנתרופולוגיה </a></li>
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                        ארכאולוגיה </a></li>
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                        פילוסופיה </a></li>
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                        סוציולוגיה </a>
+                                        {{category.subCategory}} </a></li>
                                         </li>
                                     </ul>
                                 </div>
                             </ul>
-                        </div>
-                        <div class="card">
-                            <ul class="card-header">
-                                <li><a class="collapsed card-link" data-toggle="collapse" href="#collapseTwo">
-                                    פרוזה
-                                </a></li>
-                                <div id="collapseTwo" class="collapse" data-parent="#accordion">
-                                    <ul class="card-body">
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseTwo">
-                                        סיפורת </a></li>
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseTwo">
-                                        נון-פיקשן </a></li>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <ul class="card-header">
-                                <li><a class="collapsed card-link" data-toggle="collapse" href="#collapseThree">
-                                    ספרי לימוד
-                                </a></li>
-
-                                <div id="collapseThree" class="collapse" data-parent="#accordion">
-                                    <ul class="card-body">
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseThree">
-                                        לשון עברית </a></li>
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseThree">
-                                        מתמטיקה </a></li>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <ul class="card-header">
-                                <li><a class="collapsed card-link" data-toggle="collapse" href="#collapseFour">
-                                    ספרי הדרכה
-                                </a></li>
-                                <div id="collapseFour" class="collapse" data-parent="#accordion">
-                                    <ul class="card-body">
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseFour">
-                                        בישול </a></li>
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseFour">
-                                        הורות </a></li>
-                                    </ul>
-                                </div>
-                            </ul>
-                        </div>
-                        <div class="card">
-                            <div class="card-header">
-                                <a class="collapsed card-link" data-toggle="collapse" href="#collapseFive">
-                                    ספרי ילדים
-                                </a>
-                            </div>
                         </div>
                     </div>
                 </div>
@@ -173,7 +114,7 @@
                 <h3 class="my-3 title-color">ספרים שנוספו לאחרונה</h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'" ng-repeat="book in books | limitTo:4" data-toggle="modal" data-target="#book4sale">
+                <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'" ng-repeat="book in books | limitTo:4" ng-click="bookModal(book)" data-toggle="modal" data-target="#book4sale">
                     <div ng-include="'app/home/modalBook4sale.html'"></div>
                     <div class="card-body">
                         <h5 class="card-title">{{book.title}}</h5>

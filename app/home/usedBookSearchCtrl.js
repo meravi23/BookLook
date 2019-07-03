@@ -4,7 +4,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     $scope.searchResults = [];
     $scope.userSearchInput = "";
     $scope.noResults = false;
-
+    $scope.categories = [];
 
 
     bookSrv.getBooks4Sale().then(function(books) {
@@ -13,6 +13,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     }, function(err) {
         $log.error(err);
     })
+
 
 
     $scope.searchBook = function() {
@@ -35,12 +36,6 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
         // $scope.userSearchInput = "";
     }
 
-    $scope.searchByCategory = function() {
-        $scope.searchResults = [];
-        for (var i = 0; i < $scope.books.length; i++) {
-
-        }
-    }
 
     $scope.bookPosts = [];
 
@@ -56,6 +51,24 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     //     $scope.fieldToSearch = "";
     //     $scope.userSearchInput = "";
     // }
+
+    $scope.bookModal = function(book) {
+        $scope.title = book.title;
+        $scope.author = book.author;
+        $scope.author2 = book.author2;
+        $scope.translator = book.translator;
+        $scope.publisher = book.publisher;
+        $scope.year = book.year;
+        $scope.bookState = book.state;
+        $scope.edition = book.edition;
+        $scope.isbn = book.isbn;
+        $scope.bookCategory = book.category;
+        $scope.subCategory = book.subCategory;
+        $scope.image = book.image;
+        $scope.bookDetails = book.comment;
+        $scope.price = book.price;
+        $scope.seller = book.seller;
+    }
 
 
 });

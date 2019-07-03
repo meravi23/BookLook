@@ -168,6 +168,8 @@ h3>a:hover {
     float: left;
     width: 70%;
     font-weight: bold;
+    display: block;
+    height: 1.5em;
 }
 
 .field-name {
@@ -208,11 +210,11 @@ h3>a,
     text-align: center;
 }
 
-ul,
-li {
+.category,
+.sub-cat {
     list-style-type: none;
 }
 
-ul {
+.category {
     background-color: white;
 }

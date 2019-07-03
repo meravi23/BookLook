@@ -1,0 +1,23 @@
+[{
+        "id": "1",
+        "fname": "מיכל",
+        "lname": "לוי",
+        "phone1": "054-5222625",
+        "phone2": "03-75236325",
+        "email": "michal@gmail.com",
+        "city": "תל אביב",
+        "address": "רח' דיזנגוף 99",
+        "contact-options": ["טלפון", "מסנג'ר"]
+    },
+    {
+        "id": "2",
+        "fname": "ירון",
+        "lname": "כהן",
+        "phone1": "054-5234123",
+        "phone2": "03-52314256",
+        "email": "yaron@gmail.com",
+        "city": "תל אביב",
+        "address": "רח' הירקון 100",
+        "contact-options": ["טלפון", "דואל"]
+    }
+]
