@@ -13,7 +13,7 @@
         "image": "https://www.mendele.co.il/wp-content/uploads/2018/05/ShaloshKosotTe-4s-282x376.jpg",
         "comment": "",
         "price": 30,
-        "seller": 2
+        "sellerId": 2
     },
     {
         "title": "הרים מעבר להרים",
@@ -30,7 +30,7 @@
         "image": "http://www.text.org.il/09_covers/0906022.jpg",
         "comment": "",
         "price": 40,
-        "seller": 1
+        "sellerId": 1
     },
     {
         "title": "אמת",
@@ -47,7 +47,7 @@
         "image": "http://www.text.org.il/09_covers/0906022.jpg",
         "comment": "בחירת הצוות - ספר מומלץ במיוחד",
         "price": 25,
-        "seller": 2
+        "sellerId": 2
     },
     {
         "title": "כוחו של אחד",
@@ -64,7 +64,7 @@
         "image": "https://www.e-vrit.co.il/Images/Products/covers_2019/kokhoshelekhad_master.jpg",
         "comment": "",
         "price": 55,
-        "seller": 1
+        "sellerId": 1
     },
     {
         "title": "המילון החדש",
@@ -81,6 +81,6 @@
         "image": "",
         "comment": "",
         "price": 15,
-        "seller": 2
+        "sellerId": 2
     }
 ]

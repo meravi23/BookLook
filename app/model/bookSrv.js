@@ -124,7 +124,7 @@ app.factory("bookSrv", function($q, $http, $log) {
 
         $http.get("app/model/data/bookCategories.json").then(function(res) {
             for (var i = 0; i < res.data.length; i++) {
-                categories.push(res.data[i].catName);
+                categories.push(res.data[i]);
             }
 
             async.resolve(categories);

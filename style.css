@@ -60,10 +60,6 @@ body {
     margin-left: 0;
 } */
 
-.search-btn {
-    width: 100%;
-}
-
 .card-link {
     color: #aaa;
 }
@@ -220,4 +216,8 @@ h3>a,
 
 .category {
     background-color: white;
+}
+
+.shop-checkbox {
+    display: inline;
 }
