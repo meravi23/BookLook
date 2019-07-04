@@ -1,0 +1,126 @@
+<div>
+    <bookNavbar></bookNavbar>
+
+    <div class="container">
+
+        <h3 class="title-color my-3 center">יצירת חשבון משתמש</h3>
+
+        <div class="my-5">
+            <form>
+                <div class="form-group">
+                    <label for="id-shop" class="col-form-label">מזהה משתמש:</label>
+                    <div class="id-number">
+                        <input type="text" class="form-control book-id" id="id-user" ng-model="userId" disabled>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="fname" class="col-form-label">שם פרטי:</label>
+                        <span class="mandatory">* שדה חובה</span>
+                        <div>
+                            <input type="text" class="form-control" id="fname" ng-model="fname" required>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="form-group">
+                        <label for="lname" class="col-form-label">שם משפחה:</label>
+                        <span class="mandatory">* שדה חובה</span>
+                        <div>
+                            <input type="text" class="form-control" id="lname" ng-model="lname" required>
+                        </div>
+                    </div>
+                </div>
+
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="contact1" class="col-form-label">שם משתמש:</label>
+            <span class="mandatory">* שדה חובה</span>
+            <div>
+                <input type="text" class="form-control" id="id-contact1" ng-model="contact1" required>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="form-group">
+            <label for="telContact1" class="col-form-label">מספר טלפון:</label>
+            <span class="mandatory">* שדה חובה</span>
+            <div>
+                <input type="text" class="form-control" id="id-telContact1" ng-model="telContact1" required>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="my-5">
+            <div class="form-check-inline">
+                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" value="female"
+                                                        name="genderCon1">אישה
+                                                </label>
+            </div>
+            <div class="form-check-inline">
+                <label class="form-check-label">
+                                                    <input type="radio" class="form-check-input" value="male"
+                                                        name="genderCon1">גבר
+                                                </label>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="user-name" class="col-form-label">דוא"ל:</label>
+        <span class="mandatory">* שדה חובה</span>
+        <div>
+            <input type="text" class="form-control" id="user-name" ng-model="userEmail">
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="p-wd">סיסמה:</label>
+        <span class="mandatory">* שדה חובה</span>
+        <div>
+            <input type="password" class="form-control" id="p-wd" ng-model="pwd" placeholder="לפחות 8 תווים" minlength="8">
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="form-group">
+        <label for="re-p-wd">אימות סיסמה:</label>
+        <span class="mandatory">* שדה חובה</span>
+        <div>
+            <input type="password" class="form-control" id="re-p-wd" ng-model="rePwd" placeholder="לפחות 8 תווים" minlength="8">
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+<div class="col-md-2">
+    <div>
+        <button type="button" class="btn btn-info btn-block" ng-click="openDisclaimer()" data-dismiss="modal">תנאי
+                                        האתר</button>
+        <div class="custom-control custom-checkbox mb-3">
+            <input type="checkbox" id="confirm-disclaimer" name="confirmDisclaimer" required>
+            <label for="confirm-disclaimer">הריני מאשר/ת את תנאי השימוש באתר</label>
+        </div>
+    </div>
+    <div>
+        <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="addUser()">יצירת
+                                        חשבון</button>
+    </div>
+    <div class="col-md-2">
+        <div>
+            <button type="button" class="btn btn-danger btn-block" ng-click="deleteSellerAccount()" data-dismiss="modal">מחיקת
+                                חשבון</button>
+        </div>
+        <div>
+            <button type="button" class="btn btn-danger btn-block my-3" data-dismiss="modal">ניקוי
+                                שדות</button>
+        </div>
+    </div>
+</div>

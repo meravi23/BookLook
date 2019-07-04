@@ -18,7 +18,12 @@ app.config(function($routeProvider) {
             templateUrl: "app/store/manageStore.html",
             controller: "storeCtrl"
         }).when("/signup", {
-            templateUrl: "app/signup/signup.html",
+            templateUrl: "app/signup/signupUserOrSeller.html",
+        }).when("/signupShop", {
+            templateUrl: "app/signup/signupShop.html",
+            controller: "signupCtrl"
+        }).when("/signupUser", {
+            templateUrl: "app/signup/signupUser.html",
             controller: "signupCtrl"
         })
 })

@@ -1,4 +1,4 @@
-app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
+app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
 
     $scope.books = [];
     $scope.searchResults = [];
@@ -9,15 +9,15 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
     $scope.noResults = false;
 
 
-    bookSrv.getBooks4Sale().then(function (books) {
+    bookSrv.getBooks4Sale().then(function(books) {
         $scope.books = books;
         console.log($scope.books);
-    }, function (err) {
+    }, function(err) {
         $log.error(err);
     })
 
 
-    $scope.searchBook = function () {
+    $scope.searchBook = function() {
         $scope.searchResults = [];
 
         for (var i = 0; i < $scope.books.length; i++) {
@@ -36,54 +36,56 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
 
 
 
-    // $scope.searchByCategory = function (category) {
-    //     console.log(category);
-    //     for (var i = 0; i < $scope.books.length; i++) {
-    //         console.log($scope.books[i].category); //"2"
-    //         let cat = 
-    //         if ($scope.books[i].category === category) {
-    //             $scope.searchResults.push($scope.books[i]);
-    //         }
-    //     }
-    //     console.log($scope.searchResults);
-    // }
+    $scope.searchByCategory = function(category) {
+        console.log(category);
+
+        for (var i = 0; i < $scope.books.length; i++) {
+            console.log($scope.books[i].category); //"2"
+
+            if ($scope.books[i].category === category) {
+                $scope.searchResults.push($scope.books[i]);
+            }
+        }
+        console.log($scope.searchResults);
+    }
 
 
-    $scope.clearFields = function () {
+    $scope.clearFields = function() {
         $scope.fieldToSearch = "";
         $scope.userSearchInput = "";
         $scope.searchResults = [];
     }
 
 
-    $scope.bookPosts = bookSrv.getBookPosts().then(function (books) {
+    $scope.bookPosts = bookSrv.getBookPosts().then(function(books) {
         $scope.bookPosts = books;
         console.log($scope.bookPosts);
-    }, function (err) {
+    }, function(err) {
         $log.error(err);
     })
 
 
-    bookSrv.getBookCategories().then(function (categories) {
+    bookSrv.getBookCategories().then(function(categories) {
         for (var i = 0; i < categories.length; i++) {
             $scope.categories.push(categories[i].catName);
         }
         console.log($scope.categories);
-    }, function (err) {
+    }, function(err) {
         $log.error(err);
     })
 
 
-    bookSrv.getSellers().then(function (sellers) {
+    bookSrv.getSellers().then(function(sellers) {
         $scope.sellers = sellers;
         console.log($scope.sellers);
-    }, function (err) {
+    }, function(err) {
         $log.error(err);
     })
 
 
     // לא עובד!
     $scope.sellerName = "";
+
     function getSellerName(bookId) {
         for (var i = 0; i < $scope.sellers.length; i++) {
             if (bookId === $scope.sellers[i].id) {
@@ -94,7 +96,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
     }
 
 
-    $scope.book4SaleModal = function (book) {
+    $scope.book4SaleModal = function(book) {
         $scope.title = book.title;
         $scope.author = book.author;
         $scope.author2 = book.author2;
@@ -112,7 +114,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
         $scope.seller = getSellerName(book.sellerId);
     }
 
-    $scope.bookPostingModal = function (book) {
+    $scope.bookPostingModal = function(book) {
         $scope.title = book.title;
         $scope.author = book.author;
         $scope.author2 = book.author2;

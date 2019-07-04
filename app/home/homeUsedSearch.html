@@ -8,14 +8,13 @@
                     <div id="accordion">
                         <div class="card">
                             <ul class="card-header category">
-                                <li><a class="card-link" data-toggle="collapse" href="#collapseOne"
-                                        ng-repeat="category in categories" ng-click="searchByCategory(category)">
+                                <li><a class="card-link" data-toggle="collapse" href="#collapseOne" ng-repeat="category in categories" ng-click="searchByCategory(category)">
                                         {{category}}
                                     </a></li>
                                 <div id="collapseOne" class="collapse" data-parent="#accordion">
                                     <ul class="card-body sub-cat">
-                                        <li><a class="card-link" data-toggle="collapse" href="#collapseOne">
-                                                {{}} </a></li>
+                                        <li><a class="card-link" data-toggle="collapse" href="#collapseOne" ng-repeat="subcat in categories">
+                                                {{subcat.subCategories}} </a></li>
                                         </li>
                                     </ul>
                                 </div>
@@ -34,8 +33,7 @@
                                         <label for="search1">חיפוש לפי:</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select class="form-control" id="search1" name="search-options"
-                                            ng-model="fieldToSearch">
+                                        <select class="form-control" id="search1" name="search-options" ng-model="fieldToSearch">
                                             <option value="title">שם כותר</option>
                                             <option value="author">שם מחבר</option>
                                             <option value="isbn">ISBN</option>
@@ -49,9 +47,7 @@
                     <div class="col-md-8">
                         <form ng-submit="searchBook()">
                             <div class="input-group md-form form-sm form-2 pl-0">
-                                <input ng-model="userSearchInput"
-                                    class="form-control my-0 py-1 amber-border home-search" type="text"
-                                    placeholder="חיפוש ספר, מחבר, isbn ,הוצאה לאור" aria-label="Search">
+                                <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר, מחבר, isbn ,הוצאה לאור" aria-label="Search">
                                 <i class="fas fa-search"></i>
                             </div>
                         </form>
@@ -60,8 +56,7 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div>
-                            <button type="button" class="btn btn-danger btn-block"
-                                ng-click="clearFields()">ניקוי</button>
+                            <button type="button" class="btn btn-danger btn-block" ng-click="clearFields()">ניקוי</button>
                         </div>
                     </div>
 
@@ -90,8 +85,7 @@
         <div ng-show="searchResults.length > 0" class="my-3">
             <h3>תוצאות חיפוש</h3>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="item in searchResults"
-                    ng-click="book4SaleModal(item)">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="item in searchResults" ng-click="book4SaleModal(item)">
                     <div ng-include="'app/home/modalBook4sale.html'"></div>
                     <div class="card-body" data-toggle="modal" data-target="#book4sale">
                         <h5 class="card-title">{{item.title}}</h5>
@@ -118,9 +112,7 @@
                 <h3 class="my-3 title-color">ספרים שנוספו לאחרונה</h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'"
-                    ng-repeat="book in books | limitTo:5" ng-click="book4SaleModal(book)" data-toggle="modal"
-                    data-target="#book4sale">
+                <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'" ng-repeat="book in books | limitTo:5" ng-click="book4SaleModal(book)" data-toggle="modal" data-target="#book4sale">
                     <div ng-include="'app/home/modalBook4sale.html'"></div>
                     <div class="card-body">
                         <h5 class="card-title">{{book.title}}</h5>
@@ -136,8 +128,7 @@
                 <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts"
-                    ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled">
+                <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts" ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled">
                     <div ng-include="'app/searchBoard/bookPost.html'"></div>
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>
@@ -147,5 +138,5 @@
                 </div>
             </div>
         </div>
-   
+
     </div>
