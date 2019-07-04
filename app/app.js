@@ -1,6 +1,6 @@
 var app = angular.module("usedBookApp", ["ngRoute", "ngAnimate", "ngTouch", "ui.bootstrap"]);
 
-app.config(function($routeProvider) {
+app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "app/home/homeUsedSearch.html",
@@ -8,9 +8,6 @@ app.config(function($routeProvider) {
         }).when("/board", {
             templateUrl: "app/searchBoard/searchBoard.html",
             controller: "searchPostCtrl"
-        }).when("/manage", {
-            templateUrl: "app/store/manageStore.html",
-            controller: "storeCtrl"
         }).when("/login", {
             templateUrl: "app/login/login.html",
             controller: "loginCtrl"
