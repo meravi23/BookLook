@@ -83,18 +83,6 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     })
 
 
-    // $scope.sellerName = "";
-
-    // function getSellerName(bookId) {
-    //     for (var i = 0; i < $scope.sellers.length; i++) {
-    //         if (bookId === $scope.sellers[i].id) {
-    //             $scope.sellerName = $scope.sellers[i].name;
-    //         }
-    //     }
-    //     console.log($scope.sellerName);
-    // }
-
-
     $scope.book4SaleModal = function(book) {
         $scope.title = book.title;
         $scope.author = book.author;
@@ -110,7 +98,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
         $scope.image = book.image;
         $scope.bookDetails = book.comment;
         $scope.price = book.price;
-        $scope.seller = getSellerName(book.sellerId);
+        $scope.seller = book.seller;
     }
 
     $scope.bookPostingModal = function(book) {

@@ -13,7 +13,7 @@
         "image": "https://www.mendele.co.il/wp-content/uploads/2018/05/ShaloshKosotTe-4s-282x376.jpg",
         "comment": "",
         "price": 30,
-        "sellerId": "קפה ספר"
+        "seller": "קפה ספר"
     },
     {
         "title": "הרים מעבר להרים",
@@ -30,7 +30,7 @@
         "image": "http://www.text.org.il/09_covers/0906022.jpg",
         "comment": "",
         "price": 40,
-        "sellerId": "קרוון הספרים"
+        "seller": "קרוון הספרים"
     },
     {
         "title": "אמת",
@@ -47,7 +47,7 @@
         "image": "http://www.text.org.il/09_covers/0906022.jpg",
         "comment": "בחירת הצוות - ספר מומלץ במיוחד",
         "price": 25,
-        "sellerId": "דני ספרים"
+        "seller": "דני ספרים"
     },
     {
         "title": "כוחו של אחד",
@@ -64,7 +64,7 @@
         "image": "https://www.e-vrit.co.il/Images/Products/covers_2019/kokhoshelekhad_master.jpg",
         "comment": "",
         "price": 55,
-        "sellerId": "קפה ספר"
+        "seller": "קפה ספר"
     },
     {
         "title": "המילון החדש",
@@ -81,6 +81,6 @@
         "image": "",
         "comment": "",
         "price": 15,
-        "sellerId": "רובינזון"
+        "seller": "רובינזון"
     }
 ]

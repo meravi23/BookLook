@@ -3,18 +3,18 @@
     <div class="container my-3">
         <div class="row">
             <div class="col-md-2">
-                <div>
+                <div class="y-border">
                     <h6>חיפוש לפי קטגוריות</h6>
                     <uib-accordion close-others="oneAtATime">
-                        <div uib-accordion-group class="mt-1" heading="{{category.categoryName}}" ng-repeat="category in categories" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                        <div uib-accordion-group class="mt-1 title-color" heading="{{category.categoryName}}" ng-repeat="category in categories" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                             <div>
-                                <div ng-repeat="subcat in category.subcategories"><a href="#">{{subcat}}</a></div>
+                                <div ng-repeat="subcat in category.subcategories"><a class="title-color" href="#">{{subcat}}</a></div>
                             </div>
                         </div>
                     </uib-accordion>
                 </div>
             </div>
-            <div class="col-md-10">
+            <div class="col-md-10 y-border">
                 <div class="row my-3">
                     <div class="col-md-4">
                         <form>
@@ -108,7 +108,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{book.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{book.author}}</h6>
-                        <a href="#" class="card-link"><span>חנות: </span>{{getSellerName(book.sellerId)}}</a>
+                        <a href="#" class="card-link"><span>חנות: </span>{{book.seller}}</a>
                     </div>
                 </div>
             </div>

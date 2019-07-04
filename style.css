@@ -182,7 +182,8 @@ h3>a:hover {
 
 h2,
 h3>a,
-.title-color {
+.title-color,
+.title-color a {
     color: #CA7733;
 }
 
@@ -225,4 +226,10 @@ h3>a,
 .choice {
     width: 70%;
     color: white;
+}
+
+.y-border {
+    border: 1px solid #CA7733;
+    border-radius: 5px;
+    padding: 10px;
 }
