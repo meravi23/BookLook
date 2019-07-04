@@ -8,12 +8,12 @@
         "state": "טוב מאוד",
         "edition": "2",
         "isbn": "347523652",
-        "category": "2",
+        "category": "פרוזה",
         "sub-category": "נון פיקשן",
         "image": "https://www.mendele.co.il/wp-content/uploads/2018/05/ShaloshKosotTe-4s-282x376.jpg",
         "comment": "",
         "price": 30,
-        "sellerId": 2
+        "sellerId": "קפה ספר"
     },
     {
         "title": "הרים מעבר להרים",
@@ -25,12 +25,12 @@
         "state": "כמו חדש",
         "edition": "ראשונה",
         "isbn": "347523002",
-        "category": 2,
+        "category": "פרוזה",
         "sub-category": "נון פיקשן",
         "image": "http://www.text.org.il/09_covers/0906022.jpg",
         "comment": "",
         "price": 40,
-        "sellerId": 1
+        "sellerId": "קרוון הספרים"
     },
     {
         "title": "אמת",
@@ -42,12 +42,12 @@
         "state": "כמו חדש",
         "edition": "ראשונה",
         "isbn": "347523002",
-        "category": "2",
+        "category": "פרוזה",
         "sub-category": "נון פיקשן",
         "image": "http://www.text.org.il/09_covers/0906022.jpg",
         "comment": "בחירת הצוות - ספר מומלץ במיוחד",
         "price": 25,
-        "sellerId": 2
+        "sellerId": "דני ספרים"
     },
     {
         "title": "כוחו של אחד",
@@ -59,12 +59,12 @@
         "state": "כמו חדש",
         "edition": "ראשונה",
         "isbn": "087523002",
-        "category": "2",
+        "category": "פרוזה",
         "sub-category": "פיקשן",
         "image": "https://www.e-vrit.co.il/Images/Products/covers_2019/kokhoshelekhad_master.jpg",
         "comment": "",
         "price": 55,
-        "sellerId": 1
+        "sellerId": "קפה ספר"
     },
     {
         "title": "המילון החדש",
@@ -81,6 +81,6 @@
         "image": "",
         "comment": "",
         "price": 15,
-        "sellerId": 2
+        "sellerId": "רובינזון"
     }
 ]

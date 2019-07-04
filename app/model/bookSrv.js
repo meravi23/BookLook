@@ -74,6 +74,7 @@ app.factory("bookSrv", function($q, $http, $log) {
         }
     }
 
+
     function getBookPosts() {
         var async = $q.defer();
 
@@ -94,6 +95,7 @@ app.factory("bookSrv", function($q, $http, $log) {
 
         return async.promise;
     }
+
 
     function getBooks4Sale() {
         var async = $q.defer();
@@ -116,16 +118,27 @@ app.factory("bookSrv", function($q, $http, $log) {
         return async.promise;
     }
 
+
+    class Category {
+        constructor(object) {
+            this.id = object.id;
+            this.categoryName = object.catName;
+            this.subcategories = object.subCategories;
+        }
+    }
+
+
     function getBookCategories() {
         var async = $q.defer();
 
         var categories = [];
-        // var subCategories = [];
 
         $http.get("app/model/data/bookCategories.json").then(function(res) {
             for (var i = 0; i < res.data.length; i++) {
-                categories.push(res.data[i]);
+                var category = new Category(res.data[i]);
+                categories.push(category);
             }
+            console.log(categories);
 
             async.resolve(categories);
         }, function(err) {
@@ -164,6 +177,7 @@ app.factory("bookSrv", function($q, $http, $log) {
         getBookCategories: getBookCategories,
         getSellers: getSellers,
         Book: Book,
-        Book4Sale: Book4Sale
+        Book4Sale: Book4Sale,
+        Category: Category
     }
 });

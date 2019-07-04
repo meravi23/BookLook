@@ -65,9 +65,9 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     })
 
 
-    bookSrv.getBookCategories().then(function(categories) {
-        for (var i = 0; i < categories.length; i++) {
-            $scope.categories.push(categories[i].catName);
+    bookSrv.getBookCategories().then(function(bookcategories) {
+        for (var i = 0; i < bookcategories.length; i++) {
+            $scope.categories.push(bookcategories[i]);
         }
         console.log($scope.categories);
     }, function(err) {
@@ -83,17 +83,16 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log) {
     })
 
 
-    // לא עובד!
-    $scope.sellerName = "";
+    // $scope.sellerName = "";
 
-    function getSellerName(bookId) {
-        for (var i = 0; i < $scope.sellers.length; i++) {
-            if (bookId === $scope.sellers[i].id) {
-                $scope.sellerName = $scope.sellers[i].name;
-            }
-        }
-        console.log($scope.sellerName);
-    }
+    // function getSellerName(bookId) {
+    //     for (var i = 0; i < $scope.sellers.length; i++) {
+    //         if (bookId === $scope.sellers[i].id) {
+    //             $scope.sellerName = $scope.sellers[i].name;
+    //         }
+    //     }
+    //     console.log($scope.sellerName);
+    // }
 
 
     $scope.book4SaleModal = function(book) {

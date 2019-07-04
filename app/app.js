@@ -1,4 +1,4 @@
-var app = angular.module("usedBookApp", ["ngRoute"]);
+var app = angular.module("usedBookApp", ["ngRoute", "ngAnimate", "ngTouch", "ui.bootstrap"]);
 
 app.config(function($routeProvider) {
     $routeProvider
