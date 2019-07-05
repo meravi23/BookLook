@@ -1,4 +1,4 @@
-app.factory("bookSrv", function($q, $http, $log) {
+app.factory("bookSrv", function ($q, $http, $log) {
     var counter = 0;
 
     class Book {
@@ -33,7 +33,7 @@ app.factory("bookSrv", function($q, $http, $log) {
             this.subCategory = titleOrObject.subCategory;
             this.image = titleOrObject.image;
             this.comment = titleOrObject.comment
-                // }
+            // }
         }
     }
 
@@ -80,7 +80,7 @@ app.factory("bookSrv", function($q, $http, $log) {
 
         var books = [];
 
-        $http.get("app/model/data/bookPosts.json").then(function(response) {
+        $http.get("app/model/data/bookPosts.json").then(function (response) {
             for (var i = 0; i < response.data.length; i++) {
                 var book = new bookLooked4(response.data[i]);
                 books.push(book);
@@ -88,7 +88,7 @@ app.factory("bookSrv", function($q, $http, $log) {
 
             async.resolve(books);
 
-        }, function(err) {
+        }, function (err) {
             $log.error(err);
             async.reject(err);
         });
@@ -102,15 +102,14 @@ app.factory("bookSrv", function($q, $http, $log) {
 
         var books = [];
 
-        $http.get("app/model/data/booksForSale.json").then(function(response) {
+        $http.get("app/model/data/booksForSale.json").then(function (response) {
             for (var i = 0; i < response.data.length; i++) {
                 var book = new Book4Sale(response.data[i]);
                 books.push(book);
             }
-
             async.resolve(books);
 
-        }, function(err) {
+        }, function (err) {
             $log.error(err);
             async.reject(err);
         });
@@ -133,7 +132,7 @@ app.factory("bookSrv", function($q, $http, $log) {
 
         var categories = [];
 
-        $http.get("app/model/data/bookCategories.json").then(function(res) {
+        $http.get("app/model/data/bookCategories.json").then(function (res) {
             for (var i = 0; i < res.data.length; i++) {
                 var category = new Category(res.data[i]);
                 categories.push(category);
@@ -141,7 +140,7 @@ app.factory("bookSrv", function($q, $http, $log) {
             console.log(categories);
 
             async.resolve(categories);
-        }, function(err) {
+        }, function (err) {
             $log.error(err);
             async.reject(err);
         });
@@ -155,14 +154,14 @@ app.factory("bookSrv", function($q, $http, $log) {
 
         var sellers = [];
 
-        $http.get("app/model/data/sellers.json").then(function(res) {
+        $http.get("app/model/data/sellers.json").then(function (res) {
 
             for (var i = 0; i < res.data.length; i++) {
                 sellers.push(res.data[i]);
             }
 
             async.resolve(sellers);
-        }, function(err) {
+        }, function (err) {
             $log.error(err);
             async.reject(err);
         });

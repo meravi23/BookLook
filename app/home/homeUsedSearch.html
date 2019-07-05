@@ -4,11 +4,12 @@
         <div class="row">
             <div class="col-md-2">
                 <div class="y-border">
-                    <h6>חיפוש לפי קטגוריות</h6>
+                    <h6 class="center">חיפוש לפי קטגוריות</h6>
                     <uib-accordion close-others="oneAtATime">
-                        <div uib-accordion-group class="mt-1 title-color" heading="{{category.categoryName}}" ng-repeat="category in categories" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                        <div uib-accordion-group class="mt-1 title-color" heading="{{category.categoryName}}"
+                         ng-repeat="category in categories" ng-click="searchByCategory(category)" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                             <div>
-                                <div ng-repeat="subcat in category.subcategories"><a class="title-color" href="#">{{subcat}}</a></div>
+                                <div ng-repeat="subcat in category.subcategories" ng-click="searchBySubcategory(subcat)"><a class="title-color" href="#">{{subcat}}</a></div>
                             </div>
                         </div>
                     </uib-accordion>
@@ -56,11 +57,12 @@
                             <div class="custom-control custom-checkbox">
                                 <h6>חנויות לחיפוש:</h6>
                                 <div class="shop-checkbox">
-                                    <input type="checkbox" id="shop0" name="shops" checked>
+                                    <input type="checkbox" id="shop0" name="shops">
                                     <label for="shop0">כל החנויות</label>
                                 </div>
                                 <div class="shop-checkbox" ng-repeat="shop in sellers">
-                                    <input type="checkbox" id="shop{{shop.id}}" name="shops">
+                                    <input type="checkbox" id="shop{{shop.id}}" name="shops"
+                                    ng-model="shopValue" ng-change="searchByShop(shop)">
                                     <label for="shop{{shop.id}}">{{shop.name}}</label>
                                 </div>
                             </div>
@@ -75,8 +77,8 @@
 
         <div ng-show="searchResults.length > 0" class="my-3">
             <h3>תוצאות חיפוש</h3>
-            <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="item in searchResults" ng-click="book4SaleModal(item)">
+            <div class="row">
+                <div class="card preview" ng-class="{'d-flex justify-content-center ml-1': searchResults.length > 1}" ng-repeat="item in searchResults track by $index" ng-click="book4SaleModal(item)">
                     <div ng-include="'app/home/modalBook4sale.html'"></div>
                     <div class="card-body" data-toggle="modal" data-target="#book4sale">
                         <h5 class="card-title">{{item.title}}</h5>
