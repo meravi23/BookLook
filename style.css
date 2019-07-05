@@ -33,8 +33,9 @@ body {
 }
 
 .btn:hover {
-    background-color: #c53d13;
-    border-color: #c53d13;
+    background-color: #ff6e40;
+    border-color: #ff6e40;
+    color: white;
 }
 
 .fa-user {
@@ -225,11 +226,19 @@ h3>a,
 
 .choice {
     width: 70%;
+    height: 50%;
+}
+
+.choice>a {
     color: white;
 }
 
 .y-border {
-    border: 1px solid #CA7733;
+    border: 1px solid #ddd;
     border-radius: 5px;
     padding: 10px;
+}
+
+.top-vertical-margin {
+    margin-top: 25%;
 }
