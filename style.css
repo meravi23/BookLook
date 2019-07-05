@@ -61,7 +61,9 @@ body {
     margin-left: 0;
 } */
 
-.card-link {
+.card-link,
+.fa-user,
+.nav-item>span {
     color: #aaa;
 }
 
@@ -165,7 +167,7 @@ a:hover {
 }
 
 h3>a:hover {
-    color: #b71c1c;
+    color: #ddd;
 }
 
 .field-value {
@@ -192,23 +194,8 @@ h3>a,
     color: #CA7733;
 }
 
-.card-link {
+.card-link, .div-block {
     display: block;
-}
-
-/* .search-results {
-    text-align: center;
-} */
-
-.div-block {
-    display: block;
-}
-
-
-/* now working */
-
-.bcgr-yellow {
-    background-color: #CA7733;
 }
 
 .center {
@@ -224,7 +211,7 @@ h3>a,
     background-color: white;
 }
 
-.shop-checkbox {
+.shop-checkbox, .inline {
     display: inline;
 }
 
@@ -247,6 +234,10 @@ h3>a,
     margin-top: 25%;
 }
 
-.inline {
-    display: inline;
+.form-control {
+    height: calc(1.5em + .75rem + 8px);
+}
+
+.logo {
+    text-align: center;
 }

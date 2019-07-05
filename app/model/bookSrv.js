@@ -1,5 +1,8 @@
 app.factory("bookSrv", function ($q, $http, $log) {
+
+    var bookPosts = [];
     var counter = 0;
+    var postCounter = 0;
 
     class Book {
 
@@ -57,7 +60,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
         }
     }
 
-    class bookLooked4 extends Book {
+    class BookLooked4 extends Book {
 
         constructor(titleOrObject, author, author2, translator, publisher, year, state,
             edition, isbn, category, subCategory, image, comment, postingPerson) {
@@ -74,6 +77,29 @@ app.factory("bookSrv", function ($q, $http, $log) {
         }
     }
 
+    function addNewBookPost(title, author,
+        /*author2, translator, publisher, year, state,
+               edition, isbn, category, subCategory,*/
+        image /*, comment, postingPerson*/ ) {
+        image = "http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png";
+            var async = $q.defer();
+
+        var bookPost = {
+            "postId": postCounter,
+            "title": title,
+            "author": author,
+            "img": image
+        }
+
+        var newBookPost = new BookLooked4(bookPost);
+        bookPosts.push(newBookPost);
+        ++postCounter;
+
+        async.resolve(postCounter);
+
+        return async.promise;
+    }
+
 
     function getBookPosts() {
         var async = $q.defer();
@@ -82,7 +108,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
         $http.get("app/model/data/bookPosts.json").then(function (response) {
             for (var i = 0; i < response.data.length; i++) {
-                var book = new bookLooked4(response.data[i]);
+                var book = new BookLooked4(response.data[i]);
                 books.push(book);
             }
 
@@ -175,6 +201,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
         getBooks4Sale: getBooks4Sale,
         getBookCategories: getBookCategories,
         getSellers: getSellers,
+        addNewBookPost : addNewBookPost,
         Book: Book,
         Book4Sale: Book4Sale,
         Category: Category

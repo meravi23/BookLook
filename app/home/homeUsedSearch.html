@@ -91,13 +91,14 @@
 
 
         <div class="my-3 search-results" ng-show="searchResults.length===0 && noResults">
-            <h3>לא נמצאו תוצאות. באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
+            <h3 class="center">לא נמצאו תוצאות. באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
         </div>
         <div class="my-3" ng-show="noResults">
-            <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
+            <button type="button" class="btn btn-info btn-block"
+             data-toggle="modal" data-target="#modelBookPost">הוספת
                 מודעת חיפוש</button>
         </div>
-        <div ng-include="'newSearchBookPost.html'"></div>
+        <div ng-include="'/app/searchBoard/newSearchBookPost.html'"></div>
 
 
         <div ng-show="searchResults.length === 0" class="my-3">
@@ -125,6 +126,7 @@
                 ng-repeat="post in bookPosts"
                 ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled">
                     <div ng-include="'app/searchBoard/bookPost.html'"></div>
+                   
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{post.author}}</h6>

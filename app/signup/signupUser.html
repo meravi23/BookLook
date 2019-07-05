@@ -5,9 +5,8 @@
 
         <h3 class="title-color my-3 center">יצירת חשבון משתמש</h3>
 
-        <div class="row">
-
-            <div class="col-md-3">
+        <div class="row d-flex justify-content-center">
+            <div class="col-md-4">
                 <div class="my-1">
                     <form>
                         <div class="form-group">
@@ -49,7 +48,6 @@
                                 <input type="text" class="form-control" id="id-contact1" ng-model="contact1" required>
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label for="telContact1" class="col-form-label">מספר טלפון:</label>
                             <div>
@@ -57,13 +55,13 @@
                                     required>
                             </div>
                         </div>
-
-                        <label for="user-name" class="col-form-label">דוא"ל:</label>
-                        <span class="mandatory">* שדה חובה</span>
-                        <div>
-                            <input type="text" class="form-control" id="user-name" ng-model="userEmail">
+                        <div class="form-group">
+                            <label for="user-name" class="col-form-label">דוא"ל:</label>
+                            <span class="mandatory">* שדה חובה</span>
+                            <div>
+                                <input type="text" class="form-control" id="user-name" ng-model="userEmail">
+                            </div>
                         </div>
-
                         <div class="form-group">
                             <label for="p-wd">סיסמה:</label>
                             <span class="mandatory">* שדה חובה</span>
@@ -72,7 +70,6 @@
                                     placeholder="לפחות 8 תווים" minlength="8">
                             </div>
                         </div>
-
                         <div class="form-group">
                             <label for="re-p-wd">אימות סיסמה:</label>
                             <span class="mandatory">* שדה חובה</span>
@@ -81,34 +78,33 @@
                                     placeholder="לפחות 8 תווים" minlength="8">
                             </div>
                         </div>
-
                         <div>
                             <button type="button" class="btn btn-info btn-block" ng-click="openDisclaimer()"
                                 data-dismiss="modal">תנאי
                                 האתר</button>
-                            <div class="custom-control custom-checkbox mb-3">
+                            <div class="custom-control custom-checkbox mb-3 center">
                                 <input type="checkbox" id="confirm-disclaimer" name="confirmDisclaimer" required>
                                 <label class="inline" for="confirm-disclaimer">הריני מאשר/ת את תנאי השימוש
                                     באתר</label>
                             </div>
                         </div>
-                        <div>
-                            <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="addUser()">יצירת
-                                חשבון</button>
-                        </div>
+                    </form>
                 </div>
-                </form>
             </div>
-        </div>
-        <div class="col-md-4">
-            <div>
-                <button type="button" class="btn btn-danger btn-block" ng-click="deleteSellerAccount()"
-                    data-dismiss="modal">מחיקת
-                    חשבון</button>
-            </div>
-            <div>
-                <button type="button" class="btn btn-danger btn-block my-3" data-dismiss="modal">ניקוי
-                    שדות</button>
+            <div class="col-md-2 my-5">
+                <div>
+                    <button type="button" class="btn btn-danger btn-block" ng-click="deleteSellerAccount()"
+                        data-dismiss="modal">מחיקת חשבון</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-danger btn-block my-3" data-dismiss="modal">ניקוי
+                        שדות</button>
+                </div>
+                <div>
+                    <button type="button" class="btn btn-lg btn-block btn-info my-5" ng-click="addUser()">יצירת
+                        חשבון</button>
+                </div>
             </div>
         </div>
     </div>
+</div>

@@ -1,10 +1,10 @@
-app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
+app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope) {
 
     $scope.books = [];
     $scope.searchResults = [];
     $scope.sellers = [];
     $scope.bookPosts = [];
-    $scope.categories = [];
+    $rootScope.categories = [];
     $scope.userSearchInput = "";
     $scope.noResults = false;
 

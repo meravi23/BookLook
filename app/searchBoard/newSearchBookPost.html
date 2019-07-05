@@ -1,9 +1,10 @@
 <!-- Modal -->
-<div class="modal fade" id="modelBookPost" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
+<div class="modal fade" id="modelBookPost" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
+    aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h3 class="modal-title">הוספת ספר / עדכון</h3>
+                <h3 class="modal-title title-color">מודעת חיפוש ספר</h3>
                 <button type="button" class="close ml-0" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -28,15 +29,16 @@
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="author" class="col-form-label">שם המחבר:</label>
+                                <label for="author" class="col-form-label">שם המחבר/ת:</label>
                                 <div>
                                     <input type="text" class="form-control" id="id-author" ng-model="author" required>
                                 </div>
                             </div>
                             <div class="form-group">
-                                <label for="book-img" class="col-form-label">תמונות:</label>
-                                <div>
-                                    <input type="file" accept="image/*" class="form-control" id="book-img" ng-model="bookImg">
+                                <!-- <label for="book-img" class="col-form-label">תמונה:</label> -->
+                                <div class="img-browse">
+                                    <input type="file" accept="image/*" image-with-preview ng-model="img"
+                                        accept="image/jpeg,image/png" class="form-control" id="book-img">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -71,12 +73,9 @@
                                     data-dismiss="modal">מחיקת הספר</button>
                             </div>
                             <div>
-                                <img class="img-placeholder"
-                                    src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
-                            </div>
-                            <div>
-                                <img class="img-placeholder"
-                                    src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                                <img class="img-fluid" ng-show="img.src" ng-src="{{img.src}}" alt="{{name}}">
+                                <!-- <img class="img-placeholder"
+                                    src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" /> -->
                             </div>
                             <div class="form-group">
                                 <label for="edition" class="col-form-label">מהדורה:</label>
@@ -84,18 +83,17 @@
                             </div>
                             <div>
                                 <label for="states-list">קטגוריה:</label>
-                                <select class="form-control" id="id-category" name="states-list" ng-model="bookCategory">
-                                    <option>עיון ומחקר</option>
-                                    <option>פרוזה</option>
-                                    <option>ספרי לימוד</option>
-                                    <option>ספרי הדרכה</option>
-                                    <option>ספרי ילדים</option>
+                                <select class="form-control" id="id-category" name="states-list">
+                                    <option ng-repeat="category in categories" ng-model="bookCategory">{{category}}
+                                    </option>
                                 </select>
                             </div>
                             <div>
-                                <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="addBook()">פרסום מודעת
+                                <button type="button" class="btn btn-lg btn-block btn-info my-3"
+                                    ng-click="addNewPost()">פרסום מודעת
                                     חיפוש</button>
-                                <button type="button" class="btn btn-danger btn-block" data-dismiss="modal">ניקוי</button>
+                                <button type="button" class="btn btn-danger btn-block"
+                                    data-dismiss="modal">ניקוי</button>
                             </div>
                         </div>
                     </div>
