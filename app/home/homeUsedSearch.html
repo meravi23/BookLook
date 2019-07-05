@@ -121,7 +121,9 @@
                 <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
             </div>
             <div class="row row-of-cards">
-                <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts" ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled">
+                <div class="card preview flex-md-fill ml-1"
+                ng-repeat="post in bookPosts"
+                ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled">
                     <div ng-include="'app/searchBoard/bookPost.html'"></div>
                     <div class="card-body">
                         <h5 class="card-title">{{post.title}}</h5>

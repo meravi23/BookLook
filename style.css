@@ -123,6 +123,7 @@ a:hover {
 .statistics {
     position: relative;
     width: 50%;
+    padding: 20%;
     background-color: #CA7733;
     border-radius: 50%;
     margin: auto;
@@ -134,12 +135,15 @@ a:hover {
     padding-bottom: 100%;
 }
 
-.statistics span {
+.statistics p {
     position: absolute;
-    top: 40%;
-    right: 35%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* top: 40%;
+    right: 35%; */
     font-size: 150%;
-    color: whitesmoke;
+    color: white;
 }
 
 .message-board {
@@ -192,9 +196,9 @@ h3>a,
     display: block;
 }
 
-.search-results {
+/* .search-results {
     text-align: center;
-}
+} */
 
 .div-block {
     display: block;
@@ -243,3 +247,6 @@ h3>a,
     margin-top: 25%;
 }
 
+.inline {
+    display: inline;
+}

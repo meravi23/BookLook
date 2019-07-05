@@ -34,8 +34,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
         }
     }
 
-
-
     $scope.searchByCategory = function (category) {
         $scope.searchResults = [];
         console.log(category);
@@ -49,7 +47,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
         }
         console.log("תוצאות חיפוש לפי קטגוריה " + $scope.searchResults.length);
     }
-
 
     $scope.searchBySubcategory = function (subcategory) {
         $scope.searchResults = [];

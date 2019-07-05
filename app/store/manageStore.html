@@ -11,8 +11,10 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.7.8/angular-route.js"></script>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css"
+        integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="style.css">
 
     <!-- adding all my scripts after 3rd party scripts -->
@@ -29,9 +31,11 @@
             <div class="row">
                 <div class="col-md-12">
                     <div class="input-group md-form form-sm form-2 pl-0">
-                        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="חיפוש ספר במלאי" aria-label="Search">
+                        <input class="form-control my-0 py-1 amber-border" type="text" placeholder="חיפוש ספר במלאי"
+                            aria-label="Search">
                     </div>
                     <div class="row">
+
                         <div class="col-md-6">
                             <div class="form-check-inline">
                                 <label class="form-check-label">
@@ -56,34 +60,36 @@
                 <div class="col-md-9">
                     <div class="row">
                         <div class="col-md-4 circle">
-                            <h3>מספר ספרים למכירה</h3>
+                            <h3 class="title-color">מספר ספרים למכירה</h3>
                             <div class="statistics">
-                                <span>574</span>
+                                <p>574</p>
                             </div>
                         </div>
                         <div class="col-md-4 circle">
-                            <h3>ממוצע ימים עד מכירה</h3>
+                            <h3 class="title-color">ממוצע ימים עד מכירה</h3>
                             <div class="statistics">
-                                <span>21</span>
+                                <p>21</p>
                             </div>
                         </div>
                         <div class="col-md-4 circle">
-                            <h3>מחיר ממוצע לספר</h3>
+                            <h3 class="title-color">מחיר ממוצע לספר</h3>
                             <div class="statistics">
-                                <span>37 ש"ח</span>
+                                <p>37</p>
                             </div>
                         </div>
                     </div>
                     <div class="row">
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="addBook()" data-toggle="modal" data-target="#modelId">הוספת
+                            <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="addBook()"
+                                data-toggle="modal" data-target="#modelId">הוספת
                                 ספר למכירה</button>
                         </div>
 
                         <div ng-include="'newSearchBookPost.html'"></div>
 
                         <div class="col-md-6">
-                            <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="updateBook()">עדכון
+                            <button type="button" class="btn btn-lg btn-block btn-info my-3"
+                                ng-click="updateBook()">עדכון
                                 פרטי ספר קיים</button>
                         </div>
                     </div>
@@ -100,7 +106,8 @@
                                 נחשים</span>
                         </div>
                         <div>
-                            <span class="customer">מרים לבנה </span>מתעניינת בספר <span class="book-inquired">בדיונות</span>
+                            <span class="customer">מרים לבנה </span>מתעניינת בספר <span
+                                class="book-inquired">בדיונות</span>
                         </div>
                         <div>
                             <span class="customer">Joseph Cohen </span>מתעניין בספר <span class="book-inquired">The
@@ -113,7 +120,7 @@
             <div class="row">
                 <div class="col-md-12">
                     <div>
-                        <h3 class="my-3">נוספו לאחרונה למלאי החנות:</h3>
+                        <h3 class="my-3 title-color">נוספו לאחרונה למלאי החנות:</h3>
                     </div>
                     <div class="row">
                         <div class="col-md-4">
