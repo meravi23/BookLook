@@ -1,4 +1,4 @@
-app.controller("searchPostCtrl", function($scope, bookSrv, $log) {
+app.controller("searchPostCtrl", function($scope, bookSrv, $log, $rootScope, $location) {
 
     $scope.bookPosts = [];
 
@@ -9,7 +9,13 @@ app.controller("searchPostCtrl", function($scope, bookSrv, $log) {
         $log.error(err);
     })
 
-
+    $scope.routeNotLoggedIn = function () {
+        if (!$rootScope.isLoggedIn) {
+            $location.path("/app/login/login.html");
+        } else {
+            $location.path("newSearchBookPost.html");
+        }
+    }
 
 
 });

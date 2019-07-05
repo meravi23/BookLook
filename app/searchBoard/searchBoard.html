@@ -3,7 +3,7 @@
     <div class="container">
 
         <h2 class="center">לוח חיפוש ספרים</h2>
-        <h3 class="my-3">הספרים הבאים מבוקשים על ידי מפרסמי המודעה</h3>
+        <h3 class="my-3 center">הספרים הבאים מבוקשים על ידי מפרסמי המודעה</h3>
 
         <div class="row">
             <div class="card preview flex-md-fill ml-1"
@@ -20,7 +20,7 @@
 
         <!-- connecting modal window -->
         <div class="my-3">
-            <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
+            <button type="button" class="btn btn-info btn-block" ng-click="routeNotLoggedIn()" data-toggle="modal" data-target="#modelBookPost">הוספת
                     מודעת חיפוש</button>
         </div>
         <div ng-include="'newSearchBookPost.html'"></div>

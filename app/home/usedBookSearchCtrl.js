@@ -82,6 +82,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log) {
         $scope.fieldToSearch = "";
         $scope.userSearchInput = "";
         $scope.searchResults = [];
+        $scope.noResults = false;
     }
 
 
