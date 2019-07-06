@@ -1,5 +1,5 @@
 app.controller("navbarCtrl", function ($scope, userSrv, $location, $rootScope) {
-
+    $scope.selectedNavItem = "";
 
 
     if ($rootScope.activeUser) {
@@ -41,6 +41,11 @@ app.controller("navbarCtrl", function ($scope, userSrv, $location, $rootScope) {
     $scope.logout = function () {
         userSrv.logout();
         $location.path("/");
+    }
+
+    $scope.onSelectNavItem = function(item){
+        $scope.selectedNavItem = item ;
+        return true;
     }
 
 })

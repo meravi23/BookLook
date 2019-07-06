@@ -5,7 +5,11 @@
                 <i class="fas fa-user"></i><span>{{activeUser.fname}}</span>
             </li>
 
-            <li class="nav-item" ng-repeat="item in navItems" ng-show="{{item.show}}">
+            <li class="nav-item" ng-repeat="item in navItems"
+             ng-show="{{item.show}}"
+             ng-click="onSelectNavItem(item)"
+             >
+             <!-- ng-class="{'active': }" -->
                 <a class="nav-link" href="{{item.href}}">{{item.inner}}</a>
             </li>
         </ul>
