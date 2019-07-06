@@ -1,6 +1,6 @@
 <!-- Modal -->
 <div class="modal fade" id="modelBookPost" tabindex="-1" role="dialog" aria-labelledby="modelTitleId"
-    aria-hidden="true">
+    ng-controller="searchPostCtrl" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
@@ -37,8 +37,9 @@
                             <div class="form-group">
                                 <!-- <label for="book-img" class="col-form-label">תמונה:</label> -->
                                 <div class="img-browse">
+                                    <!-- <input type="text" class="form-control" id="img" placeholder="Enter image URL" ng-model="img"> -->
                                     <input type="file" accept="image/*" image-with-preview ng-model="img"
-                                        accept="image/jpeg,image/png" class="form-control" id="book-img">
+                                        accept="image/jpeg,image/png" class="form-control" id="book-img" ng-model="image">
                                 </div>
                             </div>
                             <div class="form-group">
@@ -90,8 +91,10 @@
                             </div>
                             <div>
                                 <button type="button" class="btn btn-lg btn-block btn-info my-3"
-                                    ng-click="addNewPost()">פרסום מודעת
+                                    ng-click="addNewBookPost()">פרסום מודעת
                                     חיפוש</button>
+                            </div>
+                            <div>
                                 <button type="button" class="btn btn-danger btn-block"
                                     data-dismiss="modal">ניקוי</button>
                             </div>
