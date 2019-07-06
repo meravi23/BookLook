@@ -35,7 +35,8 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
                 }
                 // console.log("found " + $scope.searchResults.length + " book(s)");
 
-            } else if ($scope.searchResults.length === 0) {
+            }
+            if ($scope.searchResults.length === 0) {
                 $scope.noResults = true;
             }
         }
