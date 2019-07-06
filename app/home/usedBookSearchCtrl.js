@@ -138,21 +138,21 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.seller = book.seller;
     }
 
-    $scope.bookPostingModal = function (book) {
-        $scope.title = book.title;
-        $scope.author = book.author;
-        $scope.author2 = book.author2;
-        $scope.translator = book.translator;
-        $scope.publisher = book.publisher;
-        $scope.year = book.year;
-        $scope.bookState = book.state;
-        $scope.edition = book.edition;
-        $scope.isbn = book.isbn;
-        $scope.bookCategory = book.category;
-        $scope.subCategory = book.subCategory;
-        $scope.image = book.image;
-        $scope.bookDetails = book.comment;
-        $scope.postingPerson = book.postingPerson;
+    $rootScope.bookPostingModal = function (post) {
+        $scope.title = post.title;
+        $scope.author = post.author;
+        $scope.author2 = post.author2;
+        $scope.translator = post.translator;
+        $scope.publisher = post.publisher;
+        $scope.year = post.year;
+        $scope.bookState = post.state;
+        $scope.edition = post.edition;
+        $scope.isbn = post.isbn;
+        $scope.bookCategory = post.category;
+        $scope.subCategory = post.subCategory;
+        $scope.image = post.image;
+        $scope.bookDetails = post.comment;
+        $scope.postingPerson = post.postingPerson;
     }
 
 });

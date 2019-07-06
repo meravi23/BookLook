@@ -39,5 +39,22 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, $log, $rootScope, $l
         $scope.bookPosts.push(newPost);
     }
 
+    $scope.bookPostingModal = function (post) {
+        $scope.title = post.title;
+        $scope.author = post.author;
+        $scope.author2 = post.author2;
+        $scope.translator = post.translator;
+        $scope.publisher = post.publisher;
+        $scope.year = post.year;
+        $scope.bookState = post.state;
+        $scope.edition = post.edition;
+        $scope.isbn = post.isbn;
+        $scope.bookCategory = post.category;
+        $scope.subCategory = post.subCategory;
+        $scope.image = post.image;
+        $scope.bookDetails = post.comment;
+        $scope.postingPerson = post.postingPerson;
+    }
+
 
 });
