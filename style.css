@@ -62,11 +62,15 @@ body {
     margin-left: 0;
 } */
 
-.card-link,
+.grey, .card-link,
 .fa-user,
 .fa-search,
 .nav-item>span {
     color: #aaa;
+}
+
+.grey:hover, .card-link:hover {
+    color: #CA7733;
 }
 
 .row-of-cards {

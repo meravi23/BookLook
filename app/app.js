@@ -22,5 +22,8 @@ app.config(function ($routeProvider) {
         }).when("/signupUser", {
             templateUrl: "app/signup/signupUser.html",
             controller: "signupCtrl"
+        }).when("/searchPost", {
+            templateUrl: "app/searchBoard/bookPost.html"
+            // controller: "searchPostCtrl"
         })
 })

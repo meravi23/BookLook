@@ -24,10 +24,12 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, $log, $rootScope, $l
     })
 
     $scope.routeNotLoggedIn = function () {
-        if (!$rootScope.isLoggedIn) {
-            $location.path("/app/login/login.html");
+
+        console.log("$rootScope.isLoggedIn: " + $rootScope.isLoggedIn());
+        if (!$rootScope.isLoggedIn()) {
+            $location.path("/login");
         } else {
-            $location.path("/app/searchBoard/newSearchBookPost.html");
+            $location.path("/searchPost");
         }
     }
 
