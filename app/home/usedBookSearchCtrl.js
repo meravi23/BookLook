@@ -26,6 +26,13 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
                 ($scope.fieldToSearch === "isbn" && $scope.books[i].isbn.includes($scope.userSearchInput)) ||
                 ($scope.fieldToSearch === "publisher" && $scope.books[i].publisher.includes($scope.userSearchInput))) {
                 $scope.searchResults.push($scope.books[i]);
+            } else if ($scope.fieldToSearch === "") {
+                if ($scope.books[i].title.includes($scope.userSearchInput) ||
+                    ($scope.books[i].author.includes($scope.userSearchInput)) ||
+                    ($scope.books[i].isbn.includes($scope.userSearchInput)) ||
+                    ($scope.books[i].publisher.includes($scope.userSearchInput))) {
+                    $scope.searchResults.push($scope.books[i]);
+                }
                 // console.log("found " + $scope.searchResults.length + " book(s)");
 
             } else if ($scope.searchResults.length === 0) {
