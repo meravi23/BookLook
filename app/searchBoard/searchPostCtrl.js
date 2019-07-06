@@ -1,9 +1,10 @@
-app.controller("searchPostCtrl", function ($scope, bookSrv, $log, $rootScope, $location) {
+app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $rootScope, $location) {
 
     $scope.bookPosts = [];
-    
+
     $scope.title = "";
     $scope.author = "";
+    $scope.postingPerson = "";
     $scope.img = {};
     // $scope.author2 = "";
     // $scope.translator = "";
@@ -23,23 +24,29 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, $log, $rootScope, $l
         $log.error(err);
     })
 
+
     $scope.routeNotLoggedIn = function () {
 
         console.log("$rootScope.isLoggedIn: " + $rootScope.isLoggedIn());
         if (!$rootScope.isLoggedIn()) {
             $location.path("/login");
         } else {
+            // ??? how to route to modal window?
             $location.path("/searchPost");
         }
     }
 
     $scope.addNewBookPost = function () {
-        bookSrv.addNewBookPost($scope.title, $scope.author, $scope.img).then(function(newPost){
-            $log.info("new post added: " + JSON.stringify(newPost));
-        });
 
-        $scope.bookPosts.push(newPost);
+        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function (newBookPost) {
+
+            $log.info("new post added: " + JSON.stringify(newBookPost));
+            console.log("posted by: " + $rootScope.activeUser.fname);
+            console.log("number of posts: " + $scope.bookPosts.length);
+            $("#modelBookPost").modal('hide');
+        });
     }
+
 
     $scope.bookPostingModal = function (post) {
         $scope.title = post.title;
@@ -57,6 +64,5 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, $log, $rootScope, $l
         $scope.bookDetails = post.comment;
         $scope.postingPerson = post.postingPerson;
     }
-
 
 });

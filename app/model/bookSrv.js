@@ -2,7 +2,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
     var bookPosts = [];
     var counter = 0;
-    var postCounter = 0;
+    var postCounter;
 
     class Book {
 
@@ -62,12 +62,12 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
     class BookLooked4 extends Book {
 
-        constructor(titleOrObject, author, author2, translator, publisher, year, state,
-            edition, isbn, category, subCategory, image, comment, postingPerson) {
-            super(titleOrObject, author, author2, translator, publisher, year, state,
-                edition, isbn, category, subCategory, image, comment);
+        constructor(titleOrObject, author/*, author2, translator, publisher, year, state,
+            edition, isbn, category, subCategory, image, comment, postingPerson*/) {
+            super(titleOrObject, author/*, author2, translator, publisher, year, state,
+                edition, isbn, category, subCategory, image, comment*/);
 
-            this.id = ++counter;
+            //this.id = ++counter;
 
             if (arguments.length > 1) {
                 this.postingPerson = postingPerson;
@@ -75,29 +75,6 @@ app.factory("bookSrv", function ($q, $http, $log) {
                 this.postingPerson = titleOrObject.postingPerson;
             }
         }
-    }
-
-    function addNewBookPost(title, author,
-        /*author2, translator, publisher, year, state,
-               edition, isbn, category, subCategory,*/
-        image /*, comment, postingPerson*/ ) {
-        image = "http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png";
-            var async = $q.defer();
-
-        var bookPost = {
-            "postId": postCounter,
-            "title": title,
-            "author": author,
-            "img": image
-        }
-
-        var newBookPost = new BookLooked4(bookPost);
-        bookPosts.push(newBookPost);
-        ++postCounter;
-
-        async.resolve(postCounter);
-
-        return async.promise;
     }
 
 
@@ -121,6 +98,32 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
         return async.promise;
     }
+    
+
+    function addNewBookPost(title, author, postingPerson){
+        /*author2, translator, publisher, year, state, edition, isbn, category, subCategory, image , comment, postingPerson*/  
+        // image = "http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png";
+        var async = $q.defer();
+
+        var bookPost = {
+            //"postId": postCounter,
+            "title": title,
+            "author": author,
+            "createdBy": postingPerson
+            // "img": image
+        }
+
+        var newBookPost = new BookLooked4(bookPost);
+        bookPosts.push(newBookPost);
+        //++postCounter;
+
+        async.resolve(newBookPost);
+
+        return async.promise;
+    }
+
+
+    
 
 
     function getBooks4Sale() {

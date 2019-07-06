@@ -16,7 +16,7 @@ app.controller("loginCtrl", function ($scope, $location, userSrv, $log, $rootSco
             //     $location.path("/board");
             // }
 
-            $location.path("/store");
+            $location.path("/board");
 
             $rootScope.activeUser = activeUser;
 

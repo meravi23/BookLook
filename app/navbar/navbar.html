@@ -1,17 +1,12 @@
 <nav class="navbar navbar-expand-sm navbar-light bg-light ">
     <div class="collapse navbar-collapse " id="collapsibleNavId ">
         <ul class="navbar-nav ml-auto mt-2 mt-lg-0 ">
-            <li class="nav-item">
-                <a class="nav-link" href="#!/">דף הבית</a>
-            </li>
             <li class="nav-item" ng-show="isLoggedIn()">
                 <i class="fas fa-user"></i><span>{{activeUser.fname}}</span>
             </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#!/board">לוח חיפוש ספרים</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="#!/store">ניהול חנות</a>
+
+            <li class="nav-item" ng-repeat="item in navItems" ng-show="{{item.show}}">
+                <a class="nav-link" href="{{item.href}}">{{item.inner}}</a>
             </li>
         </ul>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
