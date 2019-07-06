@@ -6,11 +6,9 @@
         <h3 class="my-3 center">הספרים הבאים מבוקשים על ידי מפרסמי המודעה</h3>
 
         <div class="row">
-            <div class="card preview flex-md-fill ml-1"
-             ng-repeat="post in bookPosts"
-             ng-click="bookPostingModal(post)"
-             data-toggle="modal" data-target="#modelPostFulfilled">
-             <div ng-include="'app/searchBoard/bookPost.html'"></div>
+            <div class="card preview flex-md-fill ml-1" ng-repeat="post in bookPosts" ng-click="bookPostingModal(post)"
+                data-toggle="modal" data-target="#modelPostFulfilled">
+                <div ng-include="'app/searchBoard/bookPost.html'"></div>
 
                 <div class="card-body">
                     <h5 class="card-title">{{post.title}}</h5>
@@ -21,11 +19,13 @@
         </div>
 
         <!-- connecting modal window -->
-        <div class="my-3">
-            <button type="button" class="btn btn-info btn-block"
-             data-toggle="modal" data-target="#modelBookPost">הוספת
+        <div class="row d-flex justify-content-center">
+
+            <div class="my-3 col-md-6">
+                <button type="button" class="btn btn-info btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
                     מודעת חיפוש</button>
+            </div>
+            <div ng-include="'/app/searchBoard/newSearchBookPost.html'"></div>
         </div>
-        <div ng-include="'/app/searchBoard/newSearchBookPost.html'"></div>
     </div>
 </div>

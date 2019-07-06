@@ -48,7 +48,8 @@ body {
 
 .fa-search {
     position: absolute;
-    top: 0;
+    top: 15px;
+    left: 5px; 
 }
 
 .preview {
@@ -63,6 +64,7 @@ body {
 
 .card-link,
 .fa-user,
+.fa-search,
 .nav-item>span {
     color: #aaa;
 }
@@ -240,4 +242,8 @@ h3>a,
 
 .logo {
     text-align: center;
+}
+
+.cat-search {
+    padding-right: 0;
 }
