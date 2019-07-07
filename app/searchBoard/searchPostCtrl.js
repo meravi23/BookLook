@@ -44,6 +44,7 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
         }
     }
 
+
     $scope.addNewBookPost = function() {
         // getBookPosts should be called only once! 
         // avoid calling it twice using a boolean

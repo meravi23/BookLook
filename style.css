@@ -259,7 +259,3 @@ h3>a,
 .bold {
     font-weight: bold;
 }
-
-input:focus {
-    outline: none;
-}

@@ -1,8 +1,9 @@
-app.factory("bookSrv", function ($q, $http, $log) {
+app.factory("bookSrv", function($q, $http, $log) {
 
     var bookPosts = [];
     var counter = 0;
-    var postCounter;
+
+    var bookPostsCalledAlready = false;
 
     class Book {
 
@@ -36,7 +37,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
             this.subCategory = titleOrObject.subCategory;
             this.image = titleOrObject.image;
             this.comment = titleOrObject.comment
-            // }
+                // }
         }
     }
 
@@ -62,10 +63,14 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
     class BookLooked4 extends Book {
 
-        constructor(titleOrObject, author/*, author2, translator, publisher, year, state,
-            edition, isbn, category, subCategory, image, comment, postingPerson*/) {
-            super(titleOrObject, author/*, author2, translator, publisher, year, state,
-                edition, isbn, category, subCategory, image, comment*/);
+        constructor(titleOrObject, author
+            /*, author2, translator, publisher, year, state,
+                        edition, isbn, category, subCategory, image, comment, postingPerson*/
+        ) {
+            super(titleOrObject, author
+                /*, author2, translator, publisher, year, state,
+                                edition, isbn, category, subCategory, image, comment*/
+            );
 
             //this.id = ++counter;
 
@@ -81,27 +86,27 @@ app.factory("bookSrv", function ($q, $http, $log) {
     function getBookPosts() {
         var async = $q.defer();
 
-        var books = [];
+        var bookPosts = [];
 
-        $http.get("app/model/data/bookPosts.json").then(function (response) {
-            for (var i = 0; i < response.data.length; i++) {
-                var book = new BookLooked4(response.data[i]);
-                books.push(book);
-            }
-
-            async.resolve(books);
-
-        }, function (err) {
-            $log.error(err);
-            async.reject(err);
-        });
+        $http.get("app/model/data/bookPosts.json").then(function(response) {
+                for (var i = 0; i < response.data.length; i++) {
+                    var post = new BookLooked4(response.data[i]);
+                    bookPosts.push(post);
+                }
+                async.resolve(bookPosts);
+                bookPostsCalledAlready = true;
+            },
+            function(err) {
+                $log.error(err);
+                async.reject(err);
+            });
 
         return async.promise;
     }
-    
 
-    function addNewBookPost(title, author, postingPerson){
-        /*author2, translator, publisher, year, state, edition, isbn, category, subCategory, image , comment, postingPerson*/  
+
+    function addNewBookPost(title, author, postingPerson) {
+        /*author2, translator, publisher, year, state, edition, isbn, category, subCategory, image , comment, postingPerson*/
         // image = "http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png";
         var async = $q.defer();
 
@@ -110,7 +115,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
             "title": title,
             "author": author,
             "createdBy": postingPerson
-            // "img": image
+                // "img": image
         }
 
         var newBookPost = new BookLooked4(bookPost);
@@ -123,7 +128,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
     }
 
 
-    
+
 
 
     function getBooks4Sale() {
@@ -131,14 +136,14 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
         var books = [];
 
-        $http.get("app/model/data/booksForSale.json").then(function (response) {
+        $http.get("app/model/data/booksForSale.json").then(function(response) {
             for (var i = 0; i < response.data.length; i++) {
                 var book = new Book4Sale(response.data[i]);
                 books.push(book);
             }
             async.resolve(books);
 
-        }, function (err) {
+        }, function(err) {
             $log.error(err);
             async.reject(err);
         });
@@ -161,7 +166,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
         var categories = [];
 
-        $http.get("app/model/data/bookCategories.json").then(function (res) {
+        $http.get("app/model/data/bookCategories.json").then(function(res) {
             for (var i = 0; i < res.data.length; i++) {
                 var category = new Category(res.data[i]);
                 categories.push(category);
@@ -169,7 +174,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
             console.log(categories);
 
             async.resolve(categories);
-        }, function (err) {
+        }, function(err) {
             $log.error(err);
             async.reject(err);
         });
@@ -183,14 +188,14 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
         var sellers = [];
 
-        $http.get("app/model/data/sellers.json").then(function (res) {
+        $http.get("app/model/data/sellers.json").then(function(res) {
 
             for (var i = 0; i < res.data.length; i++) {
                 sellers.push(res.data[i]);
             }
 
             async.resolve(sellers);
-        }, function (err) {
+        }, function(err) {
             $log.error(err);
             async.reject(err);
         });
@@ -204,7 +209,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
         getBooks4Sale: getBooks4Sale,
         getBookCategories: getBookCategories,
         getSellers: getSellers,
-        addNewBookPost : addNewBookPost,
+        addNewBookPost: addNewBookPost,
         Book: Book,
         Book4Sale: Book4Sale,
         Category: Category
