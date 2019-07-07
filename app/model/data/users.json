@@ -3,6 +3,7 @@
         "fname": "John",
         "lname": "Doe",
         "email": "john@gmail.com",
+        "phone": "053-333-3333",
         "pwd": "123"
     },
     {
@@ -10,6 +11,7 @@
         "fname": "Merav",
         "lname": "Miller",
         "email": "booklooksys@gmail.com",
+        "phone": "054-444-4444",
         "pwd": "123"
     }
 ]

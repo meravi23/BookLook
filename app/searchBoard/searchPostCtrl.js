@@ -1,4 +1,4 @@
-app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $rootScope, $location) {
+app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootScope, $location) {
 
     $scope.bookPosts = [];
 
@@ -17,15 +17,15 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
     // $scope.subCategory = "";
     // $scope.bookDetails = "";
 
-    bookSrv.getBookPosts().then(function (books) {
+    bookSrv.getBookPosts().then(function(books) {
         $scope.bookPosts = books;
         console.log($scope.bookPosts);
-    }, function (err) {
+    }, function(err) {
         $log.error(err);
     })
 
 
-    $scope.routeNotLoggedIn = function () {
+    $scope.routeNotLoggedIn = function() {
 
         console.log("$rootScope.isLoggedIn: " + $rootScope.isLoggedIn());
         if (!$rootScope.isLoggedIn()) {
@@ -36,19 +36,20 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
         }
     }
 
-    $scope.addNewBookPost = function () {
+    $scope.addNewBookPost = function() {
 
-        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function (newBookPost) {
+        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function(newBookPost) {
 
             $log.info("new post added: " + JSON.stringify(newBookPost));
             console.log("posted by: " + $rootScope.activeUser.fname);
             console.log("number of posts: " + $scope.bookPosts.length);
             $("#modelBookPost").modal('hide');
+
         });
     }
 
 
-    $scope.bookPostingModal = function (post) {
+    $scope.bookPostingModal = function(post) {
         $scope.title = post.title;
         $scope.author = post.author;
         $scope.author2 = post.author2;

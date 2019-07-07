@@ -1,12 +1,12 @@
-app.controller("loginCtrl", function ($scope, $location, userSrv, $log, $rootScope) {
+app.controller("loginCtrl", function($scope, $location, userSrv, $log, $rootScope) {
 
     $scope.invalidLogin = false;
     $scope.email = "booklooksys@gmail.com";
     $scope.pwd = "123";
 
-    $scope.login = function () {
+    $scope.login = function() {
 
-        userSrv.login($scope.email, $scope.pwd).then(function (activeUser) {
+        userSrv.login($scope.email, $scope.pwd).then(function(activeUser) {
             $log.info("Successful login with: " + JSON.stringify(activeUser));
 
             //add logic to different paths according to user (store manager or regular user)
@@ -16,16 +16,16 @@ app.controller("loginCtrl", function ($scope, $location, userSrv, $log, $rootSco
             //     $location.path("/board");
             // }
 
-            $location.path("/board");
+            $location.path("/");
 
             $rootScope.activeUser = activeUser;
 
-        }, function (err) {
+        }, function(err) {
             $scope.invalidLogin = true;
         });
     }
 
-    $scope.logout = function () {
+    $scope.logout = function() {
         userSrv.logout();
     }
 

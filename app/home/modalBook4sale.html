@@ -13,7 +13,7 @@
                     <div class="col-md-8">
                         <div class="div-block">
                             <span class="field-name">מספר מערכת</span>
-                            <span class="field-value">{{sellerNum}}003-{{book.bookNum}}</span>
+                            <span class="field-value">{{sellerNum}}{{bookNum}}</span>
                         </div>
                         <div>
                             <span class="field-name">שם הכותר</span>
@@ -59,7 +59,8 @@
                             </span>
                             <span class="field-value">
                                 <span>המחאות</span>
-                            <span>אפליקציות:</span>
+                            <span>ביט</span>
+                            <span>פפר</span>
                             </span>
                         </div>
                     </div>
@@ -71,34 +72,33 @@
                         <div>
                             <button type="button" class="btn btn-block btn-info my-3" ng-click="" data-dismiss="modal">עדכון מודעה</button>
                         </div>
-                        <div>
+                        <div class="center">
                             <span>שיתוף המודעה</span>
                         </div>
-                        <div>
+                        <div class="center">
                             <span><i class="fab fa-facebook-messenger"></i></span>
                         </div>
-                        <div>
+                        <div class="center">
                             <span><i class="fab fa-whatsapp"></i></span>
                         </div>
-                        <div>
+                        <div class="center">
                             <span><i class="fab fa-twitter-square"></i></span>
                         </div>
-                        <div>
+                        <div class="center">
                             <span><i class="fas fa-envelope"></i></span>
                         </div>
 
                         <div>
-                            <span class="field-value">{{book.bookImg}}</span>
-                            <div>
-                                <img class="img-placeholder" src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
-                            </div>
+                            <!-- <span class="field-value">{{image}}</span> -->
+                            <img class="img-placeholder" ng-src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
                         </div>
                     </div>
                 </div>
+            </div>
 
-                <div>
-                    <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="contact()">אימייל לחנות</button>
-                </div>
+            <div>
+                <p class="center">לשליחת בקשה אוטומטית לחנות לחזור אליכם לגבי ספר זה לחצו כאן</p>
+                <button type="button" class="btn btn-lg btn-block btn-info mb-1" ng-click="contact(book)">שליחת בקשה אוטומטית</button>
             </div>
         </div>
     </div>

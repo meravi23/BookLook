@@ -49,7 +49,7 @@ body {
 .fa-search {
     position: absolute;
     top: 15px;
-    left: 5px; 
+    left: 5px;
 }
 
 .preview {
@@ -62,14 +62,16 @@ body {
     margin-left: 0;
 } */
 
-.grey, .card-link,
+.grey,
+.card-link,
 .fa-user,
 .fa-search,
 .nav-item>span {
     color: #aaa;
 }
 
-.grey:hover, .card-link:hover {
+.grey:hover,
+.card-link:hover {
     color: #CA7733;
 }
 
@@ -178,7 +180,7 @@ h3>a:hover {
 
 .field-value {
     float: left;
-    width: 70%;
+    width: 60%;
     font-weight: bold;
     display: block;
     height: 1.5em;
@@ -186,7 +188,7 @@ h3>a:hover {
 
 .field-name {
     float: right;
-    width: 30%;
+    width: 40%;
 }
 
 .book-img {
@@ -200,7 +202,8 @@ h3>a,
     color: #CA7733;
 }
 
-.card-link, .div-block {
+.card-link,
+.div-block {
     display: block;
 }
 
@@ -217,7 +220,8 @@ h3>a,
     background-color: white;
 }
 
-.shop-checkbox, .inline {
+.shop-checkbox,
+.inline {
     display: inline;
 }
 
