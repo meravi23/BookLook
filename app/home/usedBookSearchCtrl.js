@@ -74,16 +74,33 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         event.stopPropagation();
     }
 
-    $scope.filterByShop = function (shop) {
-        for (var i = 0; i < $scope.shopsForSearch.length; i++) {
-            if ($scope.shopsForSearch.includes(book[i].seller)) {
-                return true;
-            }
+
+    // $scope.filterByShop = function (shop) {
+    //     for (var i = 0; i < $scope.shopsForSearch.length; i++) {
+    //         if ($scope.shopsForSearch.includes(book[i].seller)) {
+    //             return true;
+    //         }
+    //     }
+    // }
+    $scope.options = [];
+    $scope.selectAll = false;
+    $scope.toggleShops = function(index) {
+        $scope.sellers[index].checked = !$scope.sellers[index].checked;
+        if(!$scope.sellers[index].checked){
+            $scope.selectAll = false;
         }
-    }
+    };
+
+    $scope.toggleAll = function() {
+        var checked = $scope.selectAll;
+        for (var i = 0; i < $scope.sellers.length; i++) {
+          $scope.options[i] = checked;
+          $scope.sellers[i].checked = checked;
+        }
+      };
+
 
     $scope.searchByShop = function (shop) {
-
 
         $scope.searchResults = [];
         // var shopsToSearch = [];
