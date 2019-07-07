@@ -8,7 +8,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.userSearchInput = "";
     $scope.noResults = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
-    $scope.shopsForSearch = [];
 
 
     bookSrv.getBooks4Sale().then(function (books) {
@@ -82,22 +81,53 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     //         }
     //     }
     // }
-    $scope.options = [];
-    $scope.selectAll = false;
-    $scope.toggleShops = function(index) {
-        $scope.sellers[index].checked = !$scope.sellers[index].checked;
-        if(!$scope.sellers[index].checked){
-            $scope.selectAll = false;
-        }
-    };
 
-    $scope.toggleAll = function() {
-        var checked = $scope.selectAll;
-        for (var i = 0; i < $scope.sellers.length; i++) {
-          $scope.options[i] = checked;
-          $scope.sellers[i].checked = checked;
-        }
-      };
+
+    bookSrv.getSellers().then(function (sellers) {
+        $scope.sellers = sellers;
+        // console.log($scope.sellers);
+    }, function (err) {
+        $log.error(err);
+    })
+
+
+    // $scope.shopsForSearch = [];
+
+    // $scope.options = [];
+    // $scope.selectAll = false;
+    // $scope.toggleShops = function (index) {
+    //     $scope.sellers[index].checked = !$scope.sellers[index].checked;
+    //     if ($scope.sellers[index].checked) {
+    //         $scope.shopsForSearch.push($scope.sellers[index]);
+    //     } else {
+    //         for (var i = 0; i < $scope.shopsForSearch.length; i++) {
+    //             if ($scope.sellers[index] === $scope.shopsForSearch[i]) {
+    //                 $scope.shopsForSearch.splice(i);
+    //             }
+    //         }
+    //     }
+    //     console.log($scope.shopsForSearch);
+    //     if (!$scope.sellers[index].checked) {
+    //         $scope.selectAll = false;
+    //     }
+    // };
+
+    // $scope.toggleAll = function () {
+    //     var checked = $scope.selectAll;
+    //     if ($scope.sellers.length > 0) {
+    //         $scope.shopsForSearch.push($scope.sellers[i]);
+    //     } else {
+    //         $scope.shopsForSearch = [];
+    //     }
+    //     console.log("toggleAll " + $scope.shopsForSearch);
+
+    //     for (var i = 0; i < $scope.sellers.length; i++) {
+
+    //         $scope.options[i] = checked;
+    //         $scope.sellers[i].checked = checked;
+
+    //     }
+    // };
 
 
     $scope.searchByShop = function (shop) {
@@ -148,14 +178,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
             $scope.categories.push(bookcategories[i]);
         }
         // console.log($scope.categories);
-    }, function (err) {
-        $log.error(err);
-    })
-
-
-    bookSrv.getSellers().then(function (sellers) {
-        $scope.sellers = sellers;
-        // console.log($scope.sellers);
     }, function (err) {
         $log.error(err);
     })
