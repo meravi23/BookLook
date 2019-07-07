@@ -1,4 +1,4 @@
-app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope, userSrv) {
+app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope, userSrv) {
 
     $scope.books = [];
     $scope.searchResults = [];
@@ -7,17 +7,19 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
     $rootScope.categories = [];
     $scope.userSearchInput = "";
     $scope.noResults = false;
+    $scope.bookPostsAlreadyRetrievedOnce = false;
+    $scope.shopsForSearch = [];
 
 
-    bookSrv.getBooks4Sale().then(function(books) {
+    bookSrv.getBooks4Sale().then(function (books) {
         $scope.books = books;
         // console.log($scope.books);
-    }, function(err) {
+    }, function (err) {
         $log.error(err);
     })
 
 
-    $scope.searchBook = function() {
+    $scope.searchBook = function () {
         $scope.searchResults = [];
 
         for (var i = 0; i < $scope.books.length; i++) {
@@ -42,7 +44,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
         }
     }
 
-    $scope.searchByCategory = function(category) {
+    $scope.searchByCategory = function (category) {
         $scope.searchResults = [];
         console.log(category);
 
@@ -56,7 +58,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
         console.log("תוצאות חיפוש לפי קטגוריה " + $scope.searchResults.length);
     }
 
-    $scope.searchBySubcategory = function(subcategory, event) {
+    $scope.searchBySubcategory = function (subcategory, event) {
         $scope.searchResults = [];
         console.log(subcategory);
 
@@ -72,7 +74,15 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
         event.stopPropagation();
     }
 
-    $scope.searchByShop = function(shop) {
+    $scope.filterByShop = function (shop) {
+        for (var i = 0; i < $scope.shopsForSearch.length; i++) {
+            if ($scope.shopsForSearch.includes(book[i].seller)) {
+                return true;
+            }
+        }
+    }
+
+    $scope.searchByShop = function (shop) {
 
 
         $scope.searchResults = [];
@@ -91,7 +101,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
     }
 
 
-    $scope.clearFields = function() {
+    $scope.clearFields = function () {
         $scope.fieldToSearch = "";
         $scope.userSearchInput = "";
         $scope.searchResults = [];
@@ -99,33 +109,42 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
     }
 
 
-    $scope.bookPosts = bookSrv.getBookPosts().then(function(books) {
+    $rootScope.getBookPosts = function () {
+        if (!$scope.bookPostsAlreadyRetrievedOnce) {
+            $scope.bookPosts();
+        } else {
+            return;
+        }
+    }
+
+
+    $scope.bookPosts = bookSrv.getBookPosts().then(function (books) {
         $scope.bookPosts = books;
-        // console.log($scope.bookPosts);
-    }, function(err) {
+        bookPostsAlreadyRetrievedOnce = true;
+    }, function (err) {
         $log.error(err);
     })
 
 
-    bookSrv.getBookCategories().then(function(bookcategories) {
+    bookSrv.getBookCategories().then(function (bookcategories) {
         for (var i = 0; i < bookcategories.length; i++) {
             $scope.categories.push(bookcategories[i]);
         }
         // console.log($scope.categories);
-    }, function(err) {
+    }, function (err) {
         $log.error(err);
     })
 
 
-    bookSrv.getSellers().then(function(sellers) {
+    bookSrv.getSellers().then(function (sellers) {
         $scope.sellers = sellers;
         // console.log($scope.sellers);
-    }, function(err) {
+    }, function (err) {
         $log.error(err);
     })
 
 
-    $scope.contact = function(book) {
+    $scope.contact = function (book) {
         var activeUser = userSrv.getActiveUser();
         var template_params = {
             "user_name": activeUser.fname,
@@ -133,7 +152,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
             "user_email": activeUser.email,
             "seller_name": book.seller,
             "user_tel": activeUser.phone
-                // "message_html": "message_html_value"
+            // "message_html": "message_html_value"
         }
         console.log("book title: " + book.title);
         var service_id = "default_service";
@@ -143,8 +162,27 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
         alert("email sent to seller!");
     }
 
+    $scope.contactSeeker = function (post) {
+        var activeUser = userSrv.getActiveUser();
+        var template_params = {
+            // params and template to be updated (copied from "contact()")
+            "user_name": activeUser.fname,
+            "book_title": book.title,
+            "user_email": activeUser.email,
+            "seller_name": book.seller,
+            "user_tel": activeUser.phone
+            // "message_html": "message_html_value"
+        }
+        console.log("book title: " + book.title);
+        var service_id = "default_service";
+        var template_id = "BookLook User Inquiry";
+        emailjs.send(service_id, template_id, template_params);
+        $log.info("message sent to seller!");
+        alert("email sent to the book seeker!");
+    }
 
-    $scope.book4SaleModal = function(book) {
+
+    $scope.book4SaleModal = function (book) {
         $scope.title = book.title;
         $scope.author = book.author;
         $scope.author2 = book.author2;
@@ -162,7 +200,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
         $scope.seller = book.seller;
     }
 
-    $rootScope.bookPostingModal = function(post) {
+    $rootScope.bookPostingModal = function (post) {
         $scope.title = post.title;
         $scope.author = post.author;
         $scope.author2 = post.author2;

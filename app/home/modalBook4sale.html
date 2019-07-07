@@ -55,22 +55,24 @@
                             <span class="field-name">מקבלים תשלום ב</span>
                             <span class="field-value">
                                 <span>מזומן</span>
-                            <span>כרטיסי אשראי</span>
+                                <span>כרטיסי אשראי</span>
                             </span>
                             <span class="field-value">
                                 <span>המחאות</span>
-                            <span>ביט</span>
-                            <span>פפר</span>
+                                <span>ביט</span>
+                                <span>פפר</span>
                             </span>
                         </div>
                     </div>
 
                     <div class="col-md-4">
                         <div>
-                            <button type="button" class="btn btn-block btn-danger" ng-click="deleteBook()" data-dismiss="modal">הסרת מודעה</button>
+                            <button type="button" class="btn btn-block btn-danger" ng-click="deleteBook()"
+                                data-dismiss="modal">הסרת מודעה</button>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-block btn-info my-3" ng-click="" data-dismiss="modal">עדכון מודעה</button>
+                            <button type="button" class="btn btn-block btn-info my-3" ng-click=""
+                                data-dismiss="modal">עדכון מודעה</button>
                         </div>
                         <div class="center">
                             <span>שיתוף המודעה</span>
@@ -90,15 +92,17 @@
 
                         <div>
                             <!-- <span class="field-value">{{image}}</span> -->
-                            <img class="img-placeholder" ng-src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                            <img class="img-placeholder"
+                                ng-src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
                         </div>
                     </div>
                 </div>
-            </div>
 
-            <div>
-                <p class="center">לשליחת פנייה אוטומטית לחנות לחזור אליכם לגבי ספר זה לחצו כאן</p>
-                <button type="button" class="btn btn-lg btn-block my-3" ng-click="contact(book)">שליחת פנייה אוטומטית</button>
+                <div>
+                    <span class="center">לשליחת פנייה אוטומטית לחנות לחזור אליכם לגבי ספר זה לחצו כאן:</span>
+                    <button type="button" class="btn btn-lg btn-block" ng-click="contact(book)">שליחת פנייה
+                        אוטומטית</button>
+                </div>
             </div>
         </div>
     </div>

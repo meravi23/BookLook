@@ -128,9 +128,6 @@ app.factory("bookSrv", function($q, $http, $log) {
     }
 
 
-
-
-
     function getBooks4Sale() {
         var async = $q.defer();
 
@@ -171,7 +168,6 @@ app.factory("bookSrv", function($q, $http, $log) {
                 var category = new Category(res.data[i]);
                 categories.push(category);
             }
-            console.log(categories);
 
             async.resolve(categories);
         }, function(err) {

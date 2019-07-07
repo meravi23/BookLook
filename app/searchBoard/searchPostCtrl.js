@@ -1,4 +1,4 @@
-app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootScope, $location) {
+app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $rootScope, $location) {
 
     $scope.bookPosts = [];
 
@@ -18,22 +18,36 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
     // $scope.subCategory = "";
     // $scope.bookDetails = "";
 
-    bookSrv.getBookPosts().then(function(books) {
-            if (!$scope.bookPostsAlreadyCalled) {
-                $scope.bookPosts = books;
-                $scope.bookPostsAlreadyCalled = true;
-                console.log($scope.bookPosts);
-            } else {
-                return;
-            }
-        },
-        function(err) {
-            $log.error(err);
+
+    bookSrv.getBookPosts().then(function (books) {
+         // getBookPosts should be called only once, in order that new posts be shown! 
+        // avoid calling it twice using a boolean
+        if (!$scope.bookPostsAlreadyCalled) {
+            $scope.bookPosts = books;
+            $scope.bookPostsAlreadyCalled = true;
+        } else {
+            return;
         }
-    )
+    },
+        function (err) {
+            $log.error(err);
+        })
+
+    
+    $scope.addNewBookPost = function () {
+       
+        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function (newBookPost) {
+
+            $log.info("new post added: " + JSON.stringify(newBookPost));
+            console.log("posted by: " + $rootScope.activeUser.fname);
+            console.log("number of posts: " + $scope.bookPosts.length);
+            $("#modelBookPost").modal('hide');
+
+        });
+    }
 
 
-    $rootScope.routeNotLoggedIn = function() {
+    $rootScope.routeNotLoggedIn = function () {
 
         console.log("$rootScope.isLoggedIn: " + $rootScope.isLoggedIn());
         if (!$rootScope.isLoggedIn()) {
@@ -45,21 +59,7 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
     }
 
 
-    $scope.addNewBookPost = function() {
-        // getBookPosts should be called only once! 
-        // avoid calling it twice using a boolean
-        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function(newBookPost) {
-
-            $log.info("new post added: " + JSON.stringify(newBookPost));
-            console.log("posted by: " + $rootScope.activeUser.fname);
-            console.log("number of posts: " + $scope.bookPosts.length);
-            $("#modelBookPost").modal('hide');
-
-        });
-    }
-
-
-    $scope.bookPostingModal = function(post) {
+    $scope.bookPostingModal = function (post) {
         $scope.title = post.title;
         $scope.author = post.author;
         $scope.author2 = post.author2;
