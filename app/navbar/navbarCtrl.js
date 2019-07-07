@@ -1,4 +1,4 @@
-app.controller("navbarCtrl", function ($scope, userSrv, $location, $rootScope) {
+app.controller("navbarCtrl", function($scope, userSrv, $location, $rootScope) {
     $scope.selectedNavItem = "";
 
 
@@ -18,7 +18,7 @@ app.controller("navbarCtrl", function ($scope, userSrv, $location, $rootScope) {
 
     $scope.navItems = [{
             inner: "דף הבית",
-            href: "#!/",
+            href: "/",
             show: "true"
         },
         {
@@ -34,17 +34,17 @@ app.controller("navbarCtrl", function ($scope, userSrv, $location, $rootScope) {
     ];
 
 
-    $rootScope.isLoggedIn = function () {
+    $rootScope.isLoggedIn = function() {
         return userSrv.isLoggedIn();
     }
 
-    $scope.logout = function () {
+    $scope.logout = function() {
         userSrv.logout();
         $location.path("/");
     }
 
-    $scope.onSelectNavItem = function(item){
-        $scope.selectedNavItem = item ;
+    $scope.onSelectNavItem = function(item) {
+        $scope.selectedNavItem = item;
         return true;
     }
 

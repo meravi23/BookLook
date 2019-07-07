@@ -67,39 +67,39 @@
 
                     <div class="col-md-4">
                         <div>
-                            <button type="button" class="btn btn-block btn-danger" ng-click="deleteBook()" data-dismiss="modal">הסרת מודעה</button>
+                            <button type="button" class="btn btn-block" ng-click="deleteBook()" data-dismiss="modal">הסרת מודעה</button>
                         </div>
                         <div>
-                            <button type="button" class="btn btn-block btn-info my-3" ng-click="updateBook()" data-dismiss="modal">עדכון מודעה</button>
+                            <button type="button" class="btn btn-block my-3" ng-click="updateBook()" data-dismiss="modal">עדכון מודעה</button>
                         </div>
-                        <div>
+                        <div class="center">
                             <span>שיתוף המודעה</span>
                         </div>
-                        <div>
+                        <div class="center">
                             <span><i class="fab fa-facebook-messenger"></i></span>
                         </div>
-                        <div>
+                        <div class="center">
                             <span><i class="fab fa-whatsapp"></i></span>
                         </div>
-                        <div>
+                        <div class="center">
                             <span><i class="fab fa-twitter-square"></i></span>
                         </div>
-                        <div>
+                        <div class="center">
                             <span><i class="fas fa-envelope"></i></span>
                         </div>
 
                         <div>
-                            <span class="field-value">{{image}}</span>
+                            <span class="field-value"></span>
                             <div>
-                                <img class="img-placeholder" src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                                <img class="img-placeholder" ng-src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
                             </div>
                         </div>
                     </div>
                 </div>
 
                 <div>
-                    <button type="button" class="btn btn-lg btn-block btn-info my-3" ng-click="contact()">יצירת קשר
-                        עם המפרסמת</button>
+                    <button type="button" class="btn btn-lg btn-block my-3" ng-click="contact(post)">יצירת קשר
+                        עם המפרסמ/ת</button>
                 </div>
             </div>
         </div>

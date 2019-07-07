@@ -6,6 +6,7 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
     $scope.author = "";
     $scope.postingPerson = "";
     $scope.img = {};
+    $scope.bookPostsAlreadyCalled = false;
     // $scope.author2 = "";
     // $scope.translator = "";
     // $scope.publisher = "";
@@ -18,14 +19,21 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
     // $scope.bookDetails = "";
 
     bookSrv.getBookPosts().then(function(books) {
-        $scope.bookPosts = books;
-        console.log($scope.bookPosts);
-    }, function(err) {
-        $log.error(err);
-    })
+            if (!$scope.bookPostsAlreadyCalled) {
+                $scope.bookPosts = books;
+                $scope.bookPostsAlreadyCalled = true;
+                console.log($scope.bookPosts);
+            } else {
+                return;
+            }
+        },
+        function(err) {
+            $log.error(err);
+        }
+    )
 
 
-    $scope.routeNotLoggedIn = function() {
+    $rootScope.routeNotLoggedIn = function() {
 
         console.log("$rootScope.isLoggedIn: " + $rootScope.isLoggedIn());
         if (!$rootScope.isLoggedIn()) {
@@ -37,7 +45,8 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
     }
 
     $scope.addNewBookPost = function() {
-
+        // getBookPosts should be called only once! 
+        // avoid calling it twice using a boolean
         bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function(newBookPost) {
 
             $log.info("new post added: " + JSON.stringify(newBookPost));

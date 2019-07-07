@@ -27,9 +27,11 @@ body {
     width: 100px;
 }
 
-.btn {
+.btn,
+.btn:active {
     background-color: #CA7733;
     border-color: #CA7733;
+    color: white;
 }
 
 .btn:hover {
@@ -102,7 +104,7 @@ a:hover {
 }
 
 .mandatory {
-    color: #b71c1c;
+    color: #CA7733;
     font-size: 0.75em;
 }
 
@@ -150,8 +152,6 @@ a:hover {
     display: flex;
     justify-content: center;
     align-items: center;
-    /* top: 40%;
-    right: 35%; */
     font-size: 150%;
     color: white;
 }
@@ -254,4 +254,12 @@ h3>a,
 
 .cat-search {
     padding-right: 0;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+input:focus {
+    outline: none;
 }
