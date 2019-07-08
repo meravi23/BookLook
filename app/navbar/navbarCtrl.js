@@ -18,7 +18,7 @@ app.controller("navbarCtrl", function($scope, userSrv, $location, $rootScope) {
 
     $scope.navItems = [{
             inner: "דף הבית",
-            href: "/",
+            href: "#!/",
             show: "true"
         },
         {
