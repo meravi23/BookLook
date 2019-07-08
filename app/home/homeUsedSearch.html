@@ -129,7 +129,7 @@
 
             <div class="col-md-6">
                 <div class="my-3" ng-show="noResults">
-                    <button type="button" class="btn btn-block" data-toggle="modal " data-target="#modelBookPost ">הוספת
+                    <button type="button" class="btn btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
                         מודעת חיפוש</button>
                 </div>
                 <div ng-include=" 'app/searchBoard/newSearchBookPost.html' "></div>
@@ -143,7 +143,7 @@
                     <h3 class="my-3 title-color ">ספרים שנוספו לאחרונה</h3>
                 </div>
                 <div class="row row-of-cards ">
-                    <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow' " ng-repeat="book in books | limitTo:5 " ng-click="book4SaleModal(book) " data-toggle="modal " data-target="#book4sale ">
+                    <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'" ng-repeat="book in books | limitTo:5 " ng-click="book4SaleModal(book)" data-toggle="modal" data-target="#book4sale">
                         <div ng-include=" 'app/home/modalBook4sale.html' "></div>
                         <div class="card-body ">
                             <h5 class="card-title ">{{book.title}}</h5>
@@ -160,7 +160,7 @@
                     <h3 class="my-3 "><a href="#!/board ">ספרים שקוראים מחפשים</a></h3>
                 </div>
                 <div class="row row-of-cards ">
-                    <div class="card preview flex-md-fill ml-1 " ng-repeat="post in bookPosts " ng-click="bookPostingModal(post) " data-toggle="modal " data-target="#modelPostFulfilled ">
+                    <div class="card preview flex-md-fill ml-1 " ng-repeat="post in bookPosts" ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled ">
                         <div ng-include=" 'app/searchBoard/bookPost.html' "></div>
 
                         <div class="card-body ">
