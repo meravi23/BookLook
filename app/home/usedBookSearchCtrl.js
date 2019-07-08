@@ -1,5 +1,13 @@
 app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope, userSrv) {
 
+    $rootScope.routeNotLoggedIn = function() {
+
+        console.log("userSrv.isLoggedIn: " + userSrv.isLoggedIn());
+        if (!userSrv.isLoggedIn()) {
+            $location.path("/login");
+        }
+    }
+
     $scope.books = [];
     $scope.searchResults = [];
     $scope.sellers = [];
@@ -72,6 +80,7 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
         console.log("תוצאות חיפוש לפי תת קטגוריה " + $scope.searchResults.length);
         event.stopPropagation();
     }
+
 
 
     // $scope.filterByShop = function (shop) {
@@ -203,13 +212,6 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
 
     $scope.contactSeeker = function(post) {
         var activeUser = userSrv.getActiveUser();
-        var template_params = {
-            "user_name": "user_name_value",
-            "book_title": "book_title_value",
-            "seeker_name": "seeker_name_value",
-            "user_email": "user_email_value"
-        }
-
         var service_id = "default_service";
         var template_id = "book_owner_to_seeker";
         emailjs.send(service_id, template_id, template_params);
@@ -217,18 +219,18 @@ app.controller("usedBookSearchCtrl", function($scope, bookSrv, $log, $rootScope,
         var template_params = {
             // params and template to be updated (copied from "contact()")
             "user_name": activeUser.fname,
-            "book_title": book.title,
+            "book_title": post.title,
             "user_email": activeUser.email,
-            "seeker_name": book.seller,
+            // "seeker_name": post.fname,
             "user_tel": activeUser.phone
                 // "message_html": "message_html_value"
         }
-        console.log("book title: " + book.title);
+        console.log("book title: " + post.title);
         var service_id = "default_service";
         var template_id = "BookLook User Inquiry";
         emailjs.send(service_id, template_id, template_params);
-        $log.info("message sent to seller!");
-        alert("email sent to the book seeker!");
+        $log.info("message sent to book seeker!");
+        alert("email sent to book seeker!");
     }
 
 

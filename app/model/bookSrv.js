@@ -86,22 +86,26 @@ app.factory("bookSrv", function($q, $http, $log) {
     function getBookPosts() {
         var async = $q.defer();
 
-        var bookPosts = [];
+        if (!bookPostsCalledAlready) {
 
-        $http.get("app/model/data/bookPosts.json").then(function(response) {
-                for (var i = 0; i < response.data.length; i++) {
-                    var post = new BookLooked4(response.data[i]);
-                    bookPosts.push(post);
-                }
-                async.resolve(bookPosts);
-                bookPostsCalledAlready = true;
-            },
-            function(err) {
-                $log.error(err);
-                async.reject(err);
-            });
+            $http.get("app/model/data/bookPosts.json").then(function(response) {
+                    for (var i = 0; i < response.data.length; i++) {
+                        var post = new BookLooked4(response.data[i]);
+                        bookPosts.push(post);
+                    }
+                    bookPostsCalledAlready = true;
+                    async.resolve(bookPosts);
+                },
+                function(err) {
+                    $log.error(err);
+                    async.reject(err);
+                });
 
-        return async.promise;
+            return async.promise;
+        } else {
+            async.resolve(bookPosts);
+            return async.promise;
+        }
     }
 
 
@@ -119,7 +123,7 @@ app.factory("bookSrv", function($q, $http, $log) {
         }
 
         var newBookPost = new BookLooked4(bookPost);
-        bookPosts.push(newBookPost);
+        bookPosts.unshift(newBookPost);
         //++postCounter;
 
         async.resolve(newBookPost);

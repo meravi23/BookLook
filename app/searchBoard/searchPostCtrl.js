@@ -1,4 +1,13 @@
-app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $rootScope, $location) {
+app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootScope, $location) {
+
+    $rootScope.routeNotLoggedIn = function() {
+
+        console.log("userSrv.isLoggedIn: " + userSrv.isLoggedIn());
+        if (!userSrv.isLoggedIn()) {
+            $location.path("/login");
+        }
+    }
+
 
     $scope.bookPosts = [];
 
@@ -19,24 +28,20 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
     // $scope.bookDetails = "";
 
 
-    bookSrv.getBookPosts().then(function (books) {
-         // getBookPosts should be called only once, in order that new posts be shown! 
-        // avoid calling it twice using a boolean
-        if (!$scope.bookPostsAlreadyCalled) {
-            $scope.bookPosts = books;
-            $scope.bookPostsAlreadyCalled = true;
-        } else {
-            return;
-        }
-    },
-        function (err) {
-            $log.error(err);
-        })
+    bookSrv.getBookPosts().then(function(bookPosts) {
 
-    
-    $scope.addNewBookPost = function () {
-       
-        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function (newBookPost) {
+            $scope.bookPosts = bookPosts;
+        },
+        function(err) {
+            $log.error(err);
+        });
+
+
+    $rootScope.addNewBookPost = function() {
+
+        $rootScope.routeNotLoggedIn();
+
+        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function(newBookPost) {
 
             $log.info("new post added: " + JSON.stringify(newBookPost));
             console.log("posted by: " + $rootScope.activeUser.fname);
@@ -47,19 +52,8 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
     }
 
 
-    $rootScope.routeNotLoggedIn = function () {
 
-        console.log("$rootScope.isLoggedIn: " + $rootScope.isLoggedIn());
-        if (!$rootScope.isLoggedIn()) {
-            $location.path("/login");
-        } else {
-            // ??? how to route to modal window?
-            $location.path("/searchPost");
-        }
-    }
-
-
-    $scope.bookPostingModal = function (post) {
+    $scope.bookPostingModal = function(post) {
         $scope.title = post.title;
         $scope.author = post.author;
         $scope.author2 = post.author2;
