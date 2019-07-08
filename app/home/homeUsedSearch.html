@@ -70,19 +70,19 @@
 
 
                     <div class="col-md-6">
-                            <form>
-                                    <div class="custom-control custom-checkbox">
-                                        <h6>חנויות לחיפוש:</h6>
-                                        <div class="shop-checkbox">
-                                            <input type="checkbox" id="shop0" name="shops" checked>
-                                            <label for="shop0">כל החנויות</label>
-                                        </div>
-                                        <div class="shop-checkbox" ng-repeat="shop in sellers">
-                                            <input type="checkbox" id="shop{{shop.id}}" name="shops" ng-model="shopValue" ng-change="searchByShop(shop)">
-                                            <label for="shop{{shop.id}}">{{shop.name}}</label>
-                                        </div>
-                                    </div>
-                                </form>
+                        <form>
+                            <div class="custom-control custom-checkbox">
+                                <h6>חנויות לחיפוש:</h6>
+                                <div class="shop-checkbox">
+                                    <input type="checkbox" id="shop0" name="shops" checked>
+                                    <label for="shop0">כל החנויות</label>
+                                </div>
+                                <div class="shop-checkbox" ng-repeat="shop in sellers">
+                                    <input type="checkbox" id="shop{{shop.id}}" name="shops" ng-model="shopValue" ng-change="searchByShop(shop)">
+                                    <label for="shop{{shop.id}}">{{shop.name}}</label>
+                                </div>
+                            </div>
+                        </form>
                         <!-- <form>
                             <div class="custom-control custom-checkbox">
                                 <h6>חנויות לחיפוש:</h6>
@@ -132,7 +132,7 @@
                     <button type="button" class="btn btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
                         מודעת חיפוש</button>
                 </div>
-                <div ng-include="'/app/searchBoard/newSearchBookPost.html'"></div>
+                <div ng-include="'app/searchBoard/newSearchBookPost.html'"></div>
             </div>
         </div>
 
