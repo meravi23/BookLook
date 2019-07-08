@@ -39,8 +39,6 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
 
     $rootScope.addNewBookPost = function() {
 
-        $rootScope.routeNotLoggedIn();
-
         bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function(newBookPost) {
 
             $log.info("new post added: " + JSON.stringify(newBookPost));
