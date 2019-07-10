@@ -10,6 +10,13 @@
                 <a class="nav-link" href="{{item.href}}">{{item.inner}}</a>
             </li>
         </ul>
+        <ul class="navbar-nav m-auto mt-2">
+            <li class="nav-item">
+                <h3 class="title-color">
+                    הפלטפורמה לחיפוש ספרים משומשים
+                </h3>
+            </li>
+        </ul>
         <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
             <li class="nav-item">
                 <a class="nav-link" href="#!/signup" ng-hide="isLoggedIn()">הרשמה<span
@@ -22,6 +29,7 @@
                 <a class="nav-link" href="#!/" ng-show="isLoggedIn()" ng-click="logout()">יציאת משתמש</a>
             </li>
         </ul>
-        <a class="navbar-brand" href="#!/"><img class="nav-logo" ng-src="images/booklook logo orange transparent.png"></a>
+        <a class="navbar-brand" href="#!/"><img class="nav-logo"
+                ng-src="images/booklook logo orange transparent.png"></a>
     </div>
 </nav>
