@@ -132,7 +132,7 @@
                     <button type="button" class="btn btn-block" data-toggle="modal" data-target="#modelBookPost">הוספת
                         מודעת חיפוש</button>
                 </div>
-                <div ng-include=" 'app/searchBoard/newSearchBookPost.html' "></div>
+                <div ng-include="'app/searchBoard/newSearchBookPost.html'"></div>
             </div>
         </div>
 
@@ -144,7 +144,7 @@
                 </div>
                 <div class="row row-of-cards ">
                     <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'" ng-repeat="book in books | limitTo:5 " ng-click="book4SaleModal(book)" data-toggle="modal" data-target="#book4sale">
-                        <div ng-include=" 'app/home/modalBook4sale.html' "></div>
+                        <div ng-include="'app/home/modalBook4sale.html'"></div>
                         <div class="card-body ">
                             <h5 class="card-title ">{{book.title}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted "><span>מאת: </span>{{book.author}}</h6>
@@ -161,7 +161,7 @@
                 </div>
                 <div class="row row-of-cards ">
                     <div class="card preview flex-md-fill ml-1 " ng-repeat="post in bookPosts" ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled ">
-                        <div ng-include=" 'app/searchBoard/bookPost.html' "></div>
+                        <div ng-include="'app/searchBoard/bookPost.html'"></div>
 
                         <div class="card-body ">
                             <h5 class="card-title ">{{post.title}}</h5>
