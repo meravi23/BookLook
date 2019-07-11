@@ -16,11 +16,7 @@ app.controller("navbarCtrl", function($scope, userSrv, $location, $rootScope) {
         }
     }
 
-    $scope.navItems = [{
-            inner: "דף הבית",
-            href: "#!/",
-            show: "true"
-        },
+    $scope.navItems = [
         {
             inner: "לוח חיפוש ספרים",
             href: "#!/board",
