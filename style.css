@@ -26,6 +26,16 @@ body {
     width: 100px;
 }
 
+.activeBL {
+    background-color: #CA7733;
+    border-radius: 5px;
+
+}
+
+.activeBL > .nav-link {
+    color: white !important;
+}
+
 .btn, .btn:active {
     background-color: #CA7733;
     border-color: #CA7733;
@@ -245,6 +255,6 @@ h2, h3>a, .title-color, .title-color a {
     font-weight: bold;
 }
 
-.navbar-collapse.show>.navbar-brand{
+.navbar-collapse.show>.navbar-brand {
     display: none;
 }
