@@ -271,5 +271,8 @@ h2, h3>a, .title-color, .title-color a {
 
 .bcgr-orange {
     background-color: #FFA000;
+}
+
+.bcgr-orange h5 {
     color: white;
 }
