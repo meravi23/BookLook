@@ -1,12 +1,12 @@
-app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootScope, $location) {
+app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $rootScope, $location) {
 
-    $rootScope.routeNotLoggedIn = function() {
+    $rootScope.routeNotLoggedIn = function () {
 
         console.log("userSrv.isLoggedIn: " + userSrv.isLoggedIn());
         if (!userSrv.isLoggedIn()) {
             $location.path("/login");
         }
-    }
+    };
 
 
     $scope.bookPosts = [];
@@ -23,23 +23,23 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
     // $scope.bookState = "";
     // $scope.edition = "";
     // $scope.isbn = "";
-    // $scope.bookCategory = ""
+    // $scope.bookCategory = "";
     // $scope.subCategory = "";
     // $scope.bookDetails = "";
 
 
-    bookSrv.getBookPosts().then(function(bookPosts) {
+    bookSrv.getBookPosts().then(function (bookPosts) {
 
             $scope.bookPosts = bookPosts;
         },
-        function(err) {
+        function (err) {
             $log.error(err);
         });
 
 
-    $rootScope.addNewBookPost = function() {
+    $rootScope.addNewBookPost = function () {
 
-        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function(newBookPost) {
+        bookSrv.addNewBookPost($scope.title, $scope.author, $rootScope.activeUser.fname).then(function (newBookPost) {
 
             $log.info("new post added: " + JSON.stringify(newBookPost));
             console.log("posted by: " + $rootScope.activeUser.fname);
@@ -47,11 +47,11 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
             $("#modelBookPost").modal('hide');
 
         });
-    }
+    };
 
 
 
-    $scope.bookPostingModal = function(post) {
+    $scope.bookPostingModal = function (post) {
         $scope.title = post.title;
         $scope.author = post.author;
         $scope.author2 = post.author2;
@@ -66,6 +66,18 @@ app.controller("searchPostCtrl", function($scope, bookSrv, userSrv, $log, $rootS
         $scope.image = post.image;
         $scope.bookDetails = post.comment;
         $scope.postingPerson = post.postingPerson;
-    }
+    };
+
+
+    $scope.clearFields = function () {
+        $scope.title = "";
+        $scope.author = "";
+        $scope.img = {};
+        $scope.publisher = "";
+        $scope.year = "";
+        $scope.bookState = "";
+        $scope.edition = "";
+        $scope.isbn = "";
+    };
 
 });
