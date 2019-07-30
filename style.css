@@ -262,7 +262,6 @@ h2, h3>a, .title-color, .title-color a {
 
 .bcgr-yellow {
     background-color: #FFC107;
-    color: white;
 }
 
 .bcgr-yellow .card-link:hover {
@@ -273,6 +272,6 @@ h2, h3>a, .title-color, .title-color a {
     background-color: #FFA000;
 }
 
-.bcgr-orange h5 {
+.bcgr-orange h5, .bcgr-yellow h5 {
     color: white;
 }
