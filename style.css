@@ -9,7 +9,7 @@ dark: #7f0000
 text: #ffffff
 
 oranges:
-logo orange: #CA7733
+logo orange: #FFC107
 primary: #ff6e40
 light: #ffa06d
 dark: #c53d13
@@ -27,7 +27,7 @@ body {
 }
 
 .activeBL {
-    background-color: #CA7733;
+    background-color: #FFC107;
     border-radius: 5px;
 
 }
@@ -37,15 +37,15 @@ body {
 }
 
 .btn, .btn:active {
-    background-color: #CA7733;
-    border-color: #CA7733;
+    background-color: #FFC107;
+    border-color: #FFC107;
     color: white;
 }
 
 .btn:hover {
     background-color: white;
-    border-color: #CA7733;
-    color: #CA7733;
+    border-color: #FFC107;
+    color: #FFC107;
 }
 
 .fa-user {
@@ -76,7 +76,7 @@ body {
 }
 
 .grey:hover, .card-link:hover {
-    color: #CA7733;
+    color: #FFC107;
 }
 
 .row-of-cards {
@@ -106,7 +106,7 @@ a:hover {
 }
 
 .mandatory {
-    color: #CA7733;
+    color: #FFC107;
     font-size: 0.75em;
 }
 
@@ -138,7 +138,7 @@ a:hover {
     position: relative;
     width: 50%;
     padding: 20%;
-    background-color: #CA7733;
+    background-color: #FFC107;
     border-radius: 50%;
     margin: auto;
 }
@@ -159,7 +159,7 @@ a:hover {
 }
 
 .message-board {
-    border: 2px solid #CA7733;
+    border: 2px solid #FFC107;
     padding: 5px;
 }
 
@@ -172,7 +172,7 @@ a:hover {
 }
 
 .book-inquired {
-    color: #CA7733;
+    color: #FFC107;
 }
 
 h3>a:hover {
@@ -197,7 +197,7 @@ h3>a:hover {
 }
 
 h2, h3>a, .title-color, .title-color a {
-    color: #CA7733;
+    color: #FFC107;
 }
 
 .card-link, .div-block {
@@ -249,6 +249,7 @@ h2, h3>a, .title-color, .title-color a {
 
 .cat-search {
     padding-right: 0;
+    padding-left: 0;
 }
 
 .bold {
@@ -257,4 +258,18 @@ h2, h3>a, .title-color, .title-color a {
 
 .navbar-collapse.show>.navbar-brand {
     display: none;
+}
+
+.bcgr-yellow {
+    background-color: #FFC107;
+    color: white;
+}
+
+.bcgr-yellow .card-link:hover {
+    color: #FFA000;
+}
+
+.bcgr-orange {
+    background-color: #FFA000;
+    color: white;
 }
