@@ -120,8 +120,7 @@
         <div class="row d-flex justify-content-center">
             <div class="my-3 search-results" 
             ng-show="searchResults.length===0 && noResults">
-                <h3 class="center">לא נמצאו תוצאות - באפשרותך להוסיף מודעת חיפוש
-                    לספר המבוקש</h3>
+                <h3 class="center">לא נמצאו תוצאות - באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
             </div>
 
             <div class="row d-flex justify-content-center">
@@ -170,23 +169,7 @@
                 <div>
                     <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
                 </div>
-                <div class="row row-of-cards">
-                    <div class="card preview flex-md-fill ml-1"
-                        ng-repeat="post in bookPosts"
-                        ng-class-odd="'bcgr-yellow'"
-                        ng-class-even="'bcgr-orange'"
-                        ng-click="bookPostingModal(post)"
-                        data-toggle="modal" data-target="#modelPostFulfilled">
-                        <div ng-include="'app/searchBoard/bookPost.html'"></div>
-                        <div class="card-body">
-                            <h5 class="card-title">{{post.title}}</h5>
-                            <h6 class="card-subtitle mb-2 text-muted"><span>מאת:
-                                </span>{{post.author}}</h6>
-                            <a href="#" class="card-link"><span>יצירת קשר עם
-                                    המחפש</span>{{post.seller}}</a>
-                        </div>
-                    </div>
-                </div>
+                <seeked-books></seeked-books>
             </div>
         </div>
     </div>
