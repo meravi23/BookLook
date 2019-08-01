@@ -7,9 +7,13 @@
                 <div class="y-border">
                     <h6 class="center">חיפוש לפי קטגוריות</h6>
                     <uib-accordion>
-                        <div uib-accordion-group class="mt-1 title-color" heading="{{category.categoryName}}" ng-repeat="category in categories" ng-click="searchByCategory(category)" is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                        <div uib-accordion-group class="mt-1 title-color" heading="{{category.categoryName}}"
+                            ng-repeat="category in categories" ng-click="searchByCategory(category)"
+                            is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                             <div>
-                                <div ng-repeat="subcat in category.subcategories" ng-click="searchBySubcategory(subcat, $event)"><a class="title-color" href="javascript:void(0)">{{subcat}}</a></div>
+                                <div ng-repeat="subcat in category.subcategories"
+                                    ng-click="searchBySubcategory(subcat, $event)"><a class="title-color"
+                                        href="javascript:void(0)">{{subcat}}</a></div>
                             </div>
                         </div>
                     </uib-accordion>
@@ -25,7 +29,8 @@
                                         <label for="search1">חיפוש לפי:</label>
                                     </div>
                                     <div class="col-md-9">
-                                        <select class="form-control" id="search1" name="search-options" ng-model="fieldToSearch">
+                                        <select class="form-control" id="search1" name="search-options"
+                                            ng-model="fieldToSearch">
                                             <option selected hidden>בחירת שדה חיפוש</option>
                                             <option value="title">שם כותר</option>
                                             <option value="author">שם מחבר</option>
@@ -40,7 +45,9 @@
                     <div class="col-md-8">
                         <form ng-submit="searchBook()">
                             <div class="input-group md-form form-sm form-2 pl-0">
-                                <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border home-search" type="text" placeholder="חיפוש ספר, מחבר, isbn ,הוצאה לאור" aria-label="Search">
+                                <input ng-model="userSearchInput"
+                                    class="form-control my-0 py-1 amber-border home-search" type="text"
+                                    placeholder="חיפוש ספר, מחבר, isbn ,הוצאה לאור" aria-label="Search">
                                 <i class="fas fa-search"></i>
                             </div>
                         </form>
@@ -49,57 +56,27 @@
                 <div class="row">
                     <div class="col-md-3">
                         <div>
-                            <button type="button" class="btn btn-danger btn-block" ng-click="clearFields()">ניקוי</button>
+                            <button type="button" class="btn btn-danger btn-block"
+                                ng-click="clearFields()">ניקוי</button>
                         </div>
                     </div>
-
-                    <!-- <div class="col-md-6">
-                            <form>
-                                <div class="custom-control custom-checkbox">
-                                    <h6>חנויות לחיפוש:</h6>
-                                    <div class="shop-checkbox">
-                                        <input type="checkbox" id="shop0" name="shops" checked>
-                                        <label for="shop0">כל החנויות</label>
-                                    </div>
-                                    <div class="shop-checkbox" ng-repeat="shop in sellers">
-                                        <input type="checkbox" id="shop{{shop.id}}" name="shops" ng-model="boxSelected" ng-change="getCheckedShops()">
-                                        <label for="shop{{shop.id}}">{{shop.name}}</label>
-                                    </div>
-                                </div>
-                            </form>
-                        </div> -->
-
 
                     <div class="col-md-6">
                         <form>
                             <div class="custom-control custom-checkbox">
                                 <h6>חנויות לחיפוש:</h6>
-                                <div class="shop-checkbox">
+                                <!-- <div class="shop-checkbox">
                                     <input type="checkbox" id="shop0" name="shops" checked>
                                     <label for="shop0">כל החנויות</label>
-                                </div>
+                                </div> -->
                                 <div class="shop-checkbox" ng-repeat="shop in sellers">
-                                    <input type="checkbox" id="shop{{shop.id}}" name="shops" ng-model="shopValue" ng-change="searchByShop(shop)">
+                                    <input type="checkbox" id="shop{{shop.id}}" name="shops" 
+                                        ng-click="includeShop(shop)"
+                                        ng-checked="shopsToSearch.includes(shop.name)">
                                     <label for="shop{{shop.id}}">{{shop.name}}</label>
                                 </div>
                             </div>
                         </form>
-                        <!-- <form>
-                            <div class="custom-control custom-checkbox">
-                                <h6>חנויות לחיפוש:</h6>
-                                <div class="shop-checkbox">
-                                    <input type="checkbox" id="shop0" name="shops"
-                                     ng-model="selectAll" ng-change="toggleAll()" checked>
-                                    <label for="shop0">כל החנויות</label>
-                                </div>
-                                <div class="shop-checkbox" ng-repeat="shop in sellers">
-                                    <input type="checkbox" id="shop{{shop.id}}" name="shops"
-                                     ng-model="options[$index]"
-                                     ng-change="toggleShops($index)">
-                                    <label for="shop{{shop.id}}">{{shop.name}}</label>
-                                </div>
-                            </div>
-                        </form> -->
                     </div>
                     <div class="col-md-3">
                         <button type="button" class="btn btn-block" ng-click="searchBook()">חיפוש</button>
@@ -111,7 +88,8 @@
         <div ng-show="searchResults.length> 0" class="my-3">
             <h3>תוצאות חיפוש</h3>
             <div class="row">
-                <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1': searchResults.length > 1}" ng-repeat="item in searchResults track by $index" ng-click="book4SaleModal(item)">
+                <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1': searchResults.length > 1}" ng-class-odd="'bcgr-yellow'"
+                    ng-repeat="item in searchResults | filter: filterByShop" ng-click="book4SaleModal(item)">
                     <div ng-include="'app/home/modalBook4sale.html'"></div>
                     <div class="card-body" data-toggle="modal" data-target="#book4sale">
                         <h5 class="card-title">{{item.title}}</h5>
@@ -144,7 +122,12 @@
                     <h3 class="my-3 title-color ">ספרים שנוספו לאחרונה</h3>
                 </div>
                 <div class="row row-of-cards ">
-                    <div class="card preview flex-md-fill ml-1 ng-class-even='bcgr-yellow'" ng-repeat="book in books | limitTo:5 " ng-click="book4SaleModal(book)" data-toggle="modal" data-target="#book4sale">
+                    <div class="card preview flex-md-fill ml-1" 
+                        ng-class-even="'bcgr-yellow'"
+                        ng-class-odd="'bcgr-orange'"
+                        ng-repeat="book in books | limitTo:5"
+                        ng-click="book4SaleModal(book)" data-toggle="modal"
+                        data-target="#book4sale">
                         <div ng-include="'app/home/modalBook4sale.html'"></div>
                         <div class="card-body ">
                             <h5 class="card-title ">{{book.title}}</h5>
@@ -161,7 +144,11 @@
                     <h3 class="my-3 "><a href="#!/board ">ספרים שקוראים מחפשים</a></h3>
                 </div>
                 <div class="row row-of-cards ">
-                    <div class="card preview flex-md-fill ml-1 " ng-repeat="post in bookPosts" ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled ">
+                    <div class="card preview flex-md-fill ml-1"
+                        ng-repeat="post in bookPosts" 
+                        ng-class-odd="'bcgr-yellow'"
+                        ng-class-even="'bcgr-orange'"
+                        ng-click="bookPostingModal(post)" data-toggle="modal" data-target="#modelPostFulfilled ">
                         <div ng-include="'app/searchBoard/bookPost.html'"></div>
 
                         <div class="card-body ">
