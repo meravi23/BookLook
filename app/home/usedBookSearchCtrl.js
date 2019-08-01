@@ -16,6 +16,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $rootScope.categories = [];
     $scope.userSearchInput = "";
     $scope.noResults = false;
+    $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
     $scope.fieldToSearch = "";
 
@@ -102,6 +103,10 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
             $scope.shopsToSearch.push(shop.name);
             console.log("shop " + shop.name + " added. List includes " + $scope.shopsToSearch.length + " shops");
         }
+
+        if ($scope.shopsToSearch.length === 0) {
+            $scope.noShops = true;
+        }
     };
     $scope.filterByShop = function (book) {
         if ($scope.shopsToSearch == []) {
@@ -119,7 +124,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.userSearchInput = "";
         $scope.searchResults = [];
         $scope.noResults = false;
-        $scope.shopsToSearch = [];
     };
 
 
