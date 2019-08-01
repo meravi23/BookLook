@@ -1,0 +1,167 @@
+<div>
+    <book-navbar></book-navbar>
+    <div class="container my-3">
+        <h1 class="center title-color">פלטפורמה לחיפוש ספרים יד שנייה</h1>
+        <div class="row">
+            <div class="col-md-2 cat-search">
+                <div class="y-border">
+                    <h6 class="center">חיפוש לפי קטגוריות</h6>
+                    <uib-accordion>
+                        <div uib-accordion-group class="mt-1 title-color"
+                            heading="{{category.categoryName}}"
+                            ng-repeat="category in categories"
+                            ng-click="searchByCategory(category)"
+                            is-open="status.isFirstOpen"
+                            is-disabled="status.isFirstDisabled">
+                            <div>
+                                <div ng-repeat="subcat in
+                                    category.subcategories"
+                                    ng-click="searchBySubcategory(subcat,
+                                    $event)"><a class="title-color"
+                                        href="javascript:void(0)">{{subcat}}</a></div>
+                            </div>
+                        </div>
+                    </uib-accordion>
+                </div>
+            </div>
+            <div class="col-md-10 y-border">
+                <div class="row my-3">
+                    <div class="col-md-4">
+                        <form>
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-md-3">
+                                        <label for="search1">חיפוש לפי:</label>
+                                    </div>
+                                    <div class="col-md-9">
+                                        <select class="form-control"
+                                            id="search1" name="search-options"
+                                            ng-model="fieldToSearch">
+                                            <option selected hidden>בחירת שדה
+                                                חיפוש</option>
+                                            <option value="title">שם כותר</option>
+                                            <option value="author">שם מחבר</option>
+                                            <option value="isbn">ISBN</option>
+                                            <option value="publisher">הוצאה לאור</option>
+                                        </select>
+                                    </div>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-8">
+                        <form ng-submit="searchBook()">
+                            <div class="input-group md-form form-sm form-2
+                                pl-0">
+                                <input ng-model="userSearchInput"
+                                    class="form-control my-0 py-1 amber-border
+                                    home-search" type="text"
+                                    placeholder="חיפוש ספר, מחבר, isbn ,הוצאה לאור" aria-label="Search">
+                                <i class="fas fa-search"></i>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <div>
+                            <button type="button" class="btn btn-danger
+                                btn-block"
+                                ng-click="clearFields()">ניקוי</button>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <form>
+                            <div class="custom-control custom-checkbox">
+                                <h6>חנויות לחיפוש:</h6>
+                                <!-- <div class="shop-checkbox">
+                                    <input type="checkbox" id="shop0" name="shops" checked>
+                                    <label for="shop0">כל החנויות</label>
+                                </div> -->
+                                <div class="shop-checkbox" ng-repeat="shop in
+                                    sellers">
+                                    <input type="checkbox" id="shop{{shop.id}}"
+                                        name="shops"
+                                        ng-click="includeShop(shop)"
+                                        ng-checked="shopsToSearch.includes(shop.name)">
+                                    <label for="shop{{shop.id}}">{{shop.name}}</label>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <div class="col-md-3">
+                        <button type="button" class="btn btn-block"
+                            ng-click="searchBook()">חיפוש</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div ng-show="searchResults.length> 0" class="my-3">
+            <h3>תוצאות חיפוש</h3>
+            <div class="row">
+                <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1':
+                    searchResults.length> 1}" ng-class-odd="'bcgr-yellow'"
+                    ng-repeat="item in searchResults | filter: filterByShop"
+                    ng-click="book4SaleModal(item)">
+                    <div ng-include="'app/home/modalBook4sale.html'"></div>
+                    <div class="card-body" data-toggle="modal"
+                        data-target="#book4sale">
+                        <h5 class="card-title">{{item.title}}</h5>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת:
+                            </span>{{item.author}}</h6>
+                        <a href="#" class="card-link"><span>חנות: </span>{{item.seller}}</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row d-flex justify-content-center">
+            <div class="my-3 search-results" 
+            ng-show="searchResults.length===0 && noResults">
+                <h3 class="center">לא נמצאו תוצאות - באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
+            </div>
+
+            <div class="row d-flex justify-content-center">
+                <div class="my-3 search-results"
+                    ng-show="shopsToSearch.length===0 && noShops">
+                    <h3 class="center">יש לבחור לפחות חנות אחת</h3>
+                </div>
+            </div>
+       
+        </div>
+
+
+        <div>
+            <div ng-show="searchResults.length===0" class="my-3">
+                <div>
+                    <h3 class="my-3 title-color">ספרים שנוספו לאחרונה</h3>
+                </div>
+                <div class="row row-of-cards">
+                    <div class="card preview flex-md-fill ml-1"
+                        ng-class-even="'bcgr-yellow'"
+                        ng-class-odd="'bcgr-orange'"
+                        ng-repeat="book in books | limitTo:5"
+                        ng-click="book4SaleModal(book)" data-toggle="modal"
+                        data-target="#book4sale">
+                        <div ng-include="'app/home/modalBook4sale.html'"></div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{book.title}}</h5>
+                            <h6 class="card-subtitle mb-2 text-muted"><span>מאת:
+                                </span>{{book.author}}</h6>
+                            <a href="#" class="card-link"><span>חנות: </span>{{book.seller}}</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div ng-show="searchResults.length===0" class="my-3">
+                <div>
+                    <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
+                </div>
+                <seeked-books></seeked-books>
+            </div>
+        </div>
+    </div>
+</div>
