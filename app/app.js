@@ -3,7 +3,7 @@ var app = angular.module("usedBookApp", ["ngRoute", "ngAnimate", "ngTouch", "ui.
 app.config(function($routeProvider) {
     $routeProvider
         .when("/", {
-            templateUrl: "app/home/homeUsedSearch.html",
+            templateUrl: "app/home/home.html",
             controller: "usedBookSearchCtrl"
         }).when("/board", {
             templateUrl: "app/searchBoard/searchBoard.html",
