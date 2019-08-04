@@ -22,11 +22,11 @@ app.controller("navbarCtrl", function ($scope, userSrv, $location, $rootScope) {
             href: "#!/board",
             show: "true"
         },
-        {
-            inner: "ניהול חנות",
-            href: "#!/store",
-            show: "true"
-        }
+        // {
+        //     inner: "ניהול חנות",
+        //     href: "#!/store",
+        //     show: "true"
+        // }
     ];
 
 
