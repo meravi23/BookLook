@@ -19,6 +19,9 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
     $scope.fieldToSearch = "";
+    $scope.shareMessage = "רציתי לשתף איתך את הספר הזה שמוצע למכירה ב-BookLook!";
+    $scope.shareUrl = "https://www.booklookil.com";
+
 
     bookSrv.getBooks4Sale().then(function (books) {
         $scope.books = books;
@@ -98,10 +101,8 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.includeShop = function (shop) {
         if ($scope.shopsToSearch.indexOf(shop.name) != -1) {
             $scope.shopsToSearch.splice($scope.shopsToSearch.indexOf(shop.name), 1);
-            console.log("shop " + shop.name + " removed. Remained shops: " + $scope.shopsToSearch.length);
         } else {
             $scope.shopsToSearch.push(shop.name);
-            console.log("shop " + shop.name + " added. List includes " + $scope.shopsToSearch.length + " shops");
         }
 
         if ($scope.shopsToSearch.length === 0) {

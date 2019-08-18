@@ -78,18 +78,28 @@
                             <span>שיתוף המודעה</span>
                         </div>
                         <div class="center">
-                            <span><i class="fab fa-facebook-messenger"></i></span>
+                            <a href="#" socialshare socialshare-provider="facebook-messenger"
+                                socialshare-url={{shareUrl}}>
+                                <span><i class="fab fa-facebook-messenger"></i></span>
+                            </a>
+                        </div>
+                        <div class="center">
+                            <a href="#" socialshare socialshare-provider="twitter"
+                                socialshare-text={{shareMessage}}
+                                socialshare-url={{shareUrl}}>
+                                <span><i class="fab fa-twitter-square"></i></span>
+                            </a>
                         </div>
                         <div class="center">
                             <span><i class="fab fa-whatsapp"></i></span>
                         </div>
                         <div class="center">
-                            <span><i class="fab fa-twitter-square"></i></span>
+                            <a href="#" socialshare socialshare-provider="email"
+                            socialshare-subject={{shareMessage}}
+                            socialshare-body="אני מחפש את הספר הזה כבר הרבה זמן!">
+                                <span><i class="fas fa-envelope"></i></span>
+                            </a>
                         </div>
-                        <div class="center">
-                            <span><i class="fas fa-envelope"></i></span>
-                        </div>
-
                         <div>
                             <div class="center" ng-show="image">
                                 <img style="width: 75px" ng-src={{image}}>
