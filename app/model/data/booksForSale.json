@@ -44,7 +44,7 @@
         "isbn": "347523002",
         "category": "פרוזה",
         "subCategory": "סיפורת",
-        "image": "http://www.text.org.il/09_covers/0906022.jpg",
+        "image": "http://www.text.org.il/09_covers/09021111.jpg",
         "comment": "בחירת הצוות - מומלץ",
         "price": 25,
         "seller": "דני ספרים"
@@ -78,7 +78,7 @@
         "isbn": "",
         "category": "מחקר ועיון",
         "subCategory": "בלשנות",
-        "image": "",
+        "image": null,
         "comment": "",
         "price": 15,
         "seller": "רובינזון"

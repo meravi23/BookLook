@@ -36,7 +36,7 @@ app.factory("bookSrv", function($q, $http, $log) {
             this.category = titleOrObject.category;
             this.subCategory = titleOrObject.subCategory;
             this.image = titleOrObject.image;
-            this.comment = titleOrObject.comment
+            this.comment = titleOrObject.comment;
                 // }
         }
     }

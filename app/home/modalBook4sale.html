@@ -91,9 +91,13 @@
                         </div>
 
                         <div>
-                            <!-- <span class="field-value">{{image}}</span> -->
-                            <img class="img-placeholder"
-                                ng-src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                            <div class="center" ng-show="image">
+                                <img style="width: 75px" ng-src={{image}}>
+                            </div>
+                            <div ng-hide="image">
+                                <img class="img-placeholder"
+                                    ng-src="http://www.af.undp.org/etc/designs/UNDPGlobalDesign/clientlibs/digitallibrary/css/book-cover-placeholder.png" />
+                            </div>
                         </div>
                     </div>
                 </div>
