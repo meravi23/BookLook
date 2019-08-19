@@ -19,7 +19,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
     $scope.fieldToSearch = "";
-    $scope.shareMessage = "רציתי לשתף איתך את הספר הזה שמוצע למכירה ב-BookLook!";
+    $scope.shareMessage = "רציתי לשתף איתך את הספר הזה שמוצע למכירה ב-BookLook: ";
     $scope.shareUrl = "https://www.booklookil.com";
 
 
