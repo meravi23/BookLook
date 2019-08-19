@@ -18,14 +18,14 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
     $scope.bookPostsAlreadyCalled = false;
     // $scope.author2 = "";
     // $scope.translator = "";
-    // $scope.publisher = "";
-    // $scope.year = "";
-    // $scope.bookState = "";
-    // $scope.edition = "";
-    // $scope.isbn = "";
-    // $scope.bookCategory = "";
-    // $scope.subCategory = "";
-    // $scope.bookDetails = "";
+    $scope.publisher = "";
+    $scope.year = "";
+    $scope.bookState = "";
+    $scope.edition = "";
+    $scope.isbn = "";
+    $scope.bookCategory = "";
+    $scope.subCategory = "";
+    $scope.bookDetails = "";
 
 
     bookSrv.getBookPosts().then(function (bookPosts) {
