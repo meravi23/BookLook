@@ -47,8 +47,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
                     ($scope.books[i].publisher.includes($scope.userSearchInput))) {
                     $scope.searchResults.push($scope.books[i]);
                 }
-                // console.log("found " + $scope.searchResults.length + " book(s)");
-
             }
             if ($scope.searchResults.length === 0) {
                 $scope.noResults = true;
@@ -124,7 +122,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.fieldToSearch = "";
         $scope.userSearchInput = "";
         $scope.searchResults = [];
-        $scope.noResults = false;
+        $scope.showNoResultsMessage = false;
     };
 
 
