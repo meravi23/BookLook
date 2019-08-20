@@ -42,9 +42,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
                 $scope.searchResults.push($scope.books[i]);
             } else if ($scope.fieldToSearch === "") {
                 if ($scope.books[i].title.includes($scope.userSearchInput) ||
-                    ($scope.books[i].author.includes($scope.userSearchInput)) ||
-                    ($scope.books[i].isbn.includes($scope.userSearchInput)) ||
-                    ($scope.books[i].publisher.includes($scope.userSearchInput))) {
+                    ($scope.books[i].author.includes($scope.userSearchInput))){
                     $scope.searchResults.push($scope.books[i]);
                 }
             }
@@ -122,7 +120,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.fieldToSearch = "";
         $scope.userSearchInput = "";
         $scope.searchResults = [];
-        $scope.showNoResultsMessage = false;
+        $scope.noResults = false;
     };
 
 

@@ -48,7 +48,7 @@
                             <div class="input-group md-form form-sm form-2
                                 pl-0">
                                 <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border
-                                    home-search" type="text" placeholder="חיפוש ספר, מחבר, isbn ,הוצאה לאור"
+                                    home-search" type="text" placeholder="חיפוש לפי ספר או מחבר (ניתן לבחור שדות נוספים מימין)"
                                     aria-label="Search">
                                 <i class="fas fa-search"></i>
                             </div>
@@ -85,8 +85,8 @@
             </div>
         </div>
 
-        <div ng-show="searchResults.length> 0" class="my-3">
-            <h3>תוצאות חיפוש</h3>
+        <div class="my-3" ng-show="searchResults.length > 0">
+            <h3 class="title-color">תוצאות חיפוש</h3>
             <div class="row">
                 <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1':
                     searchResults.length> 1}" ng-class-odd="'bcgr-yellow'" ng-repeat="item in searchResults | filter: filterByShop"
@@ -103,7 +103,7 @@
         </div>
 
         <div class="row d-flex justify-content-center">
-            <div class="my-3 search-results" ng-show="searchResults.length===0 && noResults && !showNoResultsMessage">
+            <div class="my-3 search-results" ng-show="searchResults.length===0 && noResults">
                 <h3 class="center">לא נמצאו תוצאות - באפשרותך להוסיף מודעת חיפוש לספר המבוקש</h3>
             </div>
 
