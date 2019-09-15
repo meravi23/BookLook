@@ -8,12 +8,13 @@
                     <h6 class="center">חיפוש לפי קטגוריות</h6>
                     <uib-accordion>
                         <div uib-accordion-group class="mt-1 title-color" heading="{{category.categoryName}}"
-                            ng-repeat="category in categories" ng-click="searchByCategory(category)"
+                            ng-repeat="category in categories" ng-click="restrictCategory(category)"
                             is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
                             <div>
-                                <div ng-repeat="subcat in
-                                    category.subcategories" ng-click="searchBySubcategory(subcat,
-                                    $event)"><a class="title-color" href="javascript:void(0)">{{subcat}}</a></div>
+                                <div ng-repeat="subcat in category.subcategories"
+                                    ng-click="restrictSubCategory(subcat, $event)">
+                                    <a class="title-color" href="javascript:void(0)">{{subcat}}</a>
+                                </div>
                             </div>
                         </div>
                     </uib-accordion>
@@ -31,8 +32,7 @@
                                     <div class="col-md-9">
                                         <select class="form-control" id="search1" name="search-options"
                                             ng-model="fieldToSearch">
-                                            <option selected hidden>בחירת שדה
-                                                חיפוש</option>
+                                            <option selected hidden>בחירת שדה חיפוש</option>
                                             <option value="title">שם כותר</option>
                                             <option value="author">שם מחבר</option>
                                             <option value="isbn">ISBN</option>
@@ -48,7 +48,8 @@
                             <div class="input-group md-form form-sm form-2
                                 pl-0">
                                 <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border
-                                    home-search" type="text" placeholder="חיפוש לפי ספר או מחבר (ניתן לבחור שדות נוספים מימין)"
+                                    home-search" type="text"
+                                    placeholder="חיפוש לפי ספר או מחבר (ניתן לבחור שדות נוספים מימין)"
                                     aria-label="Search">
                                 <i class="fas fa-search"></i>
                             </div>
@@ -66,10 +67,6 @@
                         <form>
                             <div class="custom-control custom-checkbox">
                                 <h6>חנויות לחיפוש:</h6>
-                                <!-- <div class="shop-checkbox">
-                                    <input type="checkbox" id="shop0" name="shops" checked>
-                                    <label for="shop0">כל החנויות</label>
-                                </div> -->
                                 <div class="shop-checkbox" ng-repeat="shop in sellers">
                                     <input type="checkbox" id="shop{{shop.id}}" name="shops"
                                         ng-click="includeShop(shop)" ng-checked="shopsToSearch.includes(shop.name)">
@@ -85,17 +82,17 @@
             </div>
         </div>
 
-        <div class="my-3" ng-show="searchResults.length > 0">
+        <div class="my-3">
             <h3 class="title-color">תוצאות חיפוש</h3>
             <div class="row">
-                <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1':
-                    searchResults.length> 1}" ng-class-odd="'bcgr-yellow'" ng-repeat="item in searchResults | filter: filterByShop"
+                <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1': searchResults.length> 1}"
+                    ng-class-odd="'bcgr-yellow'" ng-repeat="item in books | filter: filterByAnyField |
+                               filter: filterByShop | filter: filterByCategory | filter: filterBySubCategory as searchResults"
                     ng-click="book4SaleModal(item)">
                     <div ng-include="'app/home/modalBook4sale.html'"></div>
                     <div class="card-body" data-toggle="modal" data-target="#book4sale">
                         <h5 class="card-title">{{item.title}}</h5>
-                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת:
-                            </span>{{item.author}}</h6>
+                        <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{item.author}}</h6>
                         <a href="#" class="card-link"><span>חנות: </span>{{item.seller}}</a>
                     </div>
                 </div>
@@ -116,7 +113,7 @@
 
 
         <div>
-            <div ng-show="searchResults.length===0" class="my-3">
+            <div class="my-3">
                 <div>
                     <h3 class="my-3 title-color">ספרים שנוספו לאחרונה</h3>
                 </div>
@@ -136,7 +133,7 @@
             </div>
 
 
-            <div ng-show="searchResults.length===0" class="my-3">
+            <div class="my-3">
                 <div>
                     <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
                 </div>

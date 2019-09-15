@@ -1,95 +1,133 @@
 app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope, userSrv) {
-
     $rootScope.routeNotLoggedIn = function () {
-
         console.log("userSrv.isLoggedIn: " + userSrv.isLoggedIn());
         if (!userSrv.isLoggedIn()) {
             $location.path("/login");
         }
     };
-
     $scope.books = [];
-    $scope.searchResults = [];
     $scope.sellers = [];
     $scope.shopsToSearch = [];
     $scope.bookPosts = [];
-    $rootScope.categories = [];
+    $scope.categories = [];
+    $scope.categoriesToSearch = [];
+    $scope.subCategoriesToSearch = [];
     $scope.userSearchInput = "";
-    $scope.noResults = false;
+    $scope.noResults = true;
     $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
     $scope.fieldToSearch = "";
     $scope.shareMessage = 'רציתי לשתף איתך את הספר הנ"ל שמוצע למכירה בבוקלוק: ';
     $scope.loc = location.path;
 
+    $scope.searchResults = [];
 
     bookSrv.getBooks4Sale().then(function (books) {
         $scope.books = books;
-        // console.log($scope.books);
+        console.log($scope.books);
     }, function (err) {
         $log.error(err);
     });
 
-
-    $scope.searchBook = function () {
-        $scope.searchResults = [];
-
-        for (var i = 0; i < $scope.books.length; i++) {
-            if ($scope.fieldToSearch === "title" && $scope.books[i].title.includes($scope.userSearchInput) ||
-                ($scope.fieldToSearch === "author" && $scope.books[i].author.includes($scope.userSearchInput)) ||
-                ($scope.fieldToSearch === "isbn" && $scope.books[i].isbn.includes($scope.userSearchInput)) ||
-                ($scope.fieldToSearch === "publisher" && $scope.books[i].publisher.includes($scope.userSearchInput))) {
-                $scope.searchResults.push($scope.books[i]);
-            } else if ($scope.fieldToSearch === "") {
-                if ($scope.books[i].title.includes($scope.userSearchInput) ||
-                    ($scope.books[i].author.includes($scope.userSearchInput))){
-                    $scope.searchResults.push($scope.books[i]);
+    $scope.filterByAnyField = function (book) {
+        if ($scope.userSearchInput === "") {
+            return true;
+        } else {
+            if ($scope.fieldToSearch === "") {
+                if (book.title.includes($scope.userSearchInput) ||
+                    book.author.includes($scope.userSearchInput) ||
+                    book.publisher.includes($scope.userSearchInput) ||
+                    book.isbn.includes($scope.userSearchInput)) {
+                    return true;
+                } else {
+                    return false;
+                }
+            } else {
+                if ($scope.fieldToSearch === "title") {
+                    if (book.title.includes($scope.userSearchInput)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else if ($scope.fieldToSearch === "author") {
+                    if (book.author.includes($scope.userSearchInput)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else if ($scope.fieldToSearch === "publisher") {
+                    if (book.publisher.includes($scope.userSearchInput)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
+                } else if ($scope.fieldToSearch === "isbn") {
+                    if (book.isbn.includes($scope.userSearchInput)) {
+                        return true;
+                    } else {
+                        return false;
+                    }
                 }
             }
-            if ($scope.searchResults.length === 0) {
-                $scope.noResults = true;
-            }
         }
+    }
+
+
+    bookSrv.getBookCategories().then(function (categories) {
+        $scope.categories = categories;
+
+        categories.forEach(category => {
+            $scope.categoriesToSearch.push(category.categoryName);
+        });
+    }, function (err) {
+        $log.error(err);
+    });
+
+    $scope.restrictCategory = function (category) {
+        $scope.categoriesToSearch = [];
+        $scope.subCategoriesToSearch = [];
+        $scope.categoriesToSearch.push(category.categoryName);
     };
-
-    $scope.searchByCategory = function (category) {
-        $scope.searchResults = [];
-        console.log(category);
-
-        for (var i = 0; i < $scope.books.length; i++) {
-            if ($scope.books[i].category === category.categoryName) {
-                $scope.searchResults.push($scope.books[i]);
-            } else if ($scope.searchResults.length === 0) {
-                $scope.noResults = true;
-            }
-        }
-        console.log("תוצאות חיפוש לפי קטגוריה " + $scope.searchResults.length);
-    };
-
-    $scope.searchBySubcategory = function (subcategory, event) {
-        $scope.searchResults = [];
-        console.log(subcategory);
-
-        for (var i = 0; i < $scope.books.length; i++) {
-            if ($scope.books[i].subCategory === subcategory) {
-                $scope.searchResults.push($scope.books[i]);
-            } else if ($scope.searchResults.length === 0) {
-                $scope.noResults = true;
-            }
-        }
-
-        console.log("תוצאות חיפוש לפי תת קטגוריה " + $scope.searchResults.length);
+    
+    $scope.restrictSubCategory = function (subcat, event) {
+        $scope.subCategoriesToSearch = [];
+        $scope.subCategoriesToSearch.push(subcat);
+        console.log($scope.subCategoriesToSearch);
         event.stopPropagation();
+    };
+
+    $scope.filterByCategory = function (book) {
+        if ($scope.categoriesToSearch.length === 0) {
+            return true;
+        } else {
+            if ($scope.categoriesToSearch.indexOf(book.category) >= 0) {
+                return true;
+            } else {
+                return false;
+            }
+        }
+    };
+
+    $scope.filterBySubCategory = function (book) {
+        if ($scope.subCategoriesToSearch.length === 0) {
+            return true;
+        } else {
+            if ($scope.subCategoriesToSearch.indexOf(book.subCategory) != -1) {
+                return true;
+            } else {
+                return false;
+            }
+        }
     };
 
 
     bookSrv.getSellers().then(function (sellers) {
         $scope.sellers = sellers;
-        console.log($scope.sellers);
-        for (var i=0; i<sellers.length; i++) {
-            $scope.shopsToSearch.push($scope.sellers[i].name);
-        }
-        console.log($scope.shopsToSearch);
+
+        sellers.forEach(shop => {
+            $scope.shopsToSearch.push(shop.name);
+        });
+
     }, function (err) {
         $log.error(err);
     });
@@ -100,7 +138,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         } else {
             $scope.shopsToSearch.push(shop.name);
         }
-
         if ($scope.shopsToSearch.length === 0) {
             $scope.noShops = true;
         }
@@ -115,14 +152,14 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         }
     };
 
-
     $scope.clearFields = function () {
         $scope.fieldToSearch = "";
         $scope.userSearchInput = "";
         $scope.searchResults = [];
+        $scope.categoriesToSearch = [];
+        $scope.subCategoriesToSearch = [];
         $scope.noResults = false;
     };
-
 
     $rootScope.getBookPosts = function () {
         if (!$scope.bookPostsAlreadyRetrievedOnce) {
@@ -132,24 +169,12 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         }
     };
 
-
     $scope.bookPosts = bookSrv.getBookPosts().then(function (books) {
         $scope.bookPosts = books;
         bookPostsAlreadyRetrievedOnce = true;
     }, function (err) {
         $log.error(err);
     });
-
-
-    bookSrv.getBookCategories().then(function (bookcategories) {
-        for (var i = 0; i < bookcategories.length; i++) {
-            $scope.categories.push(bookcategories[i]);
-        }
-        // console.log($scope.categories);
-    }, function (err) {
-        $log.error(err);
-    });
-
 
     $scope.contact = function (book) {
         var activeUser = userSrv.getActiveUser();
@@ -159,9 +184,9 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
             "user_email": activeUser.email,
             "seller_name": book.seller,
             "user_tel": activeUser.phone
-            // "message_html": "message_html_value"
+            // "message_html": "message_html_value" 
         }
-        console.log("book title: " + book.title);
+        // console.log("book title: " + book.title); 
         var service_id = "default_service";
         var template_id = "BookLook User Inquiry";
         emailjs.send(service_id, template_id, template_params);
@@ -169,22 +194,17 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         alert("email sent to seller!");
     };
 
+
     $scope.contactSeeker = function (post) {
         var activeUser = userSrv.getActiveUser();
         var service_id = "default_service";
         var template_id = "book_owner_to_seeker";
         emailjs.send(service_id, template_id, template_params);
-
         var template_params = {
-            // params and template to be updated (copied from "contact()")
-            "user_name": activeUser.fname,
-            "book_title": post.title,
-            "user_email": activeUser.email,
-            // "seeker_name": post.fname,
-            "user_tel": activeUser.phone
-            // "message_html": "message_html_value"
+            // params and template to be updated (copied from "contact()") "user_name": activeUser.fname, "book_title": post.title, "user_email": activeUser.email, 
+            // "seeker_name": post.fname, "user_tel": activeUser.phone // "message_html": "message_html_value" 
         }
-        console.log("book title: " + post.title);
+        // console.log("book title: " + post.title); 
         var service_id = "default_service";
         var template_id = "BookLook User Inquiry";
         emailjs.send(service_id, template_id, template_params);
@@ -227,5 +247,4 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.bookDetails = post.comment;
         $scope.postingPerson = post.postingPerson;
     };
-
 });
