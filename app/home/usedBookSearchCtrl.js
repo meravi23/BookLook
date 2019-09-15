@@ -6,6 +6,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         }
     };
     $scope.books = [];
+    $scope.recentlyAdded = [];
     $scope.sellers = [];
     $scope.shopsToSearch = [];
     $scope.bookPosts = [];
@@ -14,6 +15,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.subCategoriesToSearch = [];
     $scope.userSearchInput = "";
     $scope.noResults = true;
+    $scope.showResults = false;
     $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
     $scope.fieldToSearch = "";
@@ -24,6 +26,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
 
     bookSrv.getBooks4Sale().then(function (books) {
         $scope.books = books;
+        $scope.recentlyAdded = books;
         console.log($scope.books);
     }, function (err) {
         $log.error(err);
@@ -86,6 +89,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.restrictCategory = function (category) {
         $scope.categoriesToSearch = [];
         $scope.subCategoriesToSearch = [];
+        $scope.showResults = true;
         $scope.categoriesToSearch.push(category.categoryName);
     };
     
@@ -159,6 +163,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.categoriesToSearch = [];
         $scope.subCategoriesToSearch = [];
         $scope.noResults = false;
+        $scope.showResults = false;
     };
 
     $rootScope.getBookPosts = function () {

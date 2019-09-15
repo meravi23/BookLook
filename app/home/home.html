@@ -47,8 +47,8 @@
                         <form ng-submit="searchBook()">
                             <div class="input-group md-form form-sm form-2
                                 pl-0">
-                                <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border
-                                    home-search" type="text"
+                                <input ng-model="userSearchInput" class="form-control my-0 py-1 amber-border home-search" type="text"
+                                    ng-keypress="showResults=true"
                                     placeholder="חיפוש לפי ספר או מחבר (ניתן לבחור שדות נוספים מימין)"
                                     aria-label="Search">
                                 <i class="fas fa-search"></i>
@@ -119,7 +119,7 @@
                 </div>
                 <div class="row row-of-cards">
                     <div class="card preview flex-md-fill ml-1" ng-class-even="'bcgr-yellow'"
-                        ng-class-odd="'bcgr-orange'" ng-repeat="book in books | limitTo:5"
+                        ng-class-odd="'bcgr-orange'" ng-repeat="book in recentlyAdded | limitTo:5"
                         ng-click="book4SaleModal(book)" data-toggle="modal" data-target="#book4sale">
                         <div ng-include="'app/home/modalBook4sale.html'"></div>
                         <div class="card-body">
@@ -133,7 +133,7 @@
             </div>
 
 
-            <div class="my-3">
+            <div class="my-3" ng-hide="showResults">
                 <div>
                     <h3 class="my-3"><a href="#!/board">ספרים שקוראים מחפשים</a></h3>
                 </div>
