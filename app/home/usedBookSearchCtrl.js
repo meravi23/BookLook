@@ -14,7 +14,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.categoriesToSearch = [];
     $scope.subCategoriesToSearch = [];
     $scope.userSearchInput = "";
-    $scope.noResults = true;
     $scope.showResults = false;
     $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
@@ -96,7 +95,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.restrictSubCategory = function (subcat, event) {
         $scope.subCategoriesToSearch = [];
         $scope.subCategoriesToSearch.push(subcat);
-        console.log($scope.subCategoriesToSearch);
         event.stopPropagation();
     };
 
@@ -162,7 +160,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.searchResults = [];
         $scope.categoriesToSearch = [];
         $scope.subCategoriesToSearch = [];
-        $scope.noResults = false;
         $scope.showResults = false;
     };
 
