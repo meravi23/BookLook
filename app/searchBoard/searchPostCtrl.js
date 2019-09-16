@@ -16,8 +16,8 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
     $scope.postingPerson = "";
     $scope.img = {};
     $scope.bookPostsAlreadyCalled = false;
-    // $scope.author2 = "";
-    // $scope.translator = "";
+    $scope.author2 = "";
+    $scope.translator = "";
     $scope.publisher = "";
     $scope.year = "";
     $scope.bookState = "";
@@ -27,7 +27,7 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
     $scope.subCategory = "";
     $scope.bookDetails = "";
 
-
+  
     bookSrv.getBookPosts().then(function (bookPosts) {
 
             $scope.bookPosts = bookPosts;
