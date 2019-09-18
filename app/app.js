@@ -1,6 +1,6 @@
 var app = angular.module("usedBookApp", ["ngRoute", "ngAnimate", "ngTouch", "ui.bootstrap", "ngImageInputWithPreview", "chart.js", "720kb.socialshare"]);
 
-app.config(function($routeProvider) {
+app.config(function ($routeProvider) {
     $routeProvider
         .when("/", {
             templateUrl: "app/home/home.html",
@@ -24,6 +24,9 @@ app.config(function($routeProvider) {
             controller: "signupCtrl"
         }).when("/searchPost", {
             templateUrl: "app/searchBoard/bookPost.html"
-                // controller: "searchPostCtrl"
+            // controller: "searchPostCtrl"
+        }).when("/books/:id", {
+            templateUrl: "app/home/book4SalePage.html",
+            controller: "book4SalePageCtrl"
         })
 })

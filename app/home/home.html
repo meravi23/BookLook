@@ -124,10 +124,11 @@
                     <h3 class="my-3 title-color">ספרים שנוספו לאחרונה</h3>
                 </div>
                 <div class="row row-of-cards">
-                    <div class="card preview flex-md-fill ml-1" ng-class-even="'bcgr-yellow'"
-                        ng-class-odd="'bcgr-orange'" ng-repeat="book in recentlyAdded | limitTo:5"
-                        ng-click="book4SaleModal(book)" data-toggle="modal" data-target="#book4sale">
-                        <div ng-include="'app/home/modalBook4sale.html'"></div>
+                    <div class="card preview flex-md-fill ml-1" 
+                        ng-class-even="'bcgr-yellow'"
+                        ng-class-odd="'bcgr-orange'" 
+                        ng-repeat="book in recentlyAdded | limitTo:5"
+                        ng-click="goToBook4Sale(book.id)">
                         <div class="card-body">
                             <h5 class="card-title">{{book.title}}</h5>
                             <h6 class="card-subtitle mb-2 text-muted"><span>מאת:

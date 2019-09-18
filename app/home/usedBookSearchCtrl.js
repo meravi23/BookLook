@@ -1,4 +1,4 @@
-app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope, userSrv) {
+app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope, userSrv, $location) {
     $rootScope.routeNotLoggedIn = function () {
         console.log("userSrv.isLoggedIn: " + userSrv.isLoggedIn());
         if (!userSrv.isLoggedIn()) {
@@ -91,7 +91,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.showResults = true;
         $scope.categoriesToSearch.push(category.categoryName);
     };
-    
+
     $scope.restrictSubCategory = function (subcat, event) {
         $scope.subCategoriesToSearch = [];
         $scope.subCategoriesToSearch.push(subcat);
@@ -215,22 +215,8 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     };
 
 
-    $scope.book4SaleModal = function (book) {
-        $scope.title = book.title;
-        $scope.author = book.author;
-        $scope.author2 = book.author2;
-        $scope.translator = book.translator;
-        $scope.publisher = book.publisher;
-        $scope.year = book.year;
-        $scope.bookState = book.state;
-        $scope.edition = book.edition;
-        $scope.isbn = book.isbn;
-        $scope.bookCategory = book.category;
-        $scope.subCategory = book.subCategory;
-        $scope.image = book.image;
-        $scope.bookDetails = book.comment;
-        $scope.price = book.price;
-        $scope.seller = book.seller;
+    $scope.goToBook4Sale = function (bookTitle) {
+        $location.path("/books/" + bookTitle);
     };
 
     $rootScope.bookPostingModal = function (post) {
