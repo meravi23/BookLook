@@ -1,10 +1,12 @@
 app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope, userSrv, $location) {
+    
     $rootScope.routeNotLoggedIn = function () {
         console.log("userSrv.isLoggedIn: " + userSrv.isLoggedIn());
         if (!userSrv.isLoggedIn()) {
             $location.path("/login");
         }
     };
+    
     $scope.books = [];
     $scope.recentlyAdded = [];
     $scope.sellers = [];
@@ -18,9 +20,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
     $scope.fieldToSearch = "";
-    $scope.shareMessage = 'רציתי לשתף איתך את הספר הנ"ל שמוצע למכירה בבוקלוק: ';
-    $scope.loc = location.path;
-
     $scope.searchResults = [];
 
     bookSrv.getBooks4Sale().then(function (books) {
@@ -178,42 +177,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $log.error(err);
     });
 
-    $scope.contact = function (book) {
-        var activeUser = userSrv.getActiveUser();
-        var template_params = {
-            "user_name": activeUser.fname,
-            "book_title": book.title,
-            "user_email": activeUser.email,
-            "seller_name": book.seller,
-            "user_tel": activeUser.phone
-            // "message_html": "message_html_value" 
-        }
-        // console.log("book title: " + book.title); 
-        var service_id = "default_service";
-        var template_id = "BookLook User Inquiry";
-        emailjs.send(service_id, template_id, template_params);
-        $log.info("message sent to seller!");
-        alert("email sent to seller!");
-    };
-
-
-    $scope.contactSeeker = function (post) {
-        var activeUser = userSrv.getActiveUser();
-        var service_id = "default_service";
-        var template_id = "book_owner_to_seeker";
-        emailjs.send(service_id, template_id, template_params);
-        var template_params = {
-            // params and template to be updated (copied from "contact()") "user_name": activeUser.fname, "book_title": post.title, "user_email": activeUser.email, 
-            // "seeker_name": post.fname, "user_tel": activeUser.phone // "message_html": "message_html_value" 
-        }
-        // console.log("book title: " + post.title); 
-        var service_id = "default_service";
-        var template_id = "BookLook User Inquiry";
-        emailjs.send(service_id, template_id, template_params);
-        $log.info("message sent to book seeker!");
-        alert("email sent to book seeker!");
-    };
-
+   
 
     $scope.goToBook4Sale = function (bookTitle) {
         $location.path("/books/" + bookTitle);

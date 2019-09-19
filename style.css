@@ -266,6 +266,40 @@ h2, h3>a, .title-color, .title-color a {
     display: none;
 }
 
+.back-btn {
+    margin: 25%;
+}
+
+.auto-msg {
+    position: relative;
+    margin: 25%;
+}
+
+.hover-msg {
+    position: absolute;
+    bottom: 45%;
+    left: 50%;
+    /* display: none; */
+    width: 150px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #ddd;
+    color: white;
+    padding: 5px;
+}
+
+.hover-msg.hide {
+    display: none;
+}
+
+.auto-msg:hover > .hover-msg.hide {
+    display: initial;
+}
+
+a .fa-facebook, a .fa-twitter-square, a .fa-envelope, a .fa-facebook-messenger, a .fa-whatsapp {
+    font-size: xx-large;
+}
+
 .bcgr-yellow {
     /* background-color: #FFC107; */
     border-color: #FFC107;
@@ -289,3 +323,4 @@ h2, h3>a, .title-color, .title-color a {
         display: none;
     }
 }
+

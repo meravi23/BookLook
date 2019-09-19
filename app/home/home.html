@@ -90,9 +90,8 @@
                     ng-class-odd="'bcgr-yellow'"
                     ng-repeat="item in books | filter: filterByAnyField |
                                filter: filterByShop | filter: filterByCategory | filter: filterBySubCategory as searchResults"
-                    ng-click="book4SaleModal(item)">
-                    <div ng-include="'app/home/modalBook4sale.html'"></div>
-                    <div class="card-body" data-toggle="modal" data-target="#book4sale">
+                    ng-click="goToBook4Sale(item.id)">
+                    <div class="card-body">
                         <h5 class="card-title">{{item.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{item.author}}</h6>
                         <a href="#" class="card-link"><span>חנות: </span>{{item.seller}}</a>

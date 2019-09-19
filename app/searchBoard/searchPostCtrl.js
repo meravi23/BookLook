@@ -1,16 +1,6 @@
 app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $rootScope, $location) {
 
-    $rootScope.routeNotLoggedIn = function () {
-
-        console.log("userSrv.isLoggedIn: " + userSrv.isLoggedIn());
-        if (!userSrv.isLoggedIn()) {
-            $location.path("/login");
-        }
-    };
-
-
     $scope.bookPosts = [];
-
     $scope.title = "";
     $scope.author = "";
     $scope.postingPerson = "";
