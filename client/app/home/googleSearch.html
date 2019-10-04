@@ -5,7 +5,7 @@
             <input ng-model="googleSearchInput"
                 class="form-control my-0 py-1 amber-border home-search" type="text"
                 ng-keypress="showGoogleResults=true"
-                placeholder="חיפוש חופשי במאגר הכותרים של גוגל"
+                placeholder="חיפוש חופשי ב-API של גוגל"
                 aria-label="Search">
             <i class="fas fa-search"></i>
         </div>
@@ -21,7 +21,7 @@
                 <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{item.author}}</h6>
-                    <a href="#" class="card-link"><span>מידע נוסף: </span>{{item.seller}}</a>
+                    <a href="#" class="card-link"><span>קטגוריה: </span>{{item.category}}</a>
                 </div>
             </div>
         </div>
