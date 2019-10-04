@@ -1,0 +1,29 @@
+<div>
+    <form ng-submit="searchGoogleBooks()">
+        <div class="input-group md-form form-sm form-2
+            pl-0">
+            <input ng-model="googleSearchInput"
+                class="form-control my-0 py-1 amber-border home-search" type="text"
+                ng-keypress="showGoogleResults=true"
+                placeholder="חיפוש חופשי במאגר הכותרים של גוגל"
+                aria-label="Search">
+            <i class="fas fa-search"></i>
+        </div>
+    </form>
+
+    <div class="my-3" ng-if="showGoogleResults">
+        <h3 class="title-color">תוצאות חיפוש</h3>
+        <div class="row">
+            <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1': gBooks.length> 1}"
+                ng-class-odd="'bcgr-yellow'"
+                ng-repeat="item in gBooks"
+                ng-click="goToBook4Sale(item.id)">
+                <div class="card-body">
+                    <h5 class="card-title">{{item.title}}</h5>
+                    <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{item.author}}</h6>
+                    <a href="#" class="card-link"><span>מידע נוסף: </span>{{item.seller}}</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

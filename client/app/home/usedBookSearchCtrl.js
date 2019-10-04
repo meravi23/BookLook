@@ -8,6 +8,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     };
     
     $scope.books = [];
+    $scope.gBooks = [];
     $scope.recentlyAdded = [];
     $scope.sellers = [];
     $scope.shopsToSearch = [];
@@ -16,11 +17,24 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.categoriesToSearch = [];
     $scope.subCategoriesToSearch = [];
     $scope.userSearchInput = "";
+    $scope.googleSearchInput = "";
     $scope.showResults = false;
+    $scope.showGoogleResults = false;
     $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
     $scope.fieldToSearch = "";
     $scope.searchResults = [];
+
+    $scope.searchGoogleBooks = function () {
+        if ($scope.googleSearchInput) {
+            bookSrv.getGoogleBooks($scope.googleSearchInput).then(function (books) {
+                $scope.gBooks = books;
+                console.log($scope.gBooks);
+            }, function (err) {
+                $log.error(err);
+            });
+        }
+    }
 
     bookSrv.getBooks4Sale().then(function (books) {
         $scope.books = books;
