@@ -7,7 +7,7 @@ app.controller("loginCtrl", function ($scope, $location, userSrv, $log, $rootSco
     $scope.login = function () {
         userSrv.login($scope.email, $scope.pwd).then(function (activeUser) {
             $log.info("Successful login with: " + JSON.stringify(activeUser));
-            $location.path("/board");
+            $location.path("/");
             $rootScope.activeUser = activeUser;
         }, function (err) {
             $scope.invalidLogin = true;
