@@ -42,6 +42,10 @@ body {
     color: white !important;
 }
 
+.title {
+    height: 20%;
+}
+
 .btn, .btn:active {
     background-color: #FFC107;
     border-color: #FFC107;
