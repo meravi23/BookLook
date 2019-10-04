@@ -187,7 +187,7 @@ h3>a:hover {
 
 .field-value {
     float: left;
-    width: 60%;
+    width: 55%;
     font-weight: bold;
     display: block;
     height: 1.5em;
@@ -195,7 +195,7 @@ h3>a:hover {
 
 .field-name {
     float: right;
-    width: 40%;
+    width: 45%;
 }
 
 .book-img {
@@ -266,20 +266,27 @@ h2, h3>a, .title-color, .title-color a {
     display: none;
 }
 
+.book-page {
+    margin: 0 20%;
+}
+
 .back-btn {
-    margin: 25%;
+    margin-top: 25%;
+}
+
+.fa-info-circle {
+    color: #ddd;
 }
 
 .auto-msg {
     position: relative;
-    margin: 25%;
+    display: inline;
+    /* margin: 25%; */
 }
 
 .hover-msg {
     position: absolute;
     bottom: 45%;
-    left: 50%;
-    /* display: none; */
     width: 150px;
     border: 1px solid #ddd;
     border-radius: 5px;
@@ -296,7 +303,7 @@ h2, h3>a, .title-color, .title-color a {
     display: initial;
 }
 
-a .fa-facebook, a .fa-twitter-square, a .fa-envelope, a .fa-facebook-messenger, a .fa-whatsapp {
+a .fa-facebook, a .fa-twitter-square, a .fa-envelope, a .fa-facebook-messenger, a .fa-whatsapp, .fa-info-circle {
     font-size: xx-large;
 }
 
