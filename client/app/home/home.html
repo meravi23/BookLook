@@ -83,11 +83,12 @@
             </div>
         </div>
 
-        <div class="my-3">
+        <div class="my-3 y-border row">
             <div>
                 <h3 class="my-3"><a href="#!/board">חיפוש במאגר הכותרים של גוגל</a></h3>
             </div>
             <google-search></google-search>
+
         </div>
 
         <div class="my-3" ng-if="showResults">
@@ -101,7 +102,7 @@
                     <div class="card-body">
                         <h5 class="card-title">{{item.title}}</h5>
                         <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{item.author}}</h6>
-                        <a href="#" class="card-link"><span>חנות: </span>{{item.seller}}</a>
+                        <p class="card-link"><span>חנות: </span>{{item.seller}}</p>
                     </div>
                 </div>
             </div>
@@ -110,8 +111,8 @@
         <div class="row d-flex justify-content-center">
             <div class="row d-flex justify-content-center" ng-show="showResults">
                 <div class="my-3">
-                    <button type="button" ng-click="routeNotLoggedIn()" class="btn btn-block" data-toggle="modal" data-target="#modelBookPost">
-                        הוספת מודעת חיפוש</button>
+                    <button type="button" ng-click="routeNotLoggedIn()" class="btn btn-block" 
+                    data-dismiss="modal" data-target="#modelBookPost">הוספת מודעת חיפוש</button>
                 </div>
                 <div ng-include="'app/searchBoard/newSearchBookPost.html'"></div>
             </div>
@@ -130,10 +131,8 @@
                     <h3 class="my-3 title-color">ספרים שנוספו לאחרונה</h3>
                 </div>
                 <div class="row row-of-cards">
-                    <div class="card preview flex-md-fill ml-1" 
-                        ng-class-even="'bcgr-yellow'"
-                        ng-class-odd="'bcgr-orange'" 
-                        ng-repeat="book in recentlyAdded | limitTo:5"
+                    <div class="card preview flex-md-fill ml-1" ng-class-even="'bcgr-yellow'"
+                        ng-class-odd="'bcgr-orange'" ng-repeat="book in recentlyAdded | limitTo:5"
                         ng-click="goToBook4Sale(book.id)">
                         <div class="card-body">
                             <h5 class="card-title">{{book.title}}</h5>
