@@ -40,7 +40,6 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
     };
 
 
-
     $scope.bookPostingModal = function (post) {
         $scope.title = post.title;
         $scope.author = post.author;

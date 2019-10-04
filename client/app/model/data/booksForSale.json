@@ -87,5 +87,42 @@
         "comment": "",
         "price": 15,
         "seller": "רובינזון"
+    },
+    {
+        "id": 6,
+        "title": "חיים שלי",
+        "author": "עינת נתן",
+        "author2": "",
+        "translator": "",
+        "publisher": "כנרת זמורה ביתן",
+        "year": "2018",
+        "state": "כמו חדש",
+        "edition": "",
+        "isbn": "0062512014012",
+        "category": "ספרי הדרכה",
+        "subCategory": "הורות",
+        "image": null,
+        "comment": "",
+        "price": 45,
+        "seller": "קרוון הספרים"
+    },
+    {
+        "id": 7,
+        "title": "Raising Cain",
+        "author": "Dan Kindlon",
+        "author2": "Michael Thompson",
+        "translator": "",
+        "publisher": "Ballantine Books",
+        "year": "2000",
+        "state": "טוב מאוד",
+        "edition": "13",
+        "isbn": "0345434854",
+        "category": "ספרי הדרכה",
+        "subCategory": "הורות",
+        "image": null,
+        "comment": "",
+        "price": 15,
+        "seller": "דני ספרים"
     }
+
 ]
