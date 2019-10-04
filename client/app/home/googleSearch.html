@@ -1,7 +1,6 @@
 <div>
     <form ng-submit="searchGoogleBooks()">
-        <div class="input-group md-form form-sm form-2
-            pl-0">
+        <div class="input-group md-form form-sm form-2 pl-0">
             <input ng-model="googleSearchInput"
                 class="form-control my-0 py-1 amber-border home-search" type="text"
                 ng-keypress="showGoogleResults=true"
@@ -13,7 +12,7 @@
 
     <div class="my-3" ng-if="showGoogleResults">
         <h3 class="title-color">תוצאות חיפוש</h3>
-        <div class="row">
+        <div class="row gResults">
             <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1': gBooks.length> 1}"
                 ng-class-odd="'bcgr-yellow'"
                 ng-repeat="item in gBooks"

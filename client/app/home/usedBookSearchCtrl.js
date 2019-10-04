@@ -176,6 +176,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.subCategoriesToSearch = [];
         $scope.gBooks = [];
         $scope.showResults = false;
+        $scope.showGoogleResults = false;
     };
 
     $rootScope.getBookPosts = function () {
