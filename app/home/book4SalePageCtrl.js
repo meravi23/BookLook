@@ -1,11 +1,10 @@
-app.controller("book4SalePageCtrl", function (bookSrv, $scope, $log, $routeParams, userSrv, $location) {
+app.controller("book4SalePageCtrl", function (bookSrv, $scope, $log, $routeParams, userSrv, $location, $rootScope, $window) {
 
     'use strict';
 
     $scope.sellers = [];
     $scope.payOptions = [];
-    $scope.loc = $location.$$absUrl;
-    console.log($scope.loc);
+    $scope.loc = $location.absUrl();
     $scope.shareMessage = 'רציתי לשתף איתך את הספר הנ"ל שמוצע למכירה בבוקלוק: ';
     var activeUser = userSrv.getActiveUser();
 
@@ -16,23 +15,23 @@ app.controller("book4SalePageCtrl", function (bookSrv, $scope, $log, $routeParam
         $log.error(err);
     });
 
-    bookSrv.getSellers().then(function(sellers) {
+    bookSrv.getSellers().then(function (sellers) {
         $scope.sellers = sellers;
         console.log($scope.sellers);
     }, function (err) {
         $log.error(err);
     });
 
-    $scope.getPaymentOptionsPerSeller = function(seller){
-       for (let i=0; i<$scope.sellers.length; i++){
-           if (seller == $scope.sellers[i]){
+    $scope.getPaymentOptionsPerSeller = function (seller) {
+        for (let i = 0; i < $scope.sellers.length; i++) {
+            if (seller == $scope.sellers[i]) {
                 $scope.payOptions.push($scope.sellers[i].paymentOptions);
-           }
-       }
+            }
+        }
     }
 
-    $scope.goBack = function(){
-        $location.path('/');
+    $rootScope.goBack = function () {
+        $window.history.back();
     }
 
     $scope.contact = function (book) {
@@ -57,7 +56,7 @@ app.controller("book4SalePageCtrl", function (bookSrv, $scope, $log, $routeParam
         var template_params = {
             "user_name": activeUser.fname,
             "book_title": post.title,
-            "user_email": activeUser.email, 
+            "user_email": activeUser.email,
             "seeker_name": post.fname,
             "user_tel": activeUser.phone
         }
