@@ -28,5 +28,8 @@ app.config(function ($routeProvider) {
         }).when("/books/:id", {
             templateUrl: "app/home/book4SalePage.html",
             controller: "book4SalePageCtrl"
+        }).when("/Google Book/:id", {
+            templateUrl: "app/home/googleBookPage.html",
+            controller: "googleBookPageCtrl"
         })
 })

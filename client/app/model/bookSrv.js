@@ -7,26 +7,24 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
 
     class Book {
-        constructor(titleOrObject, id, author, author2, translator, publisher, year, state,
-            edition, isbn, category, subCategory, image, comment) {
+        constructor(bookObject) {
 
-            this.id = titleOrObject.id;
-            this.title = titleOrObject.title;
-            this.author = titleOrObject.author;
-            this.author2 = titleOrObject.author2;
-            this.translator = titleOrObject.translator;
-            this.publisher = titleOrObject.publisher;
-            this.year = titleOrObject.year;
-            this.state = titleOrObject.state;
-            this.edition = titleOrObject.edition;
-            this.isbn = titleOrObject.isbn;
-            this.category = titleOrObject.category;
-            this.subCategory = titleOrObject.subCategory;
-            this.image = titleOrObject.image;
-            this.comment = titleOrObject.comment;
+            this.id = bookObject.id;
+            this.title = bookObject.title;
+            this.author = bookObject.author;
+            this.author2 = bookObject.author2;
+            this.translator = bookObject.translator;
+            this.publisher = bookObject.publisher;
+            this.year = bookObject.year;
+            this.state = bookObject.state;
+            this.edition = bookObject.edition;
+            this.isbn = bookObject.isbn;
+            this.category = bookObject.category;
+            this.subCategory = bookObject.subCategory;
+            this.image = bookObject.image;
+            this.comment = bookObject.comment;
         }
     }
-
 
 
     // a book4Sale object contains in addition price and seller name
@@ -47,11 +45,12 @@ app.factory("bookSrv", function ($q, $http, $log) {
     }
 
     class googleBook {
-        constructor(title, id, author, author2, publisher, year,
+        constructor(id, title, subtitle, author, author2, publisher, year,
             edition, isbn, category, image, price, language) {
 
-            this.title = title;
             this.id = id;
+            this.title = title;
+            this.subtitle = subtitle;
             this.author = author;
             this.author2 = author2;
             this.publisher = publisher;
@@ -161,18 +160,19 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
                     let id = res.data.items[i].id;
                     let title = gBook.title;
+                    let subtitle = gBook.subtitle;
                     let author = gBook.authors ? gBook.authors[0] : "ללא מחבר";
                     let author2 = gBook.authors && gBook.authors.length > 1 ? gBook.authors[1] : null;
                     let publisher = gBook.publisher;
-                    let year = (gBook.publishedDate) ? (gBook.publishedDate).slice(0, 4) : "לא ידוע";
+                    let year = gBook.publishedDate ? gBook.publishedDate.slice(0, 4) : "לא ידוע";
                     let edition = null;
-                    let isbn = "0000000000"; //gBook.industryIdentifiers[1].identifier;
+                    let isbn = gBook.industryIdentifiers ? gBook.industryIdentifiers[0].identifier : null;
                     let category = gBook.categories ? gBook.categories[0] : null;
                     let image = gBook.imageLinks ? gBook.imageLinks.thumbnail : null;
                     let price = res.data.items[i].saleInfo.saleability === "FOR_SALE" ? res.data.items[i].saleInfo.retailPrice.amount : "לא למכירה";
                     let language = gBook.language;
 
-                    const book = new googleBook(title, id, author, author2, publisher, year,
+                    const book = new googleBook(id, title, subtitle, author, author2, publisher, year,
                         edition, isbn, category, image, price, language);
                     googleBooks.push(book);
                 }
@@ -186,7 +186,6 @@ app.factory("bookSrv", function ($q, $http, $log) {
 
         return async.promise;
     }
-
 
     function getBookById(bookId) {
         var async = $q.defer();
@@ -253,6 +252,7 @@ app.factory("bookSrv", function ($q, $http, $log) {
         addNewBookPost: addNewBookPost,
         Book: Book,
         Book4Sale: Book4Sale,
+        googleBook: googleBook,
         Category: Category
     }
 });

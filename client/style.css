@@ -28,6 +28,11 @@ body {
     border-radius: 5px;
 }
 
+.ltr {
+    direction: ltr;
+    text-align: left;
+}
+
 .nav-logo {
     width: 100px;
 }
@@ -207,6 +212,19 @@ h3>a:hover {
     width: 45%;
 }
 
+.field-value.gbook {
+    float: left;
+    width: 65%;
+    font-weight: bold;
+    display: block;
+    height: 1.5em;
+}
+
+.field-name.gbook {
+    float: right;
+    width: 35%;
+}
+
 .book-img {
     width: 10%;
 }
@@ -215,7 +233,7 @@ h2, h3>a, .title-color, .title-color a {
     color: #FFC107;
 }
 
-.card-link, .div-block {
+.card-link {
     display: block;
 }
 
@@ -277,6 +295,10 @@ h2, h3>a, .title-color, .title-color a {
 
 .book-page {
     margin: 0 20%;
+}
+
+.book-page.gbook {
+    margin: 0 5%;
 }
 
 .back-btn {

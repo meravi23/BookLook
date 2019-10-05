@@ -10,17 +10,17 @@
         </div>
     </form>
 
-    <div class="my-3" ng-if="showGoogleResults">
+    <div class="my-3" ng-if="gBooks.length>0">
         <h3 class="title-color">תוצאות חיפוש</h3>
         <div class="row gResults">
             <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1': gBooks.length> 1}"
                 ng-class-odd="'bcgr-yellow'"
                 ng-repeat="item in gBooks"
-                ng-click="goToBook4Sale(item.id)">
+                ng-click="goToGoogleBook(item.id)">
                 <div class="card-body">
                     <h5 class="card-title">{{item.title}}</h5>
                     <h6 class="card-subtitle mb-2 text-muted"><span>מאת: </span>{{item.author}}</h6>
-                    <a href="#" class="card-link"><span>קטגוריה: </span>{{item.category}}</a>
+                    <p><span>קטגוריה: </span>{{item.category}}</p>
                 </div>
             </div>
         </div>

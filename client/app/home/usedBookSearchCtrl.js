@@ -39,7 +39,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     bookSrv.getBooks4Sale().then(function (books) {
         $scope.books = books;
         $scope.recentlyAdded = books;
-        console.log($scope.books);
+        // console.log($scope.books);
     }, function (err) {
         $log.error(err);
     });
@@ -198,6 +198,10 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
 
     $scope.goToBook4Sale = function (bookTitle) {
         $location.path("/books/" + bookTitle);
+    };
+
+    $scope.goToGoogleBook = function (bookId) {
+        $location.path("/Google Book/" + bookId);
     };
 
     $rootScope.bookPostingModal = function (post) {
