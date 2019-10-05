@@ -1,0 +1,14 @@
+<!-- connecting modal window -->
+<div class="row d-flex justify-content-center">
+
+        <div class="my-3">
+            <button type="button"
+            class="btn btn-block" 
+            ng-attr-data-dismiss="{{!userSignedIn ? 'modal' : null}}"
+            ng-attr-data-toggle="{{userSignedIn ? 'modal' : null}}"
+            data-target="#modelBookPost"
+            ng-click="routeNotLoggedIn()" when="!userSignedIn">
+            הוספת מודעת חיפוש</button>
+        </div>
+        <div ng-include="'app/searchBoard/newSearchBookPost.html'"></div>
+    </div>

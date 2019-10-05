@@ -1,11 +1,11 @@
-app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $rootScope, $location) {
+app.controller("searchPostCtrl", function ($scope, bookSrv, $log, $rootScope) {
 
     $scope.bookPosts = [];
+    $scope.img = {};
+    $scope.bookPostsAlreadyCalled = false;
     $scope.title = "";
     $scope.author = "";
     $scope.postingPerson = "";
-    $scope.img = {};
-    $scope.bookPostsAlreadyCalled = false;
     $scope.author2 = "";
     $scope.translator = "";
     $scope.publisher = "";
@@ -16,8 +16,8 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
     $scope.bookCategory = "";
     $scope.subCategory = "";
     $scope.bookDetails = "";
+    $scope.userSignedIn = $rootScope.activeUser;
 
-  
     bookSrv.getBookPosts().then(function (bookPosts) {
 
             $scope.bookPosts = bookPosts;
@@ -54,7 +54,7 @@ app.controller("searchPostCtrl", function ($scope, bookSrv, userSrv, $log, $root
         $scope.subCategory = post.subCategory;
         $scope.image = post.image;
         $scope.bookDetails = post.comment;
-        $scope.postingPerson = post.postingPerson;
+        $scope.postingPerson = post.postingPerson ? post.postingPerson : ($rootScope.activeUser.fname + " " + $rootScope.activeUser.lname);
     };
 
 

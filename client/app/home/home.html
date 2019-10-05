@@ -83,7 +83,7 @@
             </div>
         </div>
 
-        <div class="my-3 y-border row">
+        <div class="my-3 y-border row" ng-hide="showResults">
             <div>
                 <h3 class="my-3"><a href="#!/board">חיפוש במאגר הכותרים של גוגל</a></h3>
                 <google-search></google-search>
@@ -109,14 +109,10 @@
             </div>
         </div>
 
+
         <div class="row d-flex justify-content-center">
-            <div class="row d-flex justify-content-center" ng-show="showResults">
-                <div class="my-3">
-                    <button type="button" ng-click="routeNotLoggedIn()" class="btn btn-block" 
-                    data-dismiss="modal" data-target="#modelBookPost">הוספת מודעת חיפוש</button>
-                </div>
-                <div ng-include="'app/searchBoard/newSearchBookPost.html'"></div>
-            </div>
+
+            <btn-seeked-book-post ng-show="showResults"></btn-seeked-book-post>
 
             <div class="row d-flex justify-content-center">
                 <div class="my-3 search-results" ng-show="shopsToSearch.length===0 && noShops">

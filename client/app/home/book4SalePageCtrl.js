@@ -57,7 +57,7 @@ app.controller("book4SalePageCtrl", function (bookSrv, $scope, $log, $routeParam
             "user_name": activeUser.fname,
             "book_title": post.title,
             "user_email": activeUser.email,
-            "seeker_name": post.fname,
+            "seeker_name": activeUser.fname,
             "user_tel": activeUser.phone
         }
         var service_id = "default_service";

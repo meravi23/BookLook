@@ -1,6 +1,6 @@
 
 app.directive("googleSearch", function () {
     return {
-        templateUrl: "app/home/googleSearch.html"
+        templateUrl: "app/components/googleSearch.html"
     };
 });
