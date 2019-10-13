@@ -3,93 +3,101 @@
     <div class="container my-3">
         <h1 class="center title-color">פלטפורמה לחיפוש ספרים יד שנייה</h1>
         <div class="row">
-            <div class="col-md-2 cat-search">
-                <div class="y-border">
-                    <h6 class="center">חיפוש לפי קטגוריות</h6>
-                    <uib-accordion>
-                        <div uib-accordion-group class="mt-1 title-color" heading="{{category.categoryName}}"
-                            ng-repeat="category in categories" ng-click="restrictCategory(category)"
-                            is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
-                            <div>
-                                <div ng-repeat="subcat in category.subcategories"
-                                    ng-click="restrictSubCategory(subcat, $event)">
-                                    <a class="title-color" href="javascript:void(0)">{{subcat}}</a>
-                                </div>
-                            </div>
-                        </div>
-                    </uib-accordion>
-                </div>
-            </div>
-            <div class="col-md-10 y-border">
-                <div class="row my-3">
-                    <div class="col-md-4">
-                        <form>
-                            <div class="form-group">
-                                <div class="row">
-                                    <div class="col-md-3">
-                                        <label for="search1">חיפוש לפי:</label>
-                                    </div>
-                                    <div class="col-md-9">
-                                        <select class="form-control" id="search1" name="search-options"
-                                            ng-model="fieldToSearch">
-                                            <option selected hidden>בחירת שדה חיפוש</option>
-                                            <option value="title">שם כותר</option>
-                                            <option value="author">שם מחבר</option>
-                                            <option value="isbn">ISBN</option>
-                                            <option value="publisher">הוצאה לאור</option>
-                                        </select>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                    <div class="col-md-8">
-                        <form ng-submit="searchBook()">
-                            <div class="input-group md-form form-sm form-2
-                                pl-0">
-                                <input ng-model="userSearchInput"
-                                    class="form-control my-0 py-1 amber-border home-search" type="text"
-                                    ng-keypress="showResults=true"
-                                    placeholder="חיפוש לפי ספר או מחבר (ניתן לבחור שדות נוספים מימין)"
-                                    aria-label="Search">
-                                <i class="fas fa-search"></i>
-                            </div>
-                        </form>
-                    </div>
-                </div>
+            <div class="col-md-10">
                 <div class="row">
-                    <div class="col-md-3">
-                        <div>
-                            <button type="button" class="btn btn-danger
-                                btn-block" ng-click="clearFields()">ניקוי</button>
+                    <div class="col-md-2 cat-search">
+                        <div class="y-border">
+                            <h6 class="center">חיפוש לפי קטגוריות</h6>
+                            <uib-accordion>
+                                <div uib-accordion-group class="mt-1 title-color" heading="{{category.categoryName}}"
+                                    ng-repeat="category in categories" ng-click="restrictCategory(category)"
+                                    is-open="status.isFirstOpen" is-disabled="status.isFirstDisabled">
+                                    <div>
+                                        <div ng-repeat="subcat in category.subcategories"
+                                            ng-click="restrictSubCategory(subcat, $event)">
+                                            <a class="title-color" href="javascript:void(0)">{{subcat}}</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </uib-accordion>
                         </div>
                     </div>
-                    <div class="col-md-6">
-                        <form>
-                            <div class="custom-control custom-checkbox">
-                                <h6>חנויות לחיפוש:</h6>
-                                <div class="shop-checkbox" ng-repeat="shop in sellers">
-                                    <input type="checkbox" id="shop{{shop.id}}" name="shops"
-                                        ng-click="includeShop(shop)" ng-checked="shopsToSearch.includes(shop.name)">
-                                    <label for="shop{{shop.id}}">{{shop.name}}</label>
-                                </div>
+                    <div class="col-md-10 y-border">
+                        <div class="row my-3">
+                            <div class="col-md-4">
+                                <form>
+                                    <div class="form-group">
+                                        <div class="row">
+                                            <div class="col-md-3">
+                                                <label for="search1">חיפוש לפי:</label>
+                                            </div>
+                                            <div class="col-md-9">
+                                                <select class="form-control" id="search1" name="search-options"
+                                                    ng-model="fieldToSearch">
+                                                    <option selected hidden>בחירת שדה חיפוש</option>
+                                                    <option value="title">שם כותר</option>
+                                                    <option value="author">שם מחבר</option>
+                                                    <option value="isbn">ISBN</option>
+                                                    <option value="publisher">הוצאה לאור</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
-                        </form>
+                            <div class="col-md-8">
+                                <form>
+                                    <div class="input-group md-form form-sm form-2
+                                pl-0">
+                                        <input ng-model="userSearchInput"
+                                            class="form-control my-0 py-1 amber-border home-search" type="text"
+                                            ng-keypress="showResults=true"
+                                            placeholder="חיפוש לפי ספר או מחבר (ניתן לבחור שדות נוספים מימין)"
+                                            aria-label="Search">
+                                        <i class="fas fa-search"></i>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-2">
+                            </div>
+                            <div class="col-md-7">
+                                <form>
+                                    <div class="custom-control custom-checkbox">
+                                        <h6>חנויות לחיפוש:</h6>
+                                        <div class="shop-checkbox" ng-repeat="shop in sellers">
+                                            <input type="checkbox" id="shop{{shop.id}}" name="shops"
+                                                ng-click="includeShop(shop)"
+                                                ng-checked="shopsToSearch.includes(shop.name)">
+                                            <label for="shop{{shop.id}}">{{shop.name}}</label>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                            <div class="col-md-3">
+                                <button type="button" class="btn btn-block btn-lg" ng-click="searchBook()">חיפוש
+                                    בחנויות</button>
+                            </div>
+                        </div>
                     </div>
-                    <div class="col-md-3">
-                        <button type="button" class="btn btn-block" ng-click="searchBook()">חיפוש</button>
+                </div>
+
+                <div class="my-3 y-border row" ng-hide="showResults">
+                    <div class="col-md-9">
+                        <h3 class="my-3"><a href="#!/board">חיפוש במאגר הכותרים של גוגל</a></h3>
+                        <google-search></google-search>
+                    </div>
+                    <div class="col-md-3 d-flex align-items-end">
+                        <button type="button" class="btn btn-block btn-lg" ng-click="searchGoogleBooks()">חיפוש
+                            בגוגל</button>
                     </div>
                 </div>
             </div>
-        </div>
 
-        <div class="my-3 y-border row" ng-hide="showResults">
-            <div>
-                <h3 class="my-3"><a href="#!/board">חיפוש במאגר הכותרים של גוגל</a></h3>
-                <google-search></google-search>
-
+            <div class="col-md-2 y-border d-flex align-items-end mb-3">
+                <button type="button" class="btn btn-lg btn-block" ng-click="clearFields()">ניקוי</button>
             </div>
-
         </div>
 
         <div class="my-3" ng-if="showResults">
@@ -97,8 +105,8 @@
             <div class="row">
                 <div class="card preview" ng-class="{'d-flex flex-md-fill ml-1': searchResults.length> 1}"
                     ng-class-odd="'bcgr-yellow'"
-                    ng-repeat="item in books | filter: filterByAnyField |
-                               filter: filterByShop | filter: filterByCategory | filter: filterBySubCategory as searchResults"
+                    ng-repeat="item in books | filter: filterByAnyField | filter: filterByShop |
+                             filter: filterByCategory | filter: filterBySubCategory as searchResults"
                     ng-click="goToBook4Sale(item.id)">
                     <div class="card-body">
                         <h5 class="card-title">{{item.title}}</h5>
@@ -108,6 +116,7 @@
                 </div>
             </div>
         </div>
+
 
 
         <div class="row d-flex justify-content-center">

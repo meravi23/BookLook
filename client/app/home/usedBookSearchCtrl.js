@@ -1,15 +1,13 @@
 app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope, userSrv, $location) {
-    
+
     $rootScope.routeNotLoggedIn = function () {
         console.log("userSrv.isLoggedIn: " + userSrv.isLoggedIn());
         if (!userSrv.isLoggedIn()) {
             $location.path("/login");
         }
     };
-    
+
     $scope.books = [];
-    $scope.gBooks = [];
-    $scope.searchResults = [];
     $scope.recentlyAdded = [];
     $scope.sellers = [];
     $scope.shopsToSearch = [];
@@ -25,17 +23,30 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     $scope.noShops = false;
     $scope.bookPostsAlreadyRetrievedOnce = false;
 
+
+
     $scope.searchGoogleBooks = function () {
+        $rootScope.gBooks = [];
         if ($scope.googleSearchInput) {
             bookSrv.getGoogleBooks($scope.googleSearchInput).then(function (books) {
-                $scope.gBooks = books;
-                console.log($scope.gBooks);
+                $rootScope.gBooks = books;
+                console.log($rootScope.gBooks);
             }, function (err) {
                 $log.error(err);
             });
         }
     }
 
+
+    // const books = 'http://localhost:8000/books';
+    // fetch(books)
+    //     .then((resp) => resp.json()) // transform the data into json, otherwise we won't really get the response. 
+    //     .then((data) => {
+    //         $scope.books = data;
+    //         $scope.recentlyAdded = data;
+    //         console.log($scope.recentlyAdded);
+
+    //     })
     bookSrv.getBooks4Sale().then(function (books) {
         $scope.books = books;
         $scope.recentlyAdded = books;
@@ -43,6 +54,11 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     }, function (err) {
         $log.error(err);
     });
+
+
+    $scope.goToBook4Sale = function (bookId) {
+        $location.path("/books/" + bookId);
+    };
 
     $scope.filterByAnyField = function (book) {
         if ($scope.userSearchInput === "") {
@@ -86,7 +102,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
             }
         }
     }
-
+    
 
     bookSrv.getBookCategories().then(function (categories) {
         $scope.categories = categories;
@@ -167,6 +183,8 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         }
     };
 
+
+
     $scope.clearFields = function () {
         $scope.fieldToSearch = "";
         $scope.userSearchInput = "";
@@ -174,7 +192,7 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
         $scope.searchResults = [];
         $scope.categoriesToSearch = [];
         $scope.subCategoriesToSearch = [];
-        $scope.gBooks = [];
+        $rootScope.gBooks = [];
         $scope.showResults = false;
         $scope.showGoogleResults = false;
     };
@@ -193,12 +211,6 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
     }, function (err) {
         $log.error(err);
     });
-
-   
-
-    $scope.goToBook4Sale = function (bookTitle) {
-        $location.path("/books/" + bookTitle);
-    };
 
     $scope.goToGoogleBook = function (bookId) {
         $location.path("/Google Book/" + bookId);
