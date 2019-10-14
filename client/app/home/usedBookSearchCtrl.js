@@ -65,9 +65,9 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
             return true;
         } else {
             if ($scope.fieldToSearch === "") {
-                if (book.title.includes($scope.userSearchInput) ||
-                    book.author.includes($scope.userSearchInput) ||
-                    book.publisher.includes($scope.userSearchInput) ||
+                if (book.title.toLowerCase().includes($scope.userSearchInput.toLowerCase()) ||
+                    book.author.toLowerCase().includes($scope.userSearchInput.toLowerCase()) ||
+                    book.publisher.toLowerCase().includes($scope.userSearchInput.toLowerCase()) ||
                     book.isbn.includes($scope.userSearchInput)) {
                     return true;
                 } else {
@@ -75,19 +75,19 @@ app.controller("usedBookSearchCtrl", function ($scope, bookSrv, $log, $rootScope
                 }
             } else {
                 if ($scope.fieldToSearch === "title") {
-                    if (book.title.includes($scope.userSearchInput)) {
+                    if (book.title.toLowerCase().includes($scope.userSearchInput.toLowerCase())) {
                         return true;
                     } else {
                         return false;
                     }
                 } else if ($scope.fieldToSearch === "author") {
-                    if (book.author.includes($scope.userSearchInput)) {
+                    if (book.author.toLowerCase().includes($scope.userSearchInput.toLowerCase())) {
                         return true;
                     } else {
                         return false;
                     }
                 } else if ($scope.fieldToSearch === "publisher") {
-                    if (book.publisher.includes($scope.userSearchInput)) {
+                    if (book.publisher.toLowerCase().includes($scope.userSearchInput.toLowerCase())) {
                         return true;
                     } else {
                         return false;
